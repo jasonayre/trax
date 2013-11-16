@@ -2,6 +2,9 @@ require 'spec_helper'
 
 module Trax
   describe Channel do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { should validate_presence_of(:site_id) }
+    it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:slug).scoped_to(:site_id) }
+    it { should have_many(:entries) }
   end
 end

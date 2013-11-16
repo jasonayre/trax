@@ -1,8 +1,8 @@
 class CreateTraxChannels < ActiveRecord::Migration
   def change
-    create_table :trax_channels do |t|
-      t.integer :parent_id
-      t.integer :site_id
+    create_table :trax_channels, :id => :uuid do |t|
+      t.uuid :parent_id
+      t.uuid :site_id
       t.string :slug
       t.string :name
       t.text :details
