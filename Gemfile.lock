@@ -20,7 +20,11 @@ PATH
   remote: .
   specs:
     trax (0.0.1)
+      trax_backend (= 0.0.1)
       trax_core (= 0.0.1)
+    trax_backend (0.0.1)
+      activeadmin
+      rails (~> 4.0.1)
 
 PATH
   remote: ~/gems/trax/core

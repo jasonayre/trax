@@ -3,7 +3,7 @@ version = File.read(File.expand_path("../../TRAX_VERSION", __FILE__)).strip
 # Describe your gem and declare its dependencies:
 
 Gem::Specification.new do |s|
-  s.name        = "trax_core"
+  s.name        = "trax_backend"
   s.version     = version
   s.authors     = ["Jason Ayre"]
   s.email       = ["jasonayre@gmail.com"]
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
 
   s.add_dependency "rails", "~> 4.0.1"
-  s.add_dependency "devise"
   s.add_dependency "activeadmin"
+  # s.add_dependency "trax_core"
 end
+

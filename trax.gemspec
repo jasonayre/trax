@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
   
   s.add_dependency "trax_core", version
+  s.add_dependency "trax_backend", version
 
   # s.add_dependency "rails", "~> 4.0.1"
   # s.add_dependency "devise"
