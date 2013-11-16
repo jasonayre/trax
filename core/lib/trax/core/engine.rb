@@ -12,9 +12,9 @@ module Trax
     
       initializer :trax do
         puts "TRAX INITIALIZED"
-        puts ::Dir[::File.dirname(__FILE__) + '/admin'].inspect
+        puts ::Dir[::File.dirname(::File.dirname(__FILE__)) + '/admin'].inspect
         puts ::Dir[::File.dirname(__FILE__)].inspect
-        ::ActiveAdmin.application.load_paths += ::Dir[::File.dirname(__FILE__) + '/admin']
+        ::ActiveAdmin.application.load_paths += ::Dir[::File.dirname(::File.dirname(__FILE__)) + '/admin']
       end
     end
   end

@@ -11,7 +11,6 @@ gemspec
 # your gem to rubygems.org.
 gem "trax_core", :path => "~/gems/trax/core"
 
-gem "activeadmin", github: "gregbell/active_admin"
 
 # To use debugger
 # gem 'debugger'

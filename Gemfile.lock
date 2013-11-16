@@ -218,6 +218,7 @@ DEPENDENCIES
   factory_girl_rails
   pg
   pry
+  rails (~> 4.0.1)
   rspec-pride
   rspec-rails
   sass-rails (~> 4.0.0)

@@ -5012,3 +5012,871 @@ Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 13:57:5
 
 
 Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-16 13:57:58 -0700
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2013-11-16 14:58:01 -0700
+
+ActionController::RoutingError (No route matches [GET] "/admin/dashboard"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (61.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-11-16 14:58:06 -0700
+
+ActionController::RoutingError (uninitialized constant Admin::DashboardController):
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:228:in `const_get'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:228:in `block in constantize'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `constantize'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__1612382427309069475__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (38.0ms)
+
+
+Started GET "/trax" for 127.0.0.1 at 2013-11-16 14:58:28 -0700
+
+ActionController::RoutingError (No route matches [GET] "/trax"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (28.6ms)
+
+
+Started GET "/trax/admin" for 127.0.0.1 at 2013-11-16 14:58:34 -0700
+
+ActionController::RoutingError (No route matches [GET] "/trax/admin"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (65.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-11-16 14:58:41 -0700
+
+ActionController::RoutingError (uninitialized constant Admin::DashboardController):
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:228:in `const_get'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:228:in `block in constantize'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `each'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `inject'
+  activesupport (4.0.1) lib/active_support/inflector/methods.rb:224:in `constantize'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__1612382427309069475__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.5ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (38.1ms)
+
+
+Started GET "/channels" for 127.0.0.1 at 2013-11-16 14:59:28 -0700
+
+ActionController::RoutingError (No route matches [GET] "/channels"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (28.7ms)
+
+
+Started GET "/trax/channels" for 127.0.0.1 at 2013-11-16 14:59:34 -0700
+
+AbstractController::ActionNotFound (The action 'index' could not be found for Trax::ChannelsController):
+  actionpack (4.0.1) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__1612382427309069475__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/trax/channels" for 127.0.0.1 at 2013-11-16 15:01:48 -0700
+
+AbstractController::ActionNotFound (The action 'index' could not be found for Trax::ChannelsController):
+  actionpack (4.0.1) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__501938253541996822__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (1.5ms)
+
+
+Started GET "/trax/channels" for 127.0.0.1 at 2013-11-16 15:01:50 -0700
+
+AbstractController::ActionNotFound (The action 'index' could not be found for Trax::ChannelsController):
+  actionpack (4.0.1) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__501938253541996822__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-11-16 15:01:55 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mTrax::AdminUser Load (1.0ms)[0m  [1mSELECT "trax_admin_users".* FROM "trax_admin_users" WHERE "trax_admin_users"."id" = 1 ORDER BY "trax_admin_users"."id" ASC LIMIT 1[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/page/index.html.arb (2830.9ms)
+Completed 200 OK in 2910ms (Views: 2833.2ms | ActiveRecord: 35.5ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:01:58 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-16 15:01:58 -0700
+
+
+Started GET "/assets/trax_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:01:58 -0700
+
+
+Started GET "/assets/trax/application.css?body=1" for 127.0.0.1 at 2013-11-16 15:01:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:58 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:58 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 15:01:59 -0700
+
+
+Started GET "/admin/trax_sites" for 127.0.0.1 at 2013-11-16 15:02:01 -0700
+Processing by Admin::TraxSitesController#index as HTML
+  [1m[35mTrax::AdminUser Load (0.6ms)[0m  SELECT "trax_admin_users".* FROM "trax_admin_users" WHERE "trax_admin_users"."id" = 1 ORDER BY "trax_admin_users"."id" ASC LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "trax_sites"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mTrax::Site Load (0.7ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" ORDER BY "trax_sites"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mTrax::Entry Load (1.5ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Channel Load (1.0ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (297.6ms)
+Completed 200 OK in 312ms (Views: 294.0ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/trax/application.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/trax_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-16 15:02:02 -0700
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mTrax::AdminUser Load (0.5ms)[0m  SELECT "trax_admin_users".* FROM "trax_admin_users" WHERE "trax_admin_users"."id" = 1 ORDER BY "trax_admin_users"."id" ASC LIMIT 1
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/page/index.html.arb (19.6ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/trax_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/trax/application.css?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-16 15:02:05 -0700
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-11-16 15:13:45 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mTrax::AdminUser Load (0.9ms)[0m  [1mSELECT "trax_admin_users".* FROM "trax_admin_users" WHERE "trax_admin_users"."id" = 1 ORDER BY "trax_admin_users"."id" ASC LIMIT 1[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/page/index.html.arb (236.0ms)
+Completed 200 OK in 290ms (Views: 242.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/trax/application.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/trax_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:46 -0700
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+Processing by Admin::CommentsController#index as HTML
+  [1m[35mTrax::AdminUser Load (0.5ms)[0m  SELECT "trax_admin_users".* FROM "trax_admin_users" WHERE "trax_admin_users"."id" = 1 ORDER BY "trax_admin_users"."id" ASC LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = 'admin'[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = 'admin' LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.5ms)[0m  [1mSELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments" ORDER BY resource_type asc[0m
+  [1m[35m (0.3ms)[0m  SELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments" ORDER BY author_type asc
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (147.1ms)
+Completed 200 OK in 158ms (Views: 147.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+
+
+Started GET "/assets/trax_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+
+
+Started GET "/assets/trax/application.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:48 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-16 15:13:49 -0700
+
+
+Started GET "/admin/trax_users" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+Processing by Admin::TraxUsersController#index as HTML
+  [1m[36mTrax::AdminUser Load (0.5ms)[0m  [1mSELECT "trax_admin_users".* FROM "trax_admin_users" WHERE "trax_admin_users"."id" = 1 ORDER BY "trax_admin_users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_users" LIMIT 30 OFFSET 0) subquery_for_count
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (38.5ms)
+Completed 200 OK in 49ms (Views: 41.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/trax/application.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/trax_admin.css?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-16 15:13:50 -0700
