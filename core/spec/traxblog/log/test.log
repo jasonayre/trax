@@ -1,0 +1,1417 @@
+  [1m[36mTrax::Post Load (2.0ms)[0m  [1mSELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1[0m
+  [1m[36m (0.0ms)[0m  [1mSET search_path TO public[0m
+  [1m[35m (135.0ms)[0m  DROP DATABASE IF EXISTS "traxblog_test"
+  [1m[36m (1.0ms)[0m  [1mSET search_path TO public[0m
+  [1m[35m (421.0ms)[0m  CREATE DATABASE "traxblog_test" ENCODING = 'unicode'
+  [1m[36m (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "trax_posts" ("id" serial primary key, "author_id" uuid, "category_id" uuid, "channel_id" uuid, "last_edited_by" uuid, "title" character varying(255), "permalink" character varying(255), "body" text, "last_edited_at" timestamp, "published_at" timestamp, "status" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_trax_posts_on_author_id" ON "trax_posts" USING btree ("author_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_posts_on_category_id" ON "trax_posts" USING btree ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_trax_posts_on_channel_id" ON "trax_posts" USING btree ("channel_id")
+  [1m[36m (3.0ms)[0m  [1mCREATE INDEX "index_trax_posts_on_last_edited_at" ON "trax_posts" USING btree ("last_edited_at")[0m
+  [1m[35m (2.0ms)[0m  CREATE INDEX "index_trax_posts_on_last_edited_by" ON "trax_posts" USING btree ("last_edited_by")
+  [1m[36m (2.0ms)[0m  [1mCREATE INDEX "index_trax_posts_on_permalink" ON "trax_posts" USING btree ("permalink")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_trax_posts_on_published_at" ON "trax_posts" USING btree ("published_at")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_posts_on_status" ON "trax_posts" USING btree ("status")[0m
+  [1m[35m (2.0ms)[0m  CREATE INDEX "index_trax_posts_on_title" ON "trax_posts" USING btree ("title")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (1.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131115193653')
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  SELECT version()
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+ActiveRecord::JDBCError: org.postgresql.util.PSQLException: ERROR: relation "trax_posts" does not exist
+  Position: 293:         SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+               pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+          FROM pg_attribute a LEFT JOIN pg_attrdef d
+            ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+         WHERE a.attrelid = '"trax_posts"'::regclass
+           AND a.attnum > 0 AND NOT a.attisdropped
+         ORDER BY a.attnum
+
+  [1m[36mTrax::Post Load (4.0ms)[0m  [1mSELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1[0m
+  [1m[35mSavepoint (7.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mSELECT version()[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ('2013-11-16 16:59:09.459000', 'arbitrary_string', '2013-11-16 16:59:09.459000') RETURNING "id"
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.0ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (41.2ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:06:39 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:06:39 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.2ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (396.2ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:14:59 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:14:59 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:17:28 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:17:28 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:17:28 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:17:28 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (1.2ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:19:13 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:19:13 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE "trax_channels"."slug" = 'arbitrary_string' LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE "trax_channels"."slug" = 'arbitrary_string' LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.2ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE "trax_channels"."slug" = 'arbitrary_string' LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE "trax_channels"."slug" = 'arbitrary_string' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Post Load (0.8ms)[0m  [1mSELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 17:19:13 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:19:13 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.0ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:20:12 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:20:12 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:20:12 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:20:12 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '0d98f294-be06-4e07-8cb3-28ae8d6d4d87') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '0d98f294-be06-4e07-8cb3-28ae8d6d4d87') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:27:05 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:27:05 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:28:24 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:28:24 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:29:07 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:29:07 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:30:27 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:30:27 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.0ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:30:38 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:30:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.7ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:31:00 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:31:00 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.2ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a3dc8da7-3cae-454c-b0e6-c4dc04553efe') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a3dc8da7-3cae-454c-b0e6-c4dc04553efe') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a3dc8da7-3cae-454c-b0e6-c4dc04553efe') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (0.8ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:31:00 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:31:00 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.7ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.5ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:31:59 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:31:59 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'aa98db9f-ab15-43ed-87fb-e97fbedf3500') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'aa98db9f-ab15-43ed-87fb-e97fbedf3500') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'aa98db9f-ab15-43ed-87fb-e97fbedf3500') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (0.9ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:31:59 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:31:59 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:32:57 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:32:57 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:32:57 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:32:57 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '8279d8b3-d8e5-4159-bbd4-0250a775085e') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '8279d8b3-d8e5-4159-bbd4-0250a775085e') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '8279d8b3-d8e5-4159-bbd4-0250a775085e') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (1.1ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:33:37 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:33:37 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.4ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:33:37 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:33:37 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '6a6739a8-e4f7-4845-b461-41011dea5457') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '6a6739a8-e4f7-4845-b461-41011dea5457') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '6a6739a8-e4f7-4845-b461-41011dea5457') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.8ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (35.1ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:59:21 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:59:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '195e74d2-8c25-4fb4-9e73-c40f0a36d416') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '195e74d2-8c25-4fb4-9e73-c40f0a36d416') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '195e74d2-8c25-4fb4-9e73-c40f0a36d416') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Post Load (0.9ms)[0m  SELECT "trax_posts".* FROM "trax_posts" ORDER BY "trax_posts"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "trax_posts" ("created_at", "permalink", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 17:59:21 UTC +00:00], ["permalink", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 17:59:21 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+PG::UndefinedTable: ERROR:  relation "trax_entries" does not exist
+LINE 5:                WHERE a.attrelid = '"trax_entries"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"trax_entries"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+PG::UndefinedTable: ERROR:  relation "trax_entries" does not exist
+LINE 5:                WHERE a.attrelid = '"trax_entries"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"trax_entries"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+PG::UndefinedTable: ERROR:  relation "trax_entries" does not exist
+LINE 5:                WHERE a.attrelid = '"trax_entries"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"trax_entries"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+PG::UndefinedTable: ERROR:  relation "trax_entries" does not exist
+LINE 5:                WHERE a.attrelid = '"trax_entries"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"trax_entries"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.9ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:07:38 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:07:38 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.8ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'e6fd8126-21d8-4b08-a320-3f64c6255b98') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'e6fd8126-21d8-4b08-a320-3f64c6255b98') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'e6fd8126-21d8-4b08-a320-3f64c6255b98') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.0ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.8ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:10:06 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:10:06 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '7c1db6e6-2039-40ba-8fc1-8d87fc46a69e') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '7c1db6e6-2039-40ba-8fc1-8d87fc46a69e') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '7c1db6e6-2039-40ba-8fc1-8d87fc46a69e') LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (2.4ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (14.2ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.6ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (35.0ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:31:21 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:31:21 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'd9ecac2c-9836-4a2d-8e66-0a9e4269641g') LIMIT 1
+PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: "d9ecac2c-9836-4a2d-8e66-0a9e4269641g"
+LINE 1: ...arbitrary_string' AND "trax_channels"."site_id" = 'd9ecac2c-...
+                                                             ^
+: SELECT  1 AS one FROM "trax_channels"  WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'd9ecac2c-9836-4a2d-8e66-0a9e4269641g') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.2ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:31:55 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:31:55 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.7ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.5ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:31:55 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:31:55 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'b0787688-979a-485a-85ec-874eb187491f') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'b0787688-979a-485a-85ec-874eb187491f') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'b0787688-979a-485a-85ec-874eb187491f') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.2ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:32:54 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:32:54 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.4ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'a54adb12-1802-4fc5-9545-48d31a552eaf' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'a54adb12-1802-4fc5-9545-48d31a552eaf' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'a54adb12-1802-4fc5-9545-48d31a552eae' AND "trax_entries"."channel_id" = 'ad412f21-55ca-4be1-aadc-51849b11003c' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'a54adb12-1802-4fc5-9545-48d31a552eae' AND "trax_entries"."channel_id" = 'ad412f21-55ca-4be1-aadc-51849b11003c' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'a54adb12-1802-4fc5-9545-48d31a552eae' AND "trax_entries"."channel_id" = 'ad412f21-55ca-4be1-aadc-51849b11003b' AND "trax_entries"."parent_id" = 'f08e7116-4737-4195-9912-50c28df749b5') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'a54adb12-1802-4fc5-9545-48d31a552eae' AND "trax_entries"."channel_id" = 'ad412f21-55ca-4be1-aadc-51849b11003b' AND "trax_entries"."parent_id" = 'f08e7116-4737-4195-9912-50c28df749b5') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.5ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:32:54 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:32:54 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.2ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '7d2eddfb-506f-4d69-8a67-29cfaec4ea4c') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '7d2eddfb-506f-4d69-8a67-29cfaec4ea4c') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '7d2eddfb-506f-4d69-8a67-29cfaec4ea4c') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.1ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:33:23 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:33:23 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '104ed6f4-34d3-4a4c-ab15-07bd94e2a04c' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '104ed6f4-34d3-4a4c-ab15-07bd94e2a04c' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '104ed6f4-34d3-4a4c-ab15-07bd94e2a04b' AND "trax_entries"."channel_id" = '7b422038-12e7-4b4d-b902-5e36ad8bb388' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '104ed6f4-34d3-4a4c-ab15-07bd94e2a04b' AND "trax_entries"."channel_id" = '7b422038-12e7-4b4d-b902-5e36ad8bb388' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '104ed6f4-34d3-4a4c-ab15-07bd94e2a04b' AND "trax_entries"."channel_id" = '7b422038-12e7-4b4d-b902-5e36ad8bb387' AND "trax_entries"."parent_id" = 'ca071c13-90f6-41b8-83e7-14e6e7aa6b42') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '104ed6f4-34d3-4a4c-ab15-07bd94e2a04b' AND "trax_entries"."channel_id" = '7b422038-12e7-4b4d-b902-5e36ad8bb387' AND "trax_entries"."parent_id" = 'ca071c13-90f6-41b8-83e7-14e6e7aa6b42') LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.5ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:33:23 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:33:23 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'dc908e99-6058-4e06-bcc9-f379ac0d2252') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'dc908e99-6058-4e06-bcc9-f379ac0d2252') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'dc908e99-6058-4e06-bcc9-f379ac0d2252') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+PG::UndefinedTable: ERROR:  relation "trax_sites" does not exist
+LINE 5:                WHERE a.attrelid = '"trax_sites"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"trax_sites"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+PG::UndefinedTable: ERROR:  relation "trax_sites" does not exist
+LINE 5:                WHERE a.attrelid = '"trax_sites"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"trax_sites"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.9ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:34:08 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:34:08 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'de6709a6-2758-4db1-bb82-1366516660f4') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'de6709a6-2758-4db1-bb82-1366516660f4') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'de6709a6-2758-4db1-bb82-1366516660f4') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (0.9ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:34:08 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:34:08 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '9206205b-03b1-4e30-ba27-a02629a73d03' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '9206205b-03b1-4e30-ba27-a02629a73d03' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '9206205b-03b1-4e30-ba27-a02629a73d02' AND "trax_entries"."channel_id" = '7ee7630b-e169-4eb7-ba20-fb06e0123eb2' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '9206205b-03b1-4e30-ba27-a02629a73d02' AND "trax_entries"."channel_id" = '7ee7630b-e169-4eb7-ba20-fb06e0123eb2' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '9206205b-03b1-4e30-ba27-a02629a73d02' AND "trax_entries"."channel_id" = '7ee7630b-e169-4eb7-ba20-fb06e0123eb1' AND "trax_entries"."parent_id" = 'a217be6b-35f9-4f99-96ac-86c01bce59bg') LIMIT 1[0m
+PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: "a217be6b-35f9-4f99-96ac-86c01bce59bg"
+LINE 1: ...20-fb06e0123eb1' AND "trax_entries"."parent_id" = 'a217be6b-...
+                                                             ^
+: SELECT  1 AS one FROM "trax_entries"  WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '9206205b-03b1-4e30-ba27-a02629a73d02' AND "trax_entries"."channel_id" = '7ee7630b-e169-4eb7-ba20-fb06e0123eb1' AND "trax_entries"."parent_id" = 'a217be6b-35f9-4f99-96ac-86c01bce59bg') LIMIT 1
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.7ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:37:00 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:37:00 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'e902b725-186b-441a-9a32-a176d0ed7133') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'e902b725-186b-441a-9a32-a176d0ed7133') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'e902b725-186b-441a-9a32-a176d0ed7133') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (0.8ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:37:00 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:37:00 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.2ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'db46341d-ab89-4e56-983e-78431fd4cad3' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'db46341d-ab89-4e56-983e-78431fd4cad3' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'db46341d-ab89-4e56-983e-78431fd4cad2' AND "trax_entries"."channel_id" = '8f1624db-c6b2-433b-933b-734dc1912fe1' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'db46341d-ab89-4e56-983e-78431fd4cad2' AND "trax_entries"."channel_id" = '8f1624db-c6b2-433b-933b-734dc1912fe1' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'db46341d-ab89-4e56-983e-78431fd4cad2' AND "trax_entries"."channel_id" = '8f1624db-c6b2-433b-933b-734dc1912fe0' AND "trax_entries"."parent_id" = '20500f3f-c03b-41de-aed9-62732852e65f') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'db46341d-ab89-4e56-983e-78431fd4cad2' AND "trax_entries"."channel_id" = '8f1624db-c6b2-433b-933b-734dc1912fe0' AND "trax_entries"."parent_id" = '20500f3f-c03b-41de-aed9-62732852e65f') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.7ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:40:37 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:40:37 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.2ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a010e7fd-7a3b-44fa-8978-0eda581080d7') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a010e7fd-7a3b-44fa-8978-0eda581080d7') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a010e7fd-7a3b-44fa-8978-0eda581080d7') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (0.9ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:40:37 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:40:37 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '06e92242-0b25-4b89-8103-dd8342fc8bb8' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '06e92242-0b25-4b89-8103-dd8342fc8bb8' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '06e92242-0b25-4b89-8103-dd8342fc8bb7' AND "trax_entries"."channel_id" = '9e07924d-866c-4065-85cf-a1b59e033bc0' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '06e92242-0b25-4b89-8103-dd8342fc8bb7' AND "trax_entries"."channel_id" = '9e07924d-866c-4065-85cf-a1b59e033bc0' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '06e92242-0b25-4b89-8103-dd8342fc8bb7' AND "trax_entries"."channel_id" = '9e07924d-866c-4065-85cf-a1b59e033bb9' AND "trax_entries"."parent_id" = 'c787c6f0-63a8-45ea-b425-0c92493a8485') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '06e92242-0b25-4b89-8103-dd8342fc8bb7' AND "trax_entries"."channel_id" = '9e07924d-866c-4065-85cf-a1b59e033bb9' AND "trax_entries"."parent_id" = 'c787c6f0-63a8-45ea-b425-0c92493a8485') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.1ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:41:18 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:41:18 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'd3cc1dcf-be5e-45f7-8aae-1a79c2c8bdaf' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'd3cc1dcf-be5e-45f7-8aae-1a79c2c8bdaf' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'd3cc1dcf-be5e-45f7-8aae-1a79c2c8bdae' AND "trax_entries"."channel_id" = 'b255822c-71f1-4bb6-89cc-58d8e08177c2' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'd3cc1dcf-be5e-45f7-8aae-1a79c2c8bdae' AND "trax_entries"."channel_id" = 'b255822c-71f1-4bb6-89cc-58d8e08177c2' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'd3cc1dcf-be5e-45f7-8aae-1a79c2c8bdae' AND "trax_entries"."channel_id" = 'b255822c-71f1-4bb6-89cc-58d8e08177c1' AND "trax_entries"."parent_id" = '15e78aeb-c46b-457b-a57a-6bd3832f18f4') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'd3cc1dcf-be5e-45f7-8aae-1a79c2c8bdae' AND "trax_entries"."channel_id" = 'b255822c-71f1-4bb6-89cc-58d8e08177c1' AND "trax_entries"."parent_id" = '15e78aeb-c46b-457b-a57a-6bd3832f18f4') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.6ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:41:18 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:41:18 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a929c2f6-4a48-4b19-b09b-f533be9715fb') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a929c2f6-4a48-4b19-b09b-f533be9715fb') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a929c2f6-4a48-4b19-b09b-f533be9715fb') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.2ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:41:54 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:41:54 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'c7952ecc-e15b-45e0-85a6-4f246a34270c' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'c7952ecc-e15b-45e0-85a6-4f246a34270c' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'c7952ecc-e15b-45e0-85a6-4f246a34270b' AND "trax_entries"."channel_id" = 'c6eb966f-1af4-420f-b435-87c30257f735' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'c7952ecc-e15b-45e0-85a6-4f246a34270b' AND "trax_entries"."channel_id" = 'c6eb966f-1af4-420f-b435-87c30257f735' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'c7952ecc-e15b-45e0-85a6-4f246a34270b' AND "trax_entries"."channel_id" = 'c6eb966f-1af4-420f-b435-87c30257f734' AND "trax_entries"."parent_id" = '541d7db9-717b-4176-a739-884160a3f599') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'c7952ecc-e15b-45e0-85a6-4f246a34270b' AND "trax_entries"."channel_id" = 'c6eb966f-1af4-420f-b435-87c30257f734' AND "trax_entries"."parent_id" = '541d7db9-717b-4176-a739-884160a3f599') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.4ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:41:54 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:41:54 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '74433c01-0f00-4f9a-ab9f-8209fc4bb32b') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '74433c01-0f00-4f9a-ab9f-8209fc4bb32b') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '74433c01-0f00-4f9a-ab9f-8209fc4bb32b') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.9ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:57:03 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:57:03 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.8ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '4f159b33-d7d9-4098-a40b-8a9263e2ebf4') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '4f159b33-d7d9-4098-a40b-8a9263e2ebf4') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '4f159b33-d7d9-4098-a40b-8a9263e2ebf4') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (0.9ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:57:03 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:57:03 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'be52d731-a606-4d5c-bc91-7cfc0817a470' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'be52d731-a606-4d5c-bc91-7cfc0817a470' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'be52d731-a606-4d5c-bc91-7cfc0817a469' AND "trax_entries"."channel_id" = 'ec07c3d9-fdc5-4b68-aea3-e8754b802db0' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'be52d731-a606-4d5c-bc91-7cfc0817a469' AND "trax_entries"."channel_id" = 'ec07c3d9-fdc5-4b68-aea3-e8754b802db0' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'be52d731-a606-4d5c-bc91-7cfc0817a469' AND "trax_entries"."channel_id" = 'ec07c3d9-fdc5-4b68-aea3-e8754b802da9' AND "trax_entries"."parent_id" = 'c1b23ad6-04d8-4ab8-8003-6fc8ede11096') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'be52d731-a606-4d5c-bc91-7cfc0817a469' AND "trax_entries"."channel_id" = 'ec07c3d9-fdc5-4b68-aea3-e8754b802da9' AND "trax_entries"."parent_id" = 'c1b23ad6-04d8-4ab8-8003-6fc8ede11096') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.1ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 18:57:19 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:57:19 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'ad5d8f3b-9deb-4d78-9a46-44d1c301bda9' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'ad5d8f3b-9deb-4d78-9a46-44d1c301bda9' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'ad5d8f3b-9deb-4d78-9a46-44d1c301bda8' AND "trax_entries"."channel_id" = '53f6752d-70ee-4632-b236-dfd105d20314' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'ad5d8f3b-9deb-4d78-9a46-44d1c301bda8' AND "trax_entries"."channel_id" = '53f6752d-70ee-4632-b236-dfd105d20314' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'ad5d8f3b-9deb-4d78-9a46-44d1c301bda8' AND "trax_entries"."channel_id" = '53f6752d-70ee-4632-b236-dfd105d20313' AND "trax_entries"."parent_id" = '5f868e33-dae1-4980-b355-bf5411ec4132') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = 'ad5d8f3b-9deb-4d78-9a46-44d1c301bda8' AND "trax_entries"."channel_id" = '53f6752d-70ee-4632-b236-dfd105d20313' AND "trax_entries"."parent_id" = '5f868e33-dae1-4980-b355-bf5411ec4132') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.4ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 18:57:19 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 18:57:19 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '6e7daa13-7e3f-4c5e-b925-688bb2541db2') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '6e7daa13-7e3f-4c5e-b925-688bb2541db2') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = '6e7daa13-7e3f-4c5e-b925-688bb2541db2') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (5.8ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (1.7ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (33.9ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 21:50:50 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 21:50:50 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'c3a5d0ee-290f-4a03-9076-b7157bf63433') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'c3a5d0ee-290f-4a03-9076-b7157bf63433') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'c3a5d0ee-290f-4a03-9076-b7157bf63433') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (17.0ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (84.0ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 21:50:50 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 21:50:50 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.2ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '84a87d7f-38d9-4a89-bc35-59bf88fa4a8b' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.2ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '84a87d7f-38d9-4a89-bc35-59bf88fa4a8b' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '84a87d7f-38d9-4a89-bc35-59bf88fa4a8a' AND "trax_entries"."channel_id" = '34487586-1e8f-4a67-919e-8fd996d67f4c' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '84a87d7f-38d9-4a89-bc35-59bf88fa4a8a' AND "trax_entries"."channel_id" = '34487586-1e8f-4a67-919e-8fd996d67f4c' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '84a87d7f-38d9-4a89-bc35-59bf88fa4a8a' AND "trax_entries"."channel_id" = '34487586-1e8f-4a67-919e-8fd996d67f4b' AND "trax_entries"."parent_id" = 'e61ece09-0dce-40c9-8c8c-75ab5fc819c3') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '84a87d7f-38d9-4a89-bc35-59bf88fa4a8a' AND "trax_entries"."channel_id" = '34487586-1e8f-4a67-919e-8fd996d67f4b' AND "trax_entries"."parent_id" = 'e61ece09-0dce-40c9-8c8c-75ab5fc819c3') LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (1.1ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 21:51:54 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 21:51:54 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '2e683de1-bfdf-407d-ad84-be7fd9f74128' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '2e683de1-bfdf-407d-ad84-be7fd9f74128' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '2e683de1-bfdf-407d-ad84-be7fd9f74127' AND "trax_entries"."channel_id" = '718b83fa-0b2d-4ca1-9a4b-8495bed8c433' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '2e683de1-bfdf-407d-ad84-be7fd9f74127' AND "trax_entries"."channel_id" = '718b83fa-0b2d-4ca1-9a4b-8495bed8c433' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '2e683de1-bfdf-407d-ad84-be7fd9f74127' AND "trax_entries"."channel_id" = '718b83fa-0b2d-4ca1-9a4b-8495bed8c432' AND "trax_entries"."parent_id" = '87a39eb4-e813-41a2-9dee-da4ed668748d') LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '2e683de1-bfdf-407d-ad84-be7fd9f74127' AND "trax_entries"."channel_id" = '718b83fa-0b2d-4ca1-9a4b-8495bed8c432' AND "trax_entries"."parent_id" = '87a39eb4-e813-41a2-9dee-da4ed668748d') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTrax::Channel Load (0.4ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 16 Nov 2013 21:51:54 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 21:51:54 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Load (0.2ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a5f783df-d524-409b-9544-a07da6930632') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a5f783df-d524-409b-9544-a07da6930632') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'a5f783df-d524-409b-9544-a07da6930632') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.7ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" IS NULL AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Load (0.7ms)[0m  SELECT "trax_channels".* FROM "trax_channels" ORDER BY "trax_channels"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "trax_channels" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 21:55:16 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 21:55:16 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Channel Exists (0.5ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'ace7b6b1-e091-4b13-a2ee-34c901c3beb3') LIMIT 1[0m
+  [1m[35mTrax::Channel Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'ace7b6b1-e091-4b13-a2ee-34c901c3beb3') LIMIT 1
+  [1m[36mTrax::Channel Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'arbitrary_string' AND "trax_channels"."site_id" = 'ace7b6b1-e091-4b13-a2ee-34c901c3beb3') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Entry Load (0.8ms)[0m  SELECT "trax_entries".* FROM "trax_entries" ORDER BY "trax_entries"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "trax_entries" ("created_at", "slug", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Sat, 16 Nov 2013 21:55:16 UTC +00:00], ["slug", "arbitrary_string"], ["updated_at", Sat, 16 Nov 2013 21:55:16 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mTrax::Entry Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" IS NULL AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '97fad055-212a-453c-baad-b20f6e279bdf' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.3ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '97fad055-212a-453c-baad-b20f6e279bdf' AND "trax_entries"."channel_id" IS NULL AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '97fad055-212a-453c-baad-b20f6e279bde' AND "trax_entries"."channel_id" = 'cd4929d7-95eb-46df-802a-c27885711d01' AND "trax_entries"."parent_id" IS NULL) LIMIT 1[0m
+  [1m[35mTrax::Entry Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '97fad055-212a-453c-baad-b20f6e279bde' AND "trax_entries"."channel_id" = 'cd4929d7-95eb-46df-802a-c27885711d01' AND "trax_entries"."parent_id" IS NULL) LIMIT 1
+  [1m[36mTrax::Entry Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "trax_entries" WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '97fad055-212a-453c-baad-b20f6e279bde' AND "trax_entries"."channel_id" = 'cd4929d7-95eb-46df-802a-c27885711d00' AND "trax_entries"."parent_id" = '7d3cd234-a782-423d-9218-cb7b12f8c46g') LIMIT 1[0m
+PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: "7d3cd234-a782-423d-9218-cb7b12f8c46g"
+LINE 1: ...2a-c27885711d00' AND "trax_entries"."parent_id" = '7d3cd234-...
+                                                             ^
+: SELECT  1 AS one FROM "trax_entries"  WHERE ("trax_entries"."slug" = 'arbitrary_string' AND "trax_entries"."site_id" = '97fad055-212a-453c-baad-b20f6e279bde' AND "trax_entries"."channel_id" = 'cd4929d7-95eb-46df-802a-c27885711d00' AND "trax_entries"."parent_id" = '7d3cd234-a782-423d-9218-cb7b12f8c46g') LIMIT 1
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK

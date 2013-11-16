@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 5e50522fb60562bc81eb216c014182a153c1f185
+  revision: 131c3a4ebcf23ec5d60cb926db06a6cdb9311b55
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -20,11 +20,18 @@ PATH
   remote: .
   specs:
     trax (0.0.1)
+      trax_core (= 0.0.1)
+
+PATH
+  remote: ~/gems/trax/core
+  specs:
+    trax_core (0.0.1)
       activeadmin
       devise
       rails (~> 4.0.1)
 
 GEM
+  remote: https://rubygems.org/
   remote: https://rubygems.org/
   specs:
     actionmailer (4.0.1)
@@ -68,6 +75,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.0.9)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -110,19 +118,22 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25)
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    nokogiri (1.6.0-java)
-      mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     pg (0.17.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -170,6 +181,7 @@ GEM
       sprockets-rails (~> 2.0.0)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
+    slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -200,10 +212,15 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activerecord-jdbcpostgresql-adapter
   capybara
+  coffee-rails (~> 4.0.0)
   factory_girl_rails
   pg
+  pry
   rspec-pride
   rspec-rails
+  sass-rails (~> 4.0.0)
   shoulda-matchers
   trax!
+  trax_core!

@@ -1,0 +1,39 @@
+#!/usr/bin/env rake
+# require 'rubygems'
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+end
+APP_RAKEFILE = File.expand_path("../spec/traxblog/Rakefile", __FILE__)
+load 'rails/tasks/engine.rake'
+Bundler::GemHelper.install_tasks
+Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
+
+require 'rubygems'
+require 'rake'
+require 'rake/testtask'
+require 'rake/packagetask'
+require 'rubygems/package_task'
+require 'rspec/core/rake_task'
+# require 'spree/testing_support/common_rake'
+
+Bundler::GemHelper.install_tasks
+RSpec::Core::RakeTask.new
+
+spec = eval(File.read('trax_core.gemspec'))
+Gem::PackageTask.new(spec) do |p|
+  p.gem_spec = spec
+end
+
+# require 'rubygems'
+# spec = eval(File.read('trax_core.gemspec'))
+# Gem::PackageTask.new(spec) do |p|
+#   p.gem_spec = spec
+# end
+
+# require 'rspec/core'
+require 'rspec/core/rake_task'
+desc "Run all specs in spec directory (excluding plugin specs)"
+RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
+task :default => :spec
