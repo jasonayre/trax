@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131116200901) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "trax_admin_users", force: true do |t|
+  create_table "trax_admin_users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -58,14 +58,16 @@ ActiveRecord::Schema.define(version: 20131116200901) do
     t.text     "details"
     t.text     "description"
     t.text     "short_description"
-    t.boolean  "entries_use_slug"
+    t.string   "routing_strategy"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "trax_channels", ["entries_use_slug"], name: "index_trax_channels_on_entries_use_slug", using: :btree
+  add_index "trax_channels", ["active"], name: "index_trax_channels_on_active", using: :btree
   add_index "trax_channels", ["name"], name: "index_trax_channels_on_name", using: :btree
   add_index "trax_channels", ["parent_id"], name: "index_trax_channels_on_parent_id", using: :btree
+  add_index "trax_channels", ["routing_strategy"], name: "index_trax_channels_on_routing_strategy", using: :btree
   add_index "trax_channels", ["site_id"], name: "index_trax_channels_on_site_id", using: :btree
   add_index "trax_channels", ["slug"], name: "index_trax_channels_on_slug", using: :btree
 
@@ -98,19 +100,23 @@ ActiveRecord::Schema.define(version: 20131116200901) do
   add_index "trax_entries", ["user_id"], name: "index_trax_entries_on_user_id", using: :btree
 
   create_table "trax_sites", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "theme_id"
+    t.boolean  "active"
+    t.boolean  "is_default"
     t.string   "name"
     t.text     "details"
     t.text     "description"
     t.string   "host"
-    t.boolean  "is_default"
-    t.uuid     "theme_id"
+    t.string   "routing_strategy"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "trax_sites", ["active"], name: "index_trax_sites_on_active", using: :btree
   add_index "trax_sites", ["host"], name: "index_trax_sites_on_host", using: :btree
   add_index "trax_sites", ["is_default"], name: "index_trax_sites_on_is_default", using: :btree
   add_index "trax_sites", ["name"], name: "index_trax_sites_on_name", using: :btree
+  add_index "trax_sites", ["routing_strategy"], name: "index_trax_sites_on_routing_strategy", using: :btree
   add_index "trax_sites", ["theme_id"], name: "index_trax_sites_on_theme_id", using: :btree
 
   create_table "trax_themes", id: :uuid, default: "uuid_generate_v4()", force: true do |t|

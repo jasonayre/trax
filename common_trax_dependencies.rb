@@ -15,6 +15,7 @@ gem "rails", "~> 4.0.1"
 gem 'coffee-rails', '~> 4.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem "activeadmin", github: "gregbell/active_admin"
+gem 'formtastic-bootstrap'
 # s.add_development_dependency 'rspec-rails'
 # s.add_development_dependency 'capybara'
 # s.add_development_dependency 'factory_girl_rails'

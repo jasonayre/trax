@@ -10,8 +10,5 @@ FactoryGirl.define do
     status_last_changed_at "2013-11-16 10:57:38"
     published_at "2013-11-16 10:57:38"
     last_edited_by ""
-    parent_id ""
-    user_id ""
-    channel_id ""
   end
 end

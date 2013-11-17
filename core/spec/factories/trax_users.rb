@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :trax_user, :class => 'User' do
+    
   end
 end

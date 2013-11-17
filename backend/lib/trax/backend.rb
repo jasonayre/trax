@@ -5,3 +5,4 @@ module Trax
 end
 
 require 'trax/backend/engine'
+require 'trax/backend/concerns/base_resource'

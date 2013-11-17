@@ -6,7 +6,7 @@ class DeviseCreateTraxAdminUsers < ActiveRecord::Migration
   end
 
   def change
-    create_table(:trax_admin_users) do |t|
+    create_table :trax_admin_users, :id => :uuid do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
