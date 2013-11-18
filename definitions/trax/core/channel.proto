@@ -1,0 +1,13 @@
+package trax.core;
+import "trax/common.proto";
+
+message Channel {
+  optional bytes id = 1;
+  optional string name = 2;
+  optional string slug = 3;
+  optional string details = 4;
+  optional string description = 5;
+  optional string short_description = 6;
+  optional bytes parent_id = 7;
+  optional RoutingStrategy routing_strategy = 8;
+}

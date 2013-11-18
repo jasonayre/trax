@@ -1,12 +1,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :trax_site, :class => 'Site' do
-    name "MyString"
-    details "MyText"
-    description "MyText"
-    url "MyString"
-    is_default false
-    theme_id ""
+  factory :site, :class => '::Trax::Site' do
+    host "bnw.io"
+    name "Brave New Web"
+    details "My Details"
+    description "My Description"
+    is_default true
   end
 end

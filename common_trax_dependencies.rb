@@ -1,6 +1,3 @@
-# By placing all of Spree's shared dependencies in this file and then loading
-# it for each component's Gemfile, we can be sure that we're only testing just
-# the one component of Spree.
 source 'https://rubygems.org'
 
 platforms :ruby do
@@ -16,13 +13,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'sass-rails', '~> 4.0.0'
 gem "activeadmin", github: "gregbell/active_admin"
 gem 'formtastic-bootstrap'
-# s.add_development_dependency 'rspec-rails'
-# s.add_development_dependency 'capybara'
-# s.add_development_dependency 'factory_girl_rails'
-# s.add_development_dependency 'pg'
-# 
-# s.add_development_dependency "rspec-pride"
-# s.add_development_dependency "shoulda-matchers"
+gem 'protobuf'
+
 group :test do
   gem 'rspec-rails'
   gem 'capybara'

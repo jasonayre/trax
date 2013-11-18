@@ -145,6 +145,10 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
+    protobuf (2.8.8)
+      activesupport
+      multi_json
+      thor
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -240,6 +244,7 @@ DEPENDENCIES
   factory_girl_rails
   formtastic-bootstrap
   pg
+  protobuf
   pry
   rails (~> 4.0.1)
   rspec-pride

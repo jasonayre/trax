@@ -141,14 +141,7 @@ ActiveAdmin.setup do |config|
   #
   # config.before_filter :do_something_awesome
   config.before_filter :current_site
-  config.before_filter :do_something
-  config.before_filter do
-    
-    # puts self.inspect
-    # scope_to :current_user
-    # scope_to :current_user
-  end
-  
+  config.before_filter :set_current_site_title
   
   # == Setting a Favicon
   #

@@ -1,0 +1,16 @@
+package trax.backend;
+
+import "trax/common.proto";
+import "trax/core/channel.proto";
+
+message ChannelForm {
+  
+}
+
+message ChannelPermittedParams {
+  optional string name = 1;
+  optional string details = 2;
+  optional string description = 3;
+  optional bool active = 4;
+  optional RoutingStrategy routing_strategy = 5;
+}

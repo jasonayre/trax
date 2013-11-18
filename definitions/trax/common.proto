@@ -1,0 +1,7 @@
+package trax;
+
+enum RoutingStrategy {
+  RESTFUL = 1;
+  NESTED  = 2;
+  PERMALINK = 3;
+}

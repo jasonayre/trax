@@ -1,18 +1,29 @@
 module Trax
   class Channel < ActiveRecord::Base
-    ROUTING_STRATEGIES = ["restful", "nested", "permalink"].freeze
-    validates_presence_of :site_id
-    # validates :name, :presence => true
+    ROUTING_STRATEGIES = ::Trax::RoutingStrategy.values.keys
+    
+    validates_presence_of :site_id, :name
 
     validates :slug, :presence => true, :uniqueness => { :scope => :site_id }
     
-    has_many :entries
+    belongs_to :site
+    belongs_to :parent, :class_name => "::Trax::Channel"
     
-    before_create do
-      self[:slug] = self[:name].parameterize if self[:slug].blank?
-      puts self[:slug]
+    has_many :entries
+    has_many :children, :class_name => "::Trax::Channel", :foreign_key => :parent_id
+
+    after_initialize do
       self[:routing_strategy] = ROUTING_STRATEGIES.first if self[:routing_strategy].blank?
       self[:active] = false if self[:active].blank?
     end
+    
+    before_validation do
+      self[:slug] = self[:name].try(:parameterize) if self[:slug].blank?
+    end
+    
+    def children?
+      children.any?
+    end
+    
   end
 end

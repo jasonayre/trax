@@ -28,11 +28,11 @@ begin
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
-
-spec = eval(File.read('spree.gemspec'))
-Gem::PackageTask.new(spec) do |pkg|
-  pkg.gem_spec = spec
-end
+# require 'rubygems'
+# spec = eval(File.read('trax.gemspec'))
+# Gem::PackageTask.new(spec) do |pkg|
+#   pkg.gem_spec = spec
+# end
 # APP_RAKEFILE = File.expand_path("../spec/traxblog/Rakefile", __FILE__)
 # load 'rails/tasks/engine.rake'
 Bundler::GemHelper.install_tasks
@@ -42,4 +42,20 @@ Dir[File.join(File.dirname(__FILE__), 'tasks/**/*.rake')].each {|f| load f }
 # desc "Run all specs in spec directory (excluding plugin specs)"
 # RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
 # task :default => :spec
+
+desc 'Clean & Compile the protobuf definitions to ruby classes. Pass NO_CLEAN if you do not want to clean first.'
+task :compile, [ :out ] do |t, args|
+  ::Rake::Task[:clean].invoke unless ENV['NO_CLEAN']
+  args.with_defaults(:out => 'lib')
+  cmd = "protoc --ruby_out=#{args[:out]} -I ./definitions definitions/trax/*.proto definitions/trax/**/*.proto"
+  puts cmd
+  exec(cmd)
+end
+
+desc 'Clean the generated *.pb.rb files'
+task :clean do
+  puts 'Cleaning compiled ruby files'
+  file_glob = ::File.expand_path('../lib/trax/**/*.pb.rb', __FILE__)
+  ::Dir[file_glob].each { |file| ::FileUtils.rm(file) }
+end
 
