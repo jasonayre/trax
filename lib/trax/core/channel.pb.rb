@@ -30,6 +30,7 @@ module Trax
       optional ::Protobuf::Field::StringField, :short_description, 6
       optional ::Protobuf::Field::BytesField, :parent_id, 7
       optional ::Trax::RoutingStrategy, :routing_strategy, 8
+      optional ::Trax::Status, :status, 9
     end
 
   end

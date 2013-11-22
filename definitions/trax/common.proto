@@ -4,3 +4,8 @@ enum RoutingStrategy {
   RESTFUL = 1;
   STATIC = 2;
 }
+
+enum Status {
+  ACTIVE = 1;
+  INACTIVE = 2;
+}

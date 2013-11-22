@@ -10,9 +10,9 @@
     end
     
     f.inputs "Settings" do
-      f.input :active, :as => :select, :collection => [true, false]
+      f.input :active
       f.input :routing_strategy, :as => :select, :collection => ::Trax::Channel::ROUTING_STRATEGIES
-      f.input :is_default, :as => :select, :collection => [true, false]
+      f.input :is_default
       f.input :theme, :as => :select, :collection => ::Trax::Theme.all
     end
     
