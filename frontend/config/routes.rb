@@ -6,12 +6,14 @@
   # end
   
   scope :module => 'trax' do
+    get '*path', to: 'entries#show', constraints: ::Trax::Core::StaticRouter::Entries
+    get '*path', to: 'channels#show', constraints: ::Trax::Core::StaticRouter::Channels
 
     resources :channels, :path => 'c', :shallow => true do
       resources :entries
     end
 
-    get ':id', :to => 'entries#show'
+    # get ':id', :to => 'entries#show'
     
     # ::Trax::Channel.by_routing_strategy('PERMALINK').each do |channel|
     #   

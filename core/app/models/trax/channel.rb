@@ -19,8 +19,10 @@ module Trax
     end
 
     scope :by_slug, lambda{ |*slugs| where(:slug => slugs) }
-    scope :by_routing_strategy, lambda{ |*routing_strategies| where(:routing_strategy => routing_strategies) }
-    
+    scope :by_routing_strategy, lambda{ |*routing_strategies| where(:routing_strategy => routing_strategies.flatten.compact.uniq) }
+    scope :by_static_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:STATIC).try(:name)) }
+    scope :by_restful_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:RESTFUL).try(:name)) }
+
     ## Callbacks
     after_initialize do
       self[:routing_strategy] = ROUTING_STRATEGIES.first if self[:routing_strategy].blank?

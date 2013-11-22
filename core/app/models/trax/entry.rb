@@ -14,10 +14,12 @@ module Trax
       where(:slug => slug).limit(1).try(:first)
     end
 
-    scope :by_slug, lambda{ |*slugs| where(:slug => slugs) }
-    
+    scope :by_slug, lambda{ |*slugs| where(:slug => slugs.flatten.compact.uniq) }
     scope :by_routing_strategy, lambda{ |*routing_strategies| where(:routing_strategy => routing_strategies) }
-    scope :by_restful, by_routing_strategy(::Trax::RoutingStrategy.fetch(:RESTFUL).try(:name))
+    # scope :by_restful, by_routing_strategy(::Trax::RoutingStrategy.fetch(:RESTFUL).try(:name))
+    
+    scope :by_static_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:STATIC).try(:name)) }
+    scope :by_restful_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:RESTFUL).try(:name)) }
     
     # Callbacks
     before_save do

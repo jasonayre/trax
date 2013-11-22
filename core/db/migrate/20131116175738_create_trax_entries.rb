@@ -8,6 +8,7 @@ class CreateTraxEntries < ActiveRecord::Migration
       t.string :status
       t.datetime :status_last_changed_at
       t.datetime :published_at
+      t.string :routing_strategy
       t.uuid :last_edited_by
       t.uuid :parent_id
       t.uuid :user_id
@@ -20,6 +21,7 @@ class CreateTraxEntries < ActiveRecord::Migration
     add_index :trax_entries, :status
     add_index :trax_entries, :status_last_changed_at
     add_index :trax_entries, :published_at
+    add_index :trax_entries, :routing_strategy
     add_index :trax_entries, :last_edited_by
     add_index :trax_entries, :parent_id
     add_index :trax_entries, :user_id

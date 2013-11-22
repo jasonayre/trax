@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20131116185422) do
     t.string   "status"
     t.datetime "status_last_changed_at"
     t.datetime "published_at"
+    t.string   "routing_strategy"
     t.uuid     "last_edited_by"
     t.uuid     "parent_id"
     t.uuid     "user_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20131116185422) do
   add_index "trax_entries", ["last_edited_by"], name: "index_trax_entries_on_last_edited_by", using: :btree
   add_index "trax_entries", ["parent_id"], name: "index_trax_entries_on_parent_id", using: :btree
   add_index "trax_entries", ["published_at"], name: "index_trax_entries_on_published_at", using: :btree
+  add_index "trax_entries", ["routing_strategy"], name: "index_trax_entries_on_routing_strategy", using: :btree
   add_index "trax_entries", ["site_id"], name: "index_trax_entries_on_site_id", using: :btree
   add_index "trax_entries", ["slug"], name: "index_trax_entries_on_slug", using: :btree
   add_index "trax_entries", ["status"], name: "index_trax_entries_on_status", using: :btree
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 20131116185422) do
   create_table "trax_themes", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
     t.string   "version"
+    t.string   "github"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

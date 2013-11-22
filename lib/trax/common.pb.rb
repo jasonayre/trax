@@ -10,8 +10,7 @@ module Trax
   #
   class RoutingStrategy < ::Protobuf::Enum
     define :RESTFUL, 1
-    define :NESTED, 2
-    define :PERMALINK, 3
+    define :STATIC, 2
   end
 
 end
