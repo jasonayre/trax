@@ -1,0 +1,8 @@
+package trax.core;
+import "trax/common.proto";
+
+message Theme {
+  optional bytes id = 1;
+  optional string name = 2;
+  optional string version = 3;
+}

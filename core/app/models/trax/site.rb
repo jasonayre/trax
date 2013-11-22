@@ -3,8 +3,9 @@ module Trax
     ROUTING_STRATEGIES = ::Trax::RoutingStrategy.values.keys
     
     has_many :entries
-    has_many :channels
+    has_many :channels, :class_name => "::Trax::Channel"
     accepts_nested_attributes_for :channels
+    belongs_to :theme
     
     scope :by_host, lambda{|*hosts| where(:host => hosts.flatten.compact.uniq) }
     

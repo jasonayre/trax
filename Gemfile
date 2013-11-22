@@ -10,6 +10,8 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 gem "trax_core", :path => "~/gems/trax/core"
+gem "trax_frontend", :path => "~/gems/trax/frontend"
+gem "trax_backend", :path => "~/gems/trax/backend"
 
 
 # To use debugger

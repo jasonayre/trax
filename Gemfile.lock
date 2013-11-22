@@ -22,6 +22,10 @@ PATH
     trax (0.0.1)
       trax_backend (= 0.0.1)
       trax_core (= 0.0.1)
+
+PATH
+  remote: ~/gems/trax/backend
+  specs:
     trax_backend (0.0.1)
       activeadmin
       rails (~> 4.0.1)
@@ -32,6 +36,12 @@ PATH
     trax_core (0.0.1)
       activeadmin
       devise
+      rails (~> 4.0.1)
+
+PATH
+  remote: ~/gems/trax/frontend
+  specs:
+    trax_frontend (0.0.1)
       rails (~> 4.0.1)
 
 GEM
@@ -252,4 +262,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   shoulda-matchers
   trax!
+  trax_backend!
   trax_core!
+  trax_frontend!

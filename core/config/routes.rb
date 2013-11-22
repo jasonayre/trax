@@ -1,3 +1,3 @@
 Trax::Core::Engine.routes.draw do
-  resources :channels
+  # resources :channels
 end

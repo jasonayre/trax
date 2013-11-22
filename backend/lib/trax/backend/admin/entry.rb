@@ -29,8 +29,8 @@
   
   controller do
     
-    def permitted_params
-      params.permit :trax_entry => [:channel, :title, :body, :slug, :active]
-    end
+    # def permitted_params
+    #   params.permit :trax_entry => [:channel, :title, :body, :slug, :active]
+    # end
   end
 end

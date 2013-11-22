@@ -12,14 +12,11 @@
     f.inputs "Settings" do
       f.input :active, :as => :select, :collection => [true, false]
       f.input :routing_strategy, :as => :select, :collection => ::Trax::Channel::ROUTING_STRATEGIES
+      f.input :is_default, :as => :select, :collection => [true, false]
+      f.input :theme, :as => :select, :collection => ::Trax::Theme.all
     end
     
     f.actions
   end
   
-  controller do
-    def permitted_params
-      params.permit :trax_site => [:name, :details, :description, :host, :is_default, :routing_strategy]
-    end
-  end
 end

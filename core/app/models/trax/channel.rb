@@ -11,7 +11,17 @@ module Trax
     
     has_many :entries
     has_many :children, :class_name => "::Trax::Channel", :foreign_key => :parent_id
+    
+    # Scopes
+    
+    def self.find_by_slug(slug)
+      where(:slug => slug).limit(1).try(:first)
+    end
 
+    scope :by_slug, lambda{ |*slugs| where(:slug => slugs) }
+    scope :by_routing_strategy, lambda{ |*routing_strategies| where(:routing_strategy => routing_strategies) }
+    
+    ## Callbacks
     after_initialize do
       self[:routing_strategy] = ROUTING_STRATEGIES.first if self[:routing_strategy].blank?
       self[:active] = false if self[:active].blank?

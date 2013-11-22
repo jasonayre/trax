@@ -9,4 +9,5 @@ message EntryPermittedParams {
   optional string body = 2;
   optional bool active = 3;
   optional string slug = 4;
+  optional bytes channel_id = 5;
 }

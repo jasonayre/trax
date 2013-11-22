@@ -1,5 +1,5 @@
 ::Rails.application.routes.draw do
-  devise_for :users, :class_name => "Trax::User"
+  devise_for :users, :class_name => "::Trax::User"
   ActiveAdmin.routes(self)
 end
 

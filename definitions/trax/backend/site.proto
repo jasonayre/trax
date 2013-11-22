@@ -1,0 +1,15 @@
+package trax.backend;
+
+import "trax/common.proto";
+
+message SitePermittedParams {
+  extensions 200 to max;
+  
+  optional string name = 1;
+  optional string details = 2;
+  optional string description = 3;
+  optional string host = 4;
+  optional bool is_default = 5;
+  optional bytes theme_id = 6;
+  optional RoutingStrategy routing_strategy = 7;
+}
