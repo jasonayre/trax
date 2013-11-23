@@ -14,16 +14,9 @@ module Trax
       
       initializer :trax_core do
         ::Trax::Core::Themes.each do |theme|
-          puts theme.inspect
           config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/javascripts"
-          config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/stylesheets"          
-          
-          # config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/js"          
-          puts config.assets.paths.inspect
-        end
-        
-        puts "INITIALIZING TRAX CORE"
-        
+          config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/stylesheets"
+        end        
       end
     end
   end

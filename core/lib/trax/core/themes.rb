@@ -25,6 +25,7 @@ module Trax
         instance = new(:name => theme_name)
         instance.instance_eval(&block)
         return unless ::Trax::Core.db_prepared?
+        
         record = ::Trax::Theme.where(:name => theme_name).first_or_create do |theme|
           theme.version = instance.version
           theme.github_url = instance.github_url if instance.github_url.present?
