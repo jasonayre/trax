@@ -25,6 +25,8 @@ module Trax
       optional ::Protobuf::Field::BytesField, :id, 1
       optional ::Protobuf::Field::StringField, :name, 2
       optional ::Protobuf::Field::StringField, :version, 3
+      optional ::Protobuf::Field::StringField, :path, 4
+      optional ::Protobuf::Field::BoolField, :active, 5
     end
 
   end

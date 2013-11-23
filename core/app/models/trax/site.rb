@@ -17,6 +17,9 @@ module Trax
     
     scope :by_default_host, lambda{ where(:is_default => true).first }
     
+    scope :by_active, lambda { where(:active => true) }
+    scope :by_inactive, lambda { where(:active => false) }
+    
     after_initialize do
       self[:routing_strategy] = ROUTING_STRATEGIES.first if self[:routing_strategy].blank?
       self[:active] = false if self[:active].blank?

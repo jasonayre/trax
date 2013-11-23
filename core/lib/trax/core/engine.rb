@@ -12,10 +12,17 @@ module Trax
 
       config.autoload_paths << Engine.root.join("lib")
       
-      puts config.autoload_paths
       initializer :trax_core do
-        puts Engine.root
-        puts "TRAX CORE INITIALIZING"
+        ::Trax::Core::Themes.each do |theme|
+          puts theme.inspect
+          config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/javascripts"
+          config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/stylesheets"          
+          
+          # config.assets.paths << "#{::Rails.root}/vendor/themes/#{theme.name}/js"          
+          puts config.assets.paths.inspect
+        end
+        
+        puts "INITIALIZING TRAX CORE"
         
       end
     end

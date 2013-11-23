@@ -1,7 +1,6 @@
 module Trax
   class ChannelsController < ::Trax::ApplicationController
     def index
-      puts current_site.inspect
       @collection ||= current_site.channels
     end
     

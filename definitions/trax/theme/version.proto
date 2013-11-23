@@ -1,0 +1,2 @@
+package trax.theme;
+import "trax/common.proto";

@@ -1,0 +1,8 @@
+package trax.theme;
+
+message Manifest {
+  optional string name = 1;
+  optional string version = 2;
+  optional string github_url = 3;
+  
+}

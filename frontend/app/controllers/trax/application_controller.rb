@@ -1,5 +1,9 @@
 module Trax
   class ApplicationController < ActionController::Base
+    before_filter :prepend_view_paths
+    
+    layout Proc.new { |controller| "one_column" }
+    
     def current_site
       @current_site ||= ::Trax::Site.by_current_host(request.host)
     end
@@ -25,7 +29,8 @@ module Trax
     end
     
     def prepend_view_paths
-      prepend_view_path(File.join('app', 'views', current_site.theme.name)) if current_site
+      # prepend_view_path(::File.join('app', 'views', current_site.theme.name)) if current_site
+      prepend_view_path(::Rails.root.join('vendor', 'themes', current_site.theme.name, 'views')) if current_site
     end
     
     
