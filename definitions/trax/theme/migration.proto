@@ -1,9 +1,0 @@
-package trax.theme;
-import "trax/common.proto";
-
-
-message Migration {
-  optional Version start_version = 1;
-  optional Version end_version = 2;
-
-}
