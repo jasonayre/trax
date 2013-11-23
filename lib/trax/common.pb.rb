@@ -2,7 +2,6 @@
 # This file is auto-generated. DO NOT EDIT!
 #
 require 'protobuf/message'
-require 'protobuf/rpc/service'
 
 
 ##
@@ -15,11 +14,6 @@ module Trax
   ##
   # Enum Classes
   #
-  class MyEnum < ::Protobuf::Enum
-    define :FOO, 1
-    define :BAR, 2
-  end
-
   class RoutingStrategy < ::Protobuf::Enum
     define :RESTFUL, 1
     define :STATIC, 2
@@ -1037,57 +1031,15 @@ module Trax
   ##
   # Message Classes
   #
-  class MyMessage < ::Protobuf::Message; end
-  class RequestType < ::Protobuf::Message; end
-  class ResponseType < ::Protobuf::Message; end
+  class Migration < ::Protobuf::Message; end
 
 
   ##
   # Message Fields
   #
-  class MyMessage
-    optional ::Protobuf::Field::Int32Field, :foo, 1
-    optional ::Protobuf::Field::StringField, :bar, 2
-  end
-
-
-  ##
-  # Extended Message Fields
-  #
-  class ::Google::Protobuf::FileOptions < ::Protobuf::Message
-    optional ::Protobuf::Field::StringField, :my_file_option, 50000, :extension => true
-  end
-
-  class ::Google::Protobuf::MessageOptions < ::Protobuf::Message
-    optional ::Protobuf::Field::Int32Field, :my_message_option, 50001, :extension => true
-  end
-
-  class ::Google::Protobuf::FieldOptions < ::Protobuf::Message
-    optional ::Protobuf::Field::FloatField, :my_field_option, 50002, :extension => true
-  end
-
-  class ::Google::Protobuf::EnumOptions < ::Protobuf::Message
-    optional ::Protobuf::Field::BoolField, :my_enum_option, 50003, :extension => true
-  end
-
-  class ::Google::Protobuf::EnumValueOptions < ::Protobuf::Message
-    optional ::Protobuf::Field::Uint32Field, :my_enum_value_option, 50004, :extension => true
-  end
-
-  class ::Google::Protobuf::ServiceOptions < ::Protobuf::Message
-    optional ::Trax::MyEnum, :my_service_option, 50005, :extension => true
-  end
-
-  class ::Google::Protobuf::MethodOptions < ::Protobuf::Message
-    optional ::Trax::MyMessage, :my_method_option, 50006, :extension => true
-  end
-
-
-  ##
-  # Service Classes
-  #
-  class MyService < ::Protobuf::Rpc::Service
-    rpc :my_method, ::Trax::RequestType, ::Trax::ResponseType
+  class Migration
+    optional ::Trax::Version, :start_version, 1
+    optional ::Trax::Version, :end_version, 2
   end
 
 end

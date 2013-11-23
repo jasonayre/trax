@@ -1,0 +1,9 @@
+package trax.ext;
+
+import "trax/common.proto";
+
+message Theme {
+  optional string name = 1;
+  optional Version version = 2;
+  optional string path = 3;
+}
