@@ -24,7 +24,21 @@ module Trax
       def self.register(theme_name, &block)
         instance = new(:name => theme_name)
         instance.instance_eval(&block)
-        model = ::Trax::Theme.where(:name => theme_name).first_or_create
+        record = ::Trax::Theme.where(:name => theme_name).first_or_create
+        puts record.inspect
+        update_theme(instance, record) if record.name != instance.name || record.github_url != instance.github_url
+        update_theme_version(instance, record) if record.version != instance.version
+        puts record.inspect
+      end
+      
+      def self.update_theme(instance, record)
+        record.update_attribute(:github_url, instance.github_url) if record.github_url != instance.github_url
+        record.update_attribute(:name, instance.name) if record.name != instance.name
+      end
+      
+      def self.update_theme_version(instance, record)
+        record.version = instance.version
+        record.save
       end
       
       attr_accessor :path, :name, :version, :github_url
