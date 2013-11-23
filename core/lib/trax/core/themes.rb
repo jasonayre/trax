@@ -24,7 +24,7 @@ module Trax
       def self.register(theme_name, &block)
         instance = new(:name => theme_name)
         instance.instance_eval(&block)
-        puts instance.inspect
+        model = ::Trax::Theme.where(:name => theme_name).first_or_create
       end
       
       attr_accessor :path, :name, :version, :github_url
@@ -34,9 +34,9 @@ module Trax
         options.each_pair {|k,v| send("#{k}=", v)}
       end
       
-      def version(*args)
-        return @version unless args
-        @version ||= args.first
+      def active(*args)
+        return @active unless args
+        @active ||= args.first
       end
       
       def github_url(*args)
@@ -44,9 +44,14 @@ module Trax
         @github_url ||= args.first
       end
       
-      def active(*args)
-        return @active unless args
-        @active ||= args.first
+      def name(*args)
+        return @name unless args
+        @name ||= args.first
+      end
+      
+      def version(*args)
+        return @version unless args
+        @version ||= args.first
       end
       
       ::Dir[::Rails.root.join('vendor', 'themes', '**')].each do |theme_path|
