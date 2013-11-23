@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = "Rails CMS/Blog"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["spec/**/*"]
+  s.test_files = Dir["spec/**/*", "spec/**/**/*"]
 
   s.require_path = 'lib'
 

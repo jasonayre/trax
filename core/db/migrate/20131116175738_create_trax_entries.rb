@@ -6,9 +6,9 @@ class CreateTraxEntries < ActiveRecord::Migration
       t.string :preview
       t.text :body
       t.string :status
+      t.string :routing_strategy      
       t.datetime :status_last_changed_at
       t.datetime :published_at
-      t.string :routing_strategy
       t.uuid :last_edited_by
       t.uuid :parent_id
       t.uuid :user_id

@@ -24,11 +24,16 @@ module Trax
       def self.register(theme_name, &block)
         instance = new(:name => theme_name)
         instance.instance_eval(&block)
-        record = ::Trax::Theme.where(:name => theme_name).first_or_create
-        puts record.inspect
+        return unless ::Trax::Core.db_prepared?
+        record = ::Trax::Theme.where(:name => theme_name).first_or_create do |theme|
+          theme.version = instance.version
+          theme.github_url = instance.github_url if instance.github_url.present?
+        end
+        
         update_theme(instance, record) if record.name != instance.name || record.github_url != instance.github_url
         update_theme_version(instance, record) if record.version != instance.version
-        puts record.inspect
+        records << instance
+        instance
       end
       
       def self.update_theme(instance, record)
@@ -69,7 +74,7 @@ module Trax
       end
       
       ::Dir[::Rails.root.join('vendor', 'themes', '**')].each do |theme_path|
-        load "#{theme_path}/config.rb"
+        load("#{theme_path}/config.rb")
       end
     end
   end

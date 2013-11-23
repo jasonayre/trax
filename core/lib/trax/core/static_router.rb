@@ -29,7 +29,7 @@ module Trax
           return unless ::ActiveRecord::Base.connection.table_exists?("trax_entries")
           @loaded_static_routes ||= ::Trax::Entry.by_static_route.map(&:slug)
         end
-                
+
         @static_paths ||= ::Trax::Core::StaticRouter::Entries.loaded_static_routes
         
         def self.matches?(request)

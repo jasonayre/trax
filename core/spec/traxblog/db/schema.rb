@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20131116185422) do
     t.string   "preview"
     t.text     "body"
     t.string   "status"
+    t.string   "routing_strategy"
     t.datetime "status_last_changed_at"
     t.datetime "published_at"
-    t.string   "routing_strategy"
     t.uuid     "last_edited_by"
     t.uuid     "parent_id"
     t.uuid     "user_id"
@@ -91,11 +91,14 @@ ActiveRecord::Schema.define(version: 20131116185422) do
   create_table "trax_themes", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
     t.string   "version"
-    t.string   "github"
+    t.string   "preview_url"
+    t.string   "github_url"
+    t.boolean  "installed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "trax_themes", ["installed"], name: "index_trax_themes_on_installed", using: :btree
   add_index "trax_themes", ["name"], name: "index_trax_themes_on_name", using: :btree
   add_index "trax_themes", ["version"], name: "index_trax_themes_on_version", using: :btree
 

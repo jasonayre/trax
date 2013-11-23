@@ -54721,3 +54721,1548 @@ Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 12:32:0
   [1m[36mTrax::Channel Load (0.7ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."routing_strategy" IN ('STATIC')[0m
   [1m[35mTrax::Entry Load (0.9ms)[0m  SELECT "trax_entries".* FROM "trax_entries" WHERE "trax_entries"."routing_strategy" IN ('STATIC')
   [1m[36mTrax::Theme Load (1.9ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[36mTrax::Theme Load (1.0ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (32.1ms)[0m  [1mINSERT INTO "trax_themes" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 23 Nov 2013 20:11:49 UTC +00:00], ["name", "bootstrap3"], ["updated_at", Sat, 23 Nov 2013 20:11:49 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mTrax::Theme Load (1.0ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to EnableUuid (20131115192228)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (19.9ms)[0m  [1mCREATE EXTENSION "uuid-ossp";[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131115192228"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTraxChannels (20131115195642)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "trax_channels" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "parent_id" uuid, "site_id" uuid, "slug" character varying(255), "name" character varying(255), "details" text, "description" text, "short_description" text, "routing_strategy" character varying(255), "active" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_channels_on_parent_id" ON "trax_channels" ("parent_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE INDEX "index_trax_channels_on_site_id" ON "trax_channels" ("site_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_channels_on_slug" ON "trax_channels" ("slug")
+  [1m[36m (0.7ms)[0m  [1mCREATE INDEX "index_trax_channels_on_name" ON "trax_channels" ("name")[0m
+  [1m[35m (0.6ms)[0m  CREATE INDEX "index_trax_channels_on_routing_strategy" ON "trax_channels" ("routing_strategy")
+  [1m[36m (0.6ms)[0m  [1mCREATE INDEX "index_trax_channels_on_active" ON "trax_channels" ("active")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131115195642"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateTraxUsers (20131116171006)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "trax_users" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_trax_users_on_email" ON "trax_users" ("email")
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_trax_users_on_reset_password_token" ON "trax_users" ("reset_password_token")[0m
+  [1m[35mTrax::User Exists (0.6ms)[0m  SELECT 1 AS one FROM "trax_users" WHERE "trax_users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "trax_users" ("created_at", "email", "encrypted_password", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Sat, 23 Nov 2013 20:22:54 UTC +00:00], ["email", "admin@example.com"], ["encrypted_password", "$2a$10$YQEb6H5kEDPkY2H1UtiDR.c6.RrOs84Gn5LYX92Mh97M0ykWZQyqS"], ["updated_at", Sat, 23 Nov 2013 20:22:54 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131116171006"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTraxEntries (20131116175738)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "trax_entries" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "title" character varying(255), "slug" character varying(255), "preview" character varying(255), "body" text, "status" character varying(255), "routing_strategy" character varying(255), "status_last_changed_at" timestamp, "published_at" timestamp, "last_edited_by" uuid, "parent_id" uuid, "user_id" uuid, "channel_id" uuid, "site_id" uuid, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_entries_on_title" ON "trax_entries" ("title")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_entries_on_slug" ON "trax_entries" ("slug")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_entries_on_status" ON "trax_entries" ("status")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_trax_entries_on_status_last_changed_at" ON "trax_entries" ("status_last_changed_at")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_entries_on_published_at" ON "trax_entries" ("published_at")
+  [1m[36m (0.7ms)[0m  [1mCREATE INDEX "index_trax_entries_on_routing_strategy" ON "trax_entries" ("routing_strategy")[0m
+  [1m[35m (0.8ms)[0m  CREATE INDEX "index_trax_entries_on_last_edited_by" ON "trax_entries" ("last_edited_by")
+  [1m[36m (0.6ms)[0m  [1mCREATE INDEX "index_trax_entries_on_parent_id" ON "trax_entries" ("parent_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_entries_on_user_id" ON "trax_entries" ("user_id")
+  [1m[36m (0.7ms)[0m  [1mCREATE INDEX "index_trax_entries_on_channel_id" ON "trax_entries" ("channel_id")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_entries_on_site_id" ON "trax_entries" ("site_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20131116175738"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateTraxSites (20131116182805)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "trax_sites" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "theme_id" uuid, "active" boolean, "is_default" boolean, "name" character varying(255), "details" text, "description" text, "host" character varying(255), "routing_strategy" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.7ms)[0m  [1mCREATE INDEX "index_trax_sites_on_name" ON "trax_sites" ("name")[0m
+  [1m[35m (0.6ms)[0m  CREATE INDEX "index_trax_sites_on_host" ON "trax_sites" ("host")
+  [1m[36m (0.6ms)[0m  [1mCREATE INDEX "index_trax_sites_on_is_default" ON "trax_sites" ("is_default")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trax_sites_on_theme_id" ON "trax_sites" ("theme_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE INDEX "index_trax_sites_on_routing_strategy" ON "trax_sites" ("routing_strategy")[0m
+  [1m[35m (0.8ms)[0m  CREATE INDEX "index_trax_sites_on_active" ON "trax_sites" ("active")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20131116182805"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Migrating to CreateTraxThemes (20131116185422)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "trax_themes" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "name" character varying(255), "version" character varying(255), "preview_url" character varying(255), "github_url" character varying(255), "installed" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.7ms)[0m  [1mCREATE INDEX "index_trax_themes_on_name" ON "trax_themes" ("name")[0m
+  [1m[35m (0.7ms)[0m  CREATE INDEX "index_trax_themes_on_version" ON "trax_themes" ("version")
+  [1m[36m (0.6ms)[0m  [1mCREATE INDEX "index_trax_themes_on_installed" ON "trax_themes" ("installed")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131116185422"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mTrax::Theme Load (0.9ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (42.1ms)[0m  [1mINSERT INTO "trax_themes" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 23 Nov 2013 20:24:07 UTC +00:00], ["name", "bootstrap3"], ["updated_at", Sat, 23 Nov 2013 20:24:07 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "trax_themes" SET "github_url" = $1, "updated_at" = $2 WHERE "trax_themes"."id" = '6c908c87-b26f-4dfb-8638-2f7a1ac29086'  [["github_url", "http://www.blah.com"], ["updated_at", Sat, 23 Nov 2013 20:24:07 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "trax_themes" SET "version" = $1, "updated_at" = $2 WHERE "trax_themes"."id" = '6c908c87-b26f-4dfb-8638-2f7a1ac29086'[0m  [["version", "0.0.2"], ["updated_at", Sat, 23 Nov 2013 20:24:07 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mTrax::Channel Load (0.7ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."routing_strategy" IN ('STATIC')[0m
+  [1m[35mTrax::Entry Load (0.9ms)[0m  SELECT "trax_entries".* FROM "trax_entries" WHERE "trax_entries"."routing_strategy" IN ('STATIC')
+  [1m[36m (108.1ms)[0m  [1mDROP DATABASE IF EXISTS "traxblog_test"[0m
+  [1m[35m (350.7ms)[0m  CREATE DATABASE "traxblog_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "trax_channels" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "parent_id" uuid, "site_id" uuid, "slug" character varying(255), "name" character varying(255), "details" text, "description" text, "short_description" text, "routing_strategy" character varying(255), "active" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_trax_channels_on_active" ON "trax_channels" USING btree ("active")
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_trax_channels_on_name" ON "trax_channels" USING btree ("name")[0m
+  [1m[35m (1.7ms)[0m  CREATE INDEX "index_trax_channels_on_parent_id" ON "trax_channels" USING btree ("parent_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_channels_on_routing_strategy" ON "trax_channels" USING btree ("routing_strategy")[0m
+  [1m[35m (1.4ms)[0m  CREATE INDEX "index_trax_channels_on_site_id" ON "trax_channels" USING btree ("site_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_trax_channels_on_slug" ON "trax_channels" USING btree ("slug")[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "trax_entries" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "title" character varying(255), "slug" character varying(255), "preview" character varying(255), "body" text, "status" character varying(255), "routing_strategy" character varying(255), "status_last_changed_at" timestamp, "published_at" timestamp, "last_edited_by" uuid, "parent_id" uuid, "user_id" uuid, "channel_id" uuid, "site_id" uuid, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_entries_on_channel_id" ON "trax_entries" USING btree ("channel_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE INDEX "index_trax_entries_on_last_edited_by" ON "trax_entries" USING btree ("last_edited_by")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_entries_on_parent_id" ON "trax_entries" USING btree ("parent_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_trax_entries_on_published_at" ON "trax_entries" USING btree ("published_at")
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_trax_entries_on_routing_strategy" ON "trax_entries" USING btree ("routing_strategy")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trax_entries_on_site_id" ON "trax_entries" USING btree ("site_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_trax_entries_on_slug" ON "trax_entries" USING btree ("slug")[0m
+  [1m[35m (1.2ms)[0m  CREATE INDEX "index_trax_entries_on_status" ON "trax_entries" USING btree ("status")
+  [1m[36m (1.1ms)[0m  [1mCREATE INDEX "index_trax_entries_on_status_last_changed_at" ON "trax_entries" USING btree ("status_last_changed_at")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_trax_entries_on_title" ON "trax_entries" USING btree ("title")
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_trax_entries_on_user_id" ON "trax_entries" USING btree ("user_id")[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "trax_sites" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "theme_id" uuid, "active" boolean, "is_default" boolean, "name" character varying(255), "details" text, "description" text, "host" character varying(255), "routing_strategy" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_sites_on_active" ON "trax_sites" USING btree ("active")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trax_sites_on_host" ON "trax_sites" USING btree ("host")
+  [1m[36m (1.9ms)[0m  [1mCREATE INDEX "index_trax_sites_on_is_default" ON "trax_sites" USING btree ("is_default")[0m
+  [1m[35m (1.0ms)[0m  CREATE INDEX "index_trax_sites_on_name" ON "trax_sites" USING btree ("name")
+  [1m[36m (1.0ms)[0m  [1mCREATE INDEX "index_trax_sites_on_routing_strategy" ON "trax_sites" USING btree ("routing_strategy")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trax_sites_on_theme_id" ON "trax_sites" USING btree ("theme_id")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "trax_themes" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "name" character varying(255), "version" character varying(255), "preview_url" character varying(255), "github_url" character varying(255), "installed" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trax_themes_on_installed" ON "trax_themes" USING btree ("installed")
+  [1m[36m (1.6ms)[0m  [1mCREATE INDEX "index_trax_themes_on_name" ON "trax_themes" USING btree ("name")[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_trax_themes_on_version" ON "trax_themes" USING btree ("version")
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "trax_users" ("id" uuid PRIMARY KEY DEFAULT uuid_generate_v4(), "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_trax_users_on_email" ON "trax_users" USING btree ("email")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_trax_users_on_reset_password_token" ON "trax_users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (2.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131116185422')[0m
+  [1m[36mTrax::Theme Load (1.0ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."routing_strategy" IN ('STATIC')
+  [1m[36mTrax::Entry Load (1.1ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries" WHERE "trax_entries"."routing_strategy" IN ('STATIC')[0m
+
+
+Started GET "/admin/trax_sites/new" for 127.0.0.1 at 2013-11-23 14:21:16 -0700
+Processing by Admin::TraxSitesController#new as HTML
+  [1m[35mTrax::User Load (0.8ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '63b0d37b-e93e-4c88-9995-88f5b29907bb' ORDER BY "trax_users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 36ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-11-23 14:21:16 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/devise-3.2.1/app/views/devise/shared/_links.erb (1.2ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/devise-3.2.1/app/views/devise/sessions/new.html.erb (17.7ms)
+Completed 200 OK in 93ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7UF8c1CgF0bAMGSGVyZ6thrf08rA8bI100qPSG70DDY=", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mTrax::User Load (0.9ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."email" = 'admin@example.com' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.4ms)[0m  [1mUPDATE "trax_users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd'[0m  [["last_sign_in_at", Sat, 23 Nov 2013 21:21:21 UTC +00:00], ["current_sign_in_at", Sat, 23 Nov 2013 21:21:21 UTC +00:00], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", Sat, 23 Nov 2013 21:21:21 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/trax_sites/new
+Completed 302 Found in 87ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/admin/trax_sites/new" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+Processing by Admin::TraxSitesController#new as HTML
+  [1m[36mTrax::User Load (0.4ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.7ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."is_default" = 't' ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Theme Load (0.6ms)[0m  SELECT "trax_themes".* FROM "trax_themes"
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/new.html.arb (239.0ms)
+Completed 200 OK in 270ms (Views: 250.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:21 -0700
+
+
+Started GET "/admin/trax_sites" for 127.0.0.1 at 2013-11-23 14:21:27 -0700
+Processing by Admin::TraxSitesController#index as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."is_default" = 't' ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mTrax::Entry Load (0.9ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries"[0m
+  [1m[35mTrax::Channel Load (0.7ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Theme Load (0.3ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (175.4ms)
+Completed 200 OK in 185ms (Views: 174.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:21:28 -0700
+  [1m[36mTrax::Theme Load (1.0ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."routing_strategy" IN ('STATIC')
+  [1m[36mTrax::Entry Load (0.7ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries" WHERE "trax_entries"."routing_strategy" IN ('STATIC')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/admin/trax_sites" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+Processing by Admin::TraxSitesController#index as HTML
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.4ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."is_default" = 't' ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mTrax::Entry Load (0.4ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Channel Load (0.4ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Theme Load (0.3ms)[0m  SELECT "trax_themes".* FROM "trax_themes"
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (166.6ms)
+Completed 200 OK in 175ms (Views: 168.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:23:43 -0700
+  [1m[36mTrax::Theme Load (1.0ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.8ms)[0m  SELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."routing_strategy" IN ('STATIC')
+  [1m[36mTrax::Entry Load (0.7ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries" WHERE "trax_entries"."routing_strategy" IN ('STATIC')[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "trax_sites" ("active", "created_at", "description", "host", "is_default", "name", "routing_strategy", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["active", false], ["created_at", Sat, 23 Nov 2013 21:25:29 UTC +00:00], ["description", "trax_blog"], ["host", "localhost"], ["is_default", true], ["name", "Trax Blog"], ["routing_strategy", "RESTFUL"], ["updated_at", Sat, 23 Nov 2013 21:25:29 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mTrax::Theme Load (1.0ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."name" = 'bootstrap3' ORDER BY "trax_themes"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Channel Load (0.6ms)[0m  SELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."routing_strategy" IN ('STATIC')
+  [1m[36mTrax::Entry Load (0.8ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries" WHERE "trax_entries"."routing_strategy" IN ('STATIC')[0m
+
+
+Started GET "/admin/trax_sites" for 127.0.0.1 at 2013-11-23 14:25:44 -0700
+Processing by Admin::TraxSitesController#index as HTML
+  [1m[35mTrax::User Load (0.8ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (1.0ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "trax_sites"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mTrax::Site Load (0.5ms)[0m  SELECT "trax_sites".* FROM "trax_sites" ORDER BY "trax_sites"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mTrax::Entry Load (0.9ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries"[0m
+  [1m[35mTrax::Channel Load (0.5ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Theme Load (0.6ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (466.1ms)
+Completed 200 OK in 533ms (Views: 468.7ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:25:45 -0700
+
+
+Started GET "/admin/trax_sites/6119b422-fc50-424d-b178-55308d532013/edit" for 127.0.0.1 at 2013-11-23 14:25:49 -0700
+Processing by Admin::TraxSitesController#edit as HTML
+  Parameters: {"id"=>"6119b422-fc50-424d-b178-55308d532013"}
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.6ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."id" = $1 LIMIT 1  [["id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[36mTrax::Theme Load (0.4ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/edit.html.arb (108.2ms)
+Completed 200 OK in 125ms (Views: 120.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:25:50 -0700
+
+
+Started PATCH "/admin/trax_sites/6119b422-fc50-424d-b178-55308d532013" for 127.0.0.1 at 2013-11-23 14:25:53 -0700
+Processing by Admin::TraxSitesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AxfXb2pIJwfe56z5M5GP3krMqih/KiW3lzT/bAtwE/U=", "trax_site"=>{"host"=>"localhost", "name"=>"Trax Blog", "details"=>"", "description"=>"trax_blog", "active"=>"1", "routing_strategy"=>"RESTFUL", "is_default"=>"1", "theme_id"=>""}, "commit"=>"Update Site", "id"=>"6119b422-fc50-424d-b178-55308d532013"}
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.2ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."id" = $1 LIMIT 1  [["id", "6119b422-fc50-424d-b178-55308d532013"]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'  [["details", ""], ["theme_id", ""], ["active", true], ["updated_at", Sat, 23 Nov 2013 21:25:53 UTC +00:00]]
+PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: ""
+: UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 9ms
+
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: ""
+: UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'):
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:786:in `get_last_result'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:786:in `exec_cache'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:161:in `block in exec_delete'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract_adapter.rb:436:in `block in log'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract_adapter.rb:431:in `log'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:159:in `exec_delete'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:102:in `update'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/query_cache.rb:14:in `update'
+  activerecord (4.0.1) lib/active_record/persistence.rb:500:in `update_record'
+  activerecord (4.0.1) lib/active_record/locking/optimistic.rb:70:in `update_record'
+  activerecord (4.0.1) lib/active_record/attribute_methods/dirty.rb:74:in `update_record'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:310:in `block in update_record'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__1194230327992849499__update__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:310:in `update_record'
+  activerecord (4.0.1) lib/active_record/timestamp.rb:70:in `update_record'
+  activerecord (4.0.1) lib/active_record/persistence.rb:477:in `create_or_update'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:393:in `_run__1194230327992849499__save__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.0.1) lib/active_record/persistence.rb:106:in `save'
+  activerecord (4.0.1) lib/active_record/validations.rb:51:in `save'
+  activerecord (4.0.1) lib/active_record/attribute_methods/dirty.rb:32:in `save'
+  activerecord (4.0.1) lib/active_record/transactions.rb:270:in `block (2 levels) in save'
+  activerecord (4.0.1) lib/active_record/transactions.rb:326:in `block in with_transaction_returning_status'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:202:in `block in transaction'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:210:in `within_new_transaction'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:202:in `transaction'
+  activerecord (4.0.1) lib/active_record/transactions.rb:209:in `transaction'
+  activerecord (4.0.1) lib/active_record/transactions.rb:323:in `with_transaction_returning_status'
+  activerecord (4.0.1) lib/active_record/transactions.rb:270:in `block in save'
+  activerecord (4.0.1) lib/active_record/transactions.rb:281:in `rollback_active_record_state!'
+  activerecord (4.0.1) lib/active_record/transactions.rb:269:in `save'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:163:in `block in save_resource'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/callbacks.rb:78:in `run_save_callbacks'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:162:in `save_resource'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:185:in `block in update_resource'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/callbacks.rb:78:in `run_update_callbacks'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:184:in `update_resource'
+  inherited_resources (1.4.1) lib/inherited_resources/actions.rb:45:in `update'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:433:in `_run__1226740520955795763__process_action__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4380343324646489460__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.9ms)
+
+
+Started PATCH "/admin/trax_sites/6119b422-fc50-424d-b178-55308d532013" for 127.0.0.1 at 2013-11-23 14:26:13 -0700
+Processing by Admin::TraxSitesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AxfXb2pIJwfe56z5M5GP3krMqih/KiW3lzT/bAtwE/U=", "trax_site"=>{"host"=>"localhost", "name"=>"Trax Blog", "details"=>"", "description"=>"trax_blog", "active"=>"1", "routing_strategy"=>"RESTFUL", "is_default"=>"1", "theme_id"=>""}, "commit"=>"Update Site", "id"=>"6119b422-fc50-424d-b178-55308d532013"}
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.4ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."id" = $1 LIMIT 1  [["id", "6119b422-fc50-424d-b178-55308d532013"]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'  [["details", ""], ["theme_id", ""], ["active", true], ["updated_at", Sat, 23 Nov 2013 21:26:13 UTC +00:00]]
+PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: ""
+: UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 7ms
+
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  invalid input syntax for uuid: ""
+: UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'):
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:786:in `get_last_result'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:786:in `exec_cache'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:161:in `block in exec_delete'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract_adapter.rb:436:in `block in log'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract_adapter.rb:431:in `log'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:159:in `exec_delete'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:102:in `update'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/query_cache.rb:14:in `update'
+  activerecord (4.0.1) lib/active_record/persistence.rb:500:in `update_record'
+  activerecord (4.0.1) lib/active_record/locking/optimistic.rb:70:in `update_record'
+  activerecord (4.0.1) lib/active_record/attribute_methods/dirty.rb:74:in `update_record'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:310:in `block in update_record'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__1194230327992849499__update__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:310:in `update_record'
+  activerecord (4.0.1) lib/active_record/timestamp.rb:70:in `update_record'
+  activerecord (4.0.1) lib/active_record/persistence.rb:477:in `create_or_update'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:393:in `_run__1194230327992849499__save__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  activerecord (4.0.1) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.0.1) lib/active_record/persistence.rb:106:in `save'
+  activerecord (4.0.1) lib/active_record/validations.rb:51:in `save'
+  activerecord (4.0.1) lib/active_record/attribute_methods/dirty.rb:32:in `save'
+  activerecord (4.0.1) lib/active_record/transactions.rb:270:in `block (2 levels) in save'
+  activerecord (4.0.1) lib/active_record/transactions.rb:326:in `block in with_transaction_returning_status'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:202:in `block in transaction'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:210:in `within_new_transaction'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:202:in `transaction'
+  activerecord (4.0.1) lib/active_record/transactions.rb:209:in `transaction'
+  activerecord (4.0.1) lib/active_record/transactions.rb:323:in `with_transaction_returning_status'
+  activerecord (4.0.1) lib/active_record/transactions.rb:270:in `block in save'
+  activerecord (4.0.1) lib/active_record/transactions.rb:281:in `rollback_active_record_state!'
+  activerecord (4.0.1) lib/active_record/transactions.rb:269:in `save'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:163:in `block in save_resource'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/callbacks.rb:78:in `run_save_callbacks'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:162:in `save_resource'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:185:in `block in update_resource'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/callbacks.rb:78:in `run_update_callbacks'
+  /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/lib/active_admin/resource_controller/data_access.rb:184:in `update_resource'
+  inherited_resources (1.4.1) lib/inherited_resources/actions.rb:45:in `update'
+  actionpack (4.0.1) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:433:in `_run__1226740520955795763__process_action__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.1) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.1) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.1) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.1) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.1) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4380343324646489460__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/jayre/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started PATCH "/admin/trax_sites/6119b422-fc50-424d-b178-55308d532013" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+Processing by Admin::TraxSitesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AxfXb2pIJwfe56z5M5GP3krMqih/KiW3lzT/bAtwE/U=", "trax_site"=>{"host"=>"localhost", "name"=>"Trax Blog", "details"=>"", "description"=>"trax_blog", "active"=>"1", "routing_strategy"=>"RESTFUL", "is_default"=>"1", "theme_id"=>"6c908c87-b26f-4dfb-8638-2f7a1ac29086"}, "commit"=>"Update Site", "id"=>"6119b422-fc50-424d-b178-55308d532013"}
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."id" = $1 LIMIT 1  [["id", "6119b422-fc50-424d-b178-55308d532013"]]
+Unpermitted parameters: utf8, _method, authenticity_token, commit, id
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "trax_sites" SET "details" = $1, "theme_id" = $2, "active" = $3, "updated_at" = $4 WHERE "trax_sites"."id" = '6119b422-fc50-424d-b178-55308d532013'  [["details", ""], ["theme_id", "6c908c87-b26f-4dfb-8638-2f7a1ac29086"], ["active", true], ["updated_at", Sat, 23 Nov 2013 21:27:16 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/trax_sites/6119b422-fc50-424d-b178-55308d532013
+Completed 302 Found in 19ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/trax_sites/6119b422-fc50-424d-b178-55308d532013" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+Processing by Admin::TraxSitesController#show as HTML
+  Parameters: {"id"=>"6119b422-fc50-424d-b178-55308d532013"}
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.5ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."id" = $1 LIMIT 1  [["id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[36mTrax::Theme Load (0.6ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes" WHERE "trax_themes"."id" = $1 ORDER BY "trax_themes"."id" ASC LIMIT 1[0m  [["id", "6c908c87-b26f-4dfb-8638-2f7a1ac29086"]]
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/show.html.arb (30.1ms)
+Completed 200 OK in 52ms (Views: 46.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:16 -0700
+
+
+Started GET "/admin/trax_sites" for 127.0.0.1 at 2013-11-23 14:27:21 -0700
+Processing by Admin::TraxSitesController#index as HTML
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "trax_sites"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_sites" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites" ORDER BY "trax_sites"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mTrax::Entry Load (0.5ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries"[0m
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Theme Load (0.4ms)[0m  [1mSELECT "trax_themes".* FROM "trax_themes"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (119.7ms)
+Completed 200 OK in 128ms (Views: 121.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:21 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:21 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:21 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:21 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/admin/trax_themes" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+Processing by Admin::TraxThemesController#index as HTML
+  [1m[35mTrax::User Load (0.6ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.4ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_themes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_themes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "trax_themes"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_themes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mTrax::Theme Load (0.4ms)[0m  SELECT "trax_themes".* FROM "trax_themes" ORDER BY "trax_themes"."id" desc LIMIT 30 OFFSET 0
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (82.4ms)
+Completed 200 OK in 93ms (Views: 85.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:27:22 -0700
+
+
+Started GET "/admin/trax_entries" for 127.0.0.1 at 2013-11-23 14:27:23 -0700
+Processing by Admin::TraxEntriesController#index as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36m (19.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_entries" WHERE "trax_entries"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[35mTrax::Channel Load (0.3ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::User Load (0.4ms)[0m  [1mSELECT "trax_users".* FROM "trax_users"[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (210.4ms)
+Completed 200 OK in 285ms (Views: 193.4ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:23 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:23 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:23 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/admin/trax_channels" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+Processing by Admin::TraxChannelsController#index as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites"
+  [1m[36mTrax::Channel Load (0.4ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (176.8ms)
+Completed 200 OK in 187ms (Views: 178.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:24 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/admin/trax_themes" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+Processing by Admin::TraxThemesController#index as HTML
+  [1m[35mTrax::User Load (0.6ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_themes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_themes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "trax_themes"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_themes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mTrax::Theme Load (0.6ms)[0m  SELECT "trax_themes".* FROM "trax_themes" ORDER BY "trax_themes"."id" desc LIMIT 30 OFFSET 0
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (83.7ms)
+Completed 200 OK in 92ms (Views: 86.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:25 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/admin/trax_users" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+Processing by Admin::TraxUsersController#index as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "trax_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mTrax::User Load (0.3ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" ORDER BY "trax_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (42.8ms)
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:26 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+
+
+Started GET "/admin/trax_channels" for 127.0.0.1 at 2013-11-23 14:27:27 -0700
+Processing by Admin::TraxChannelsController#index as HTML
+  [1m[35mTrax::User Load (0.5ms)[0m  SELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1
+  [1m[36mTrax::Site Load (0.3ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[36mTrax::Site Load (0.4ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites"[0m
+  [1m[35mTrax::Channel Load (0.4ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::Entry Load (0.2ms)[0m  [1mSELECT "trax_entries".* FROM "trax_entries"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (172.1ms)
+Completed 200 OK in 180ms (Views: 174.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:27:28 -0700
+
+
+Started GET "/admin/trax_channels/new" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+Processing by Admin::TraxChannelsController#new as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/new.html.arb (98.3ms)
+Completed 200 OK in 117ms (Views: 102.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:27:58 -0700
+
+
+Started POST "/admin/trax_channels" for 127.0.0.1 at 2013-11-23 14:29:30 -0700
+Processing by Admin::TraxChannelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AxfXb2pIJwfe56z5M5GP3krMqih/KiW3lzT/bAtwE/U=", "trax_channel"=>{"name"=>"code", "details"=>"asdasd asdasd asda", "description"=>"sdasdasdasd asdasd", "active"=>"false", "routing_strategy"=>"RESTFUL"}, "commit"=>"Create Channel"}
+  [1m[36mTrax::User Load (0.6ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.3ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+Unpermitted parameters: utf8, authenticity_token, commit
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTrax::Channel Exists (0.4ms)[0m  SELECT 1 AS one FROM "trax_channels" WHERE ("trax_channels"."slug" = 'code' AND "trax_channels"."site_id" = '6119b422-fc50-424d-b178-55308d532013') LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "trax_channels" ("active", "created_at", "description", "details", "name", "routing_strategy", "site_id", "slug", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["active", false], ["created_at", Sat, 23 Nov 2013 21:29:30 UTC +00:00], ["description", "sdasdasdasd asdasd"], ["details", "asdasd asdasd asda"], ["name", "code"], ["routing_strategy", "RESTFUL"], ["site_id", "6119b422-fc50-424d-b178-55308d532013"], ["slug", "code"], ["updated_at", Sat, 23 Nov 2013 21:29:30 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/trax_channels/6f583f05-53c0-4f86-81bf-48aa10c2edad
+Completed 302 Found in 23ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/trax_channels/6f583f05-53c0-4f86-81bf-48aa10c2edad" for 127.0.0.1 at 2013-11-23 14:29:30 -0700
+Processing by Admin::TraxChannelsController#show as HTML
+  Parameters: {"id"=>"6f583f05-53c0-4f86-81bf-48aa10c2edad"}
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36mTrax::Channel Load (0.9ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 AND "trax_channels"."id" = $2 LIMIT 1[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"], ["id", "6f583f05-53c0-4f86-81bf-48aa10c2edad"]]
+  [1m[35mTrax::Site Load (0.6ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."id" = $1 ORDER BY "trax_sites"."id" ASC LIMIT 1  [["id", "6119b422-fc50-424d-b178-55308d532013"]]
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/show.html.arb (26.2ms)
+Completed 200 OK in 35ms (Views: 29.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:29:31 -0700
+
+
+Started GET "/admin/trax_entries" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+Processing by Admin::TraxEntriesController#index as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_entries" WHERE "trax_entries"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[35mTrax::Channel Load (0.4ms)[0m  SELECT "trax_channels".* FROM "trax_channels"
+  [1m[36mTrax::User Load (0.3ms)[0m  [1mSELECT "trax_users".* FROM "trax_users"[0m
+  [1m[35mTrax::Entry Load (0.4ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mTrax::Site Load (0.4ms)[0m  [1mSELECT "trax_sites".* FROM "trax_sites"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (183.8ms)
+Completed 200 OK in 192ms (Views: 185.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:32:50 -0700
+
+
+Started GET "/admin/trax_channels" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+Processing by Admin::TraxChannelsController#index as HTML
+  [1m[36mTrax::User Load (0.5ms)[0m  [1mSELECT "trax_users".* FROM "trax_users" WHERE "trax_users"."id" = '64be4b21-0041-4464-838b-19423ab117dd' ORDER BY "trax_users"."id" ASC LIMIT 1[0m
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites" WHERE "trax_sites"."host" IN ('localhost') ORDER BY "trax_sites"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "trax_channels" WHERE "trax_channels"."site_id" = $1[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[36mTrax::Channel Load (0.5ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels" WHERE "trax_channels"."site_id" = $1 ORDER BY "trax_channels"."id" desc LIMIT 30 OFFSET 0[0m  [["site_id", "6119b422-fc50-424d-b178-55308d532013"]]
+  [1m[35mTrax::Site Load (0.4ms)[0m  SELECT "trax_sites".* FROM "trax_sites"
+  [1m[36mTrax::Channel Load (0.3ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  [1m[35mTrax::Entry Load (0.3ms)[0m  SELECT "trax_entries".* FROM "trax_entries"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "trax_channels".* FROM "trax_channels"[0m
+  Rendered /Users/jayre/.rvm/gems/ruby-2.0.0-p0/bundler/gems/active_admin-131c3a4ebcf2/app/views/active_admin/resource/index.html.arb (195.6ms)
+Completed 200 OK in 204ms (Views: 196.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/print.css?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/orderable.png" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon.png" for 127.0.0.1 at 2013-11-23 14:32:51 -0700
