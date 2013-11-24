@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.0.1"
   s.add_dependency "devise"
   s.add_dependency "activeadmin"
+  s.add_dependency "ancestry"
 end

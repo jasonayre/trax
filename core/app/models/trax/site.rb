@@ -4,6 +4,7 @@ module Trax
     
     has_many :entries
     has_many :channels, :class_name => "::Trax::Channel"
+    has_many :menus, :class_name => "::Trax::Menu"
     accepts_nested_attributes_for :channels
     belongs_to :theme
     
