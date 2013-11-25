@@ -45,3 +45,16 @@ site = ::Trax::Site.first
   )
   puts channel.inspect
 end
+
+channel = ::Trax::Channel.first
+
+400.times do |i|
+  entry = ::Trax::Entry.create(
+    :title => "fake entry #{i}",
+    :body => "I am a fake entry",
+    :active => true,
+    :site => site,
+    :channel => channel
+  )
+  puts entry.inspect
+end

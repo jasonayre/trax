@@ -33,7 +33,20 @@ angular.module('admin.channels.controllers').controller('ChannelsIndexController
         // console.log(result);
         // $scope.collection.remove(result);
       });
-    }
+    };
+    
+    $scope.doSomething = function() {
+      console.log('doing something');
+      return "blah";
+    };
+    
+    $scope.pop = function() {
+      console.log('pop');
+      resource = $scope.collection.pop();
+      resource.remove().then(function (result){
+        console.log(result, 'was destroyed');
+      });
+    };
     
   }]
 );
