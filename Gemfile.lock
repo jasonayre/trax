@@ -25,6 +25,7 @@ PATH
       trax_core (= 0.0.1)
     trax_admin (0.0.1)
       angular-rails
+      inherited_resources
       lodash-rails
       navigasmic
       rails (~> 4.0.1)

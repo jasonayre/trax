@@ -1,3 +1,5 @@
+angular.module("admin.channels.services", []);
+
 angular.module('admin.channels.services').factory("Channel", ["railsResourceFactory", function(railsResourceFactory) {
     var resource;
     

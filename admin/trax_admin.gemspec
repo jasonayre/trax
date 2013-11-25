@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "navigasmic"
   s.add_dependency "angular-rails"
   s.add_dependency "lodash-rails"
+  s.add_dependency "inherited_resources"
 
   s.add_development_dependency "sqlite3"
 end

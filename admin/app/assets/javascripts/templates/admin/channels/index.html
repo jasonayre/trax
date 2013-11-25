@@ -1,2 +1,22 @@
 <h1>{{heading}}</h1>
 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Channel Name</th>
+      <th>Slug</th>
+      <th>Site Id</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="channel in collection track by channel.id">
+      <td><strong ng-click="$parent.show(channel)">{{channel.id}}</strong></td>
+      <td>{{channel.name}}</td>
+      <td>{{channel.slug}}</td>
+      <td>{{channel.site_id}}</td>
+      <td><button ng-click="$parent.delete(channel, $index)" class="btn-danger">Destroy</button></td>
+    </tr>
+  </tbody>
+</table>

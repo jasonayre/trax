@@ -1,6 +1,6 @@
 module Trax
   module Admin
-    class ApplicationController < ActionController::Base
+    class ApplicationController < InheritedResources::Base
     
       layout Proc.new { |controller| "trax/admin/layouts/one_column" }
     

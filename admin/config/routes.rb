@@ -4,8 +4,10 @@
     namespace :admin do
       resources :channels
       resources :entries
+      resources :menus
+      resources :menu_items
       
-      root :to => "channels#index"
+      root :to => "dashboard#index"
     end
   end
 
