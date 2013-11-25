@@ -6,7 +6,7 @@
   <%= javascript_include_tag "trax/admin/application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="admin.channels">
 <div id="wrap">
   <!-- Fixed navbar -->
   <div role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -44,6 +44,8 @@
 
   <!-- Begin page content -->
   <div class="container">
+    <ng-view>
+    </ng-view>    
     <%= yield %>
   </div>
 </div>

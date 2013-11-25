@@ -3,10 +3,7 @@
   # belongs_to :menu
   # belongs_to :menu
   
-  sortable_tree_member_actions
-  
   index do
-    sortable_tree_columns
     column :label
     column :name
     column :href
@@ -17,7 +14,6 @@
       f.input :name
       f.input :label
       f.input :href
-      # f.input :partial
     end
     
     f.actions

@@ -30,11 +30,6 @@ PATH
       rails (~> 4.0.1)
 
 PATH
-  remote: ~/gems/active_admin-awesome_nested_set
-  specs:
-    active_admin-awesome_nested_set (0.0.5)
-
-PATH
   remote: ~/gems/trax/backend
   specs:
     trax_backend (0.0.1)
@@ -273,7 +268,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_admin-awesome_nested_set!
   activeadmin!
   activerecord-jdbcpostgresql-adapter
   awesome_nested_set
