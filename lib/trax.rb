@@ -20,3 +20,4 @@ end
 require 'trax_core'
 require 'trax_backend'
 require 'trax_frontend'
+require 'trax_admin'

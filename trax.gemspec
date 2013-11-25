@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   
   s.add_dependency "trax_core", version
   s.add_dependency "trax_backend", version
+  s.add_dependency "trax_admin", version
 end

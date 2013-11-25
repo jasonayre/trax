@@ -1,0 +1,16 @@
+angular.module('common.services').factory('Templates', ['$http', '$templateCache', 'ADMIN_TEMPLATES', function ($http, $templateCache, ADMIN_TEMPLATES) {
+  
+  var Templates = ADMIN_TEMPLATES;
+  
+  Templates.fetch = function(key) {
+    var self = this;
+    self.scope_templates = eval("self."+key);
+    //load and cache only the templates used for particular namespace
+    _(self.scope_templates).flattenObjectExtractValues().map(function(template){
+      $http.get(template, {cache: $templateCache});
+    });
+    self.path = self.scope_templates;
+  };
+
+  return Templates;
+}]);

@@ -1,0 +1,43 @@
+var admin = {};
+angular.module("admin", []);
+angular.module("admin.channels", []);
+angular.module("admin.entries", []);
+
+admin["channels"] = angular.module("admin.channels", ["ng", "rails", 'admin.controllers', 'admin.directives', 'admin.filters', 'admin.services', 'ui.bootstrap', 'common.directives', 'common.services', 'common.filters']);
+admin["entries"] = angular.module("admin.entries", ["ng", "rails", 'admin.controllers', 'admin.directives', 'admin.filters', 'admin.services', 'ui.bootstrap', 'common.directives', 'common.services', 'common.filters']);
+
+angular.module("admin.channels").config(['$routeProvider', 'ADMIN_TEMPLATES', function($routeProvider, ADMIN_TEMPLATES) {
+  $routeProvider.when('/channels', {
+    templateUrl: ADMIN_TEMPLATES['channels']['index'],
+    controller: "ChannelsIndexController"
+  });
+  
+  $routeProvider.when('/channels/:resource_id', {
+    templateUrl: ADMIN_TEMPLATES['channels']['show'],
+    controller: "ChannelsShowController"
+  });
+  
+  $routeProvider.otherwise({
+    templateUrl: ADMIN_TEMPLATES['channels']['index'],
+    controller: "ChannelsIndexController"
+  });
+}]);
+
+angular.module("admin.entries").config(['$routeProvider', 'ADMIN_TEMPLATES', function($routeProvider, ADMIN_TEMPLATES) {
+  $routeProvider.when('/channels', {
+    templateUrl: ADMIN_TEMPLATES['entries']['index'],
+    controller: "EntriesIndexController"
+  });
+  
+  $routeProvider.when('/entries/:resource_id', {
+    templateUrl: ADMIN_TEMPLATES['entries']['show'],
+    controller: "EntriesShowController"
+  });
+  
+  $routeProvider.otherwise({
+    templateUrl: ADMIN_TEMPLATES['entries']['index'],
+    controller: "EntriesIndexController"
+  });
+}]);
+
+window.admin = admin;
