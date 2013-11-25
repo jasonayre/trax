@@ -1,0 +1,21 @@
+package trax.backend;
+
+import "trax/common.proto";
+
+
+message MenuItemForm {
+
+}
+
+message MenuItemPermittedParams {
+  optional string label = 1;
+  optional string name = 2;
+  optional string template = 3;
+  optional string path = 4;
+  optional string resource_type = 5;
+  optional bytes resource_id = 6;
+  optional bytes parent_id = 7;
+  optional int32 lft = 8;
+  optional int32 rgt = 9;
+  optional int32 depth = 10;
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124005830) do
+ActiveRecord::Schema.define(version: 20131124005432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,25 +68,32 @@ ActiveRecord::Schema.define(version: 20131124005830) do
   add_index "trax_entries", ["title"], name: "index_trax_entries_on_title", using: :btree
   add_index "trax_entries", ["user_id"], name: "index_trax_entries_on_user_id", using: :btree
 
-  create_table "trax_menu_items", force: true do |t|
+  create_table "trax_menu_items", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "menu_id"
-    t.uuid     "parent_id"
     t.string   "label"
-    t.string   "path"
-    t.integer  "level"
+    t.string   "name"
     t.string   "title"
     t.string   "resource_type"
+    t.string   "href"
+    t.uuid     "resource_id"
+    t.uuid     "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "trax_menu_items", ["level"], name: "index_trax_menu_items_on_level", using: :btree
+  add_index "trax_menu_items", ["depth"], name: "index_trax_menu_items_on_depth", using: :btree
+  add_index "trax_menu_items", ["lft"], name: "index_trax_menu_items_on_lft", using: :btree
   add_index "trax_menu_items", ["menu_id"], name: "index_trax_menu_items_on_menu_id", using: :btree
   add_index "trax_menu_items", ["parent_id"], name: "index_trax_menu_items_on_parent_id", using: :btree
   add_index "trax_menu_items", ["resource_type"], name: "index_trax_menu_items_on_resource_type", using: :btree
+  add_index "trax_menu_items", ["rgt"], name: "index_trax_menu_items_on_rgt", using: :btree
 
-  create_table "trax_menus", force: true do |t|
+  create_table "trax_menus", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
+    t.string   "template"
     t.uuid     "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -129,19 +136,26 @@ ActiveRecord::Schema.define(version: 20131124005830) do
   add_index "trax_themes", ["name"], name: "index_trax_themes_on_name", using: :btree
   add_index "trax_themes", ["version"], name: "index_trax_themes_on_version", using: :btree
 
-  create_table "trax_tree_nodes", force: true do |t|
+  create_table "trax_tree_nodes", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "menu_id"
     t.string   "label"
+    t.string   "name"
     t.string   "href"
     t.string   "value"
     t.string   "css_class"
+    t.uuid     "resource_id"
+    t.uuid     "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ancestry"
   end
 
-  add_index "trax_tree_nodes", ["ancestry"], name: "index_trax_tree_nodes_on_ancestry", using: :btree
+  add_index "trax_tree_nodes", ["lft"], name: "index_trax_tree_nodes_on_lft", using: :btree
   add_index "trax_tree_nodes", ["menu_id"], name: "index_trax_tree_nodes_on_menu_id", using: :btree
+  add_index "trax_tree_nodes", ["parent_id"], name: "index_trax_tree_nodes_on_parent_id", using: :btree
+  add_index "trax_tree_nodes", ["rgt"], name: "index_trax_tree_nodes_on_rgt", using: :btree
 
   create_table "trax_users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -10,4 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery-ui
+//= require jquery.ui.nestedSortable
+//= require sortable_tree/initializer
 //= require_tree .

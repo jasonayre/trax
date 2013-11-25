@@ -14,6 +14,12 @@ gem 'sass-rails', '~> 4.0.0'
 gem "activeadmin", github: "gregbell/active_admin"
 gem 'formtastic-bootstrap'
 gem 'protobuf'
+# gem 'ancestry', :path => "~/gems/ancestry-rails4"
+# gem 'awesome_nested_set', :path => "~/gems/awesome_nested_set"
+gem "awesome_nested_set"
+gem "active_admin-awesome_nested_set", :path => "~/gems/active_admin-awesome_nested_set"
+gem "the_sortable_tree"
+gem 'awesome_print'
 
 group :test do
   gem 'rspec-rails'

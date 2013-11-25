@@ -1,6 +1,7 @@
 module Trax
   class TreeNode < ActiveRecord::Base
-    has_ancestry
+    acts_as_nested_set
+    
     belongs_to :menu
   end
 end

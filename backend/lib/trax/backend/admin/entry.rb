@@ -1,4 +1,4 @@
-::ActiveAdmin.register ::Trax::Entry do
+::ActiveAdmin.register ::Trax::Entry, :as => "Entry" do
   scope_to :current_site, :association_method => :entries
   
   index

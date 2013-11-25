@@ -1,4 +1,4 @@
-::ActiveAdmin.register ::Trax::Site do
+::ActiveAdmin.register ::Trax::Site, :as => "Site" do
   index
   
   form do |f|

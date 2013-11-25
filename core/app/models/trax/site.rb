@@ -5,7 +5,11 @@ module Trax
     has_many :entries
     has_many :channels, :class_name => "::Trax::Channel"
     has_many :menus, :class_name => "::Trax::Menu"
+    has_many :menu_items, :through => :menus
+    
     accepts_nested_attributes_for :channels
+    accepts_nested_attributes_for :menus
+    
     belongs_to :theme
     
     scope :by_host, lambda{|*hosts| where(:host => hosts.flatten.compact.uniq) }

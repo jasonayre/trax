@@ -1,4 +1,4 @@
-::ActiveAdmin.register ::Trax::Channel do
+::ActiveAdmin.register ::Trax::Channel, :as => "Channel" do
   scope_to :current_site, :association_method => :channels
   
   index

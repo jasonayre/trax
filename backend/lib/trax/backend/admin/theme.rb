@@ -1,4 +1,4 @@
-::ActiveAdmin.register ::Trax::Theme do
+::ActiveAdmin.register ::Trax::Theme, :as => "Theme" do
   index
   
   form do |f|

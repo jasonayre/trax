@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :tree_node, :class => '::Trax::TreeNode' do
-    # menu
+    menu
     label "Menu Item 1"
     href "MyString"
     value "blah"
@@ -14,7 +14,7 @@ FactoryGirl.define do
     
     factory :tree_node_with_children do
       after(:create) do |tree_node, evaluator|
-        FactoryGirl.create_list(:tree_node, evaluator.nodes_count, :parent => tree_node.uuid, :name => "Child Node 1")
+        FactoryGirl.create_list(:tree_node, evaluator.nodes_count, :parent_id => tree_node.id, :label => "Child Node 1", :menu_id => tree_node.menu_id)
       end
     end
   end

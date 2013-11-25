@@ -1,4 +1,4 @@
-ActiveAdmin.register ::Trax::User do
+ActiveAdmin.register ::Trax::User, :as => "User" do
   index do
     column :email
     column :current_sign_in_at

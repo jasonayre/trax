@@ -12,7 +12,7 @@ FactoryGirl.define do
       end
       
       after(:create) do |trax_menu, evaluator|
-        ::FactoryGirl.create_list(:tree_node_with_children, 5, :menu => trax_menu.site, :menu => trax_menu)
+        ::FactoryGirl.create_list(:tree_node_with_children, 5, :menu => trax_menu)
       end
     end
   end
