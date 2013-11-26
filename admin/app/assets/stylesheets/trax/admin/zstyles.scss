@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url(font-path('BebasNeue-webfont.eot'));
+  src: url(font-path('BebasNeue-webfont.eot') + '?#iefix') format('embedded-opentype'),
+      url(font-path('BebasNeue-webfont.woff')) format('woff'),
+      url(font-path('BebasNeue-webfont.ttf')) format('truetype'),
+      url(font-path('BebasNeue-webfont.svg') + '#BebasNeueRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldLight';
+  src: url(font-path('Oswald-Light-webfont.eot'));
+  src: url(font-path('Oswald-Light-webfont.eot') + '?#iefix') format('embedded-opentype'),
+      url(font-path('Oswald-Light-webfont.woff')) format('woff'),
+      url(font-path('Oswald-Light-webfont.ttf')) format('truetype'),
+      url(font-path('Oswald-Light-webfont.svg') + '#OswaldLightRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldBook';
+  src: url(font-path('Oswald-Book-webfont.eot'));
+  src: url(font-path('Oswald-Book-webfont.eot') + '?#iefix') format('embedded-opentype'),
+      url(font-path('Oswald-Book-webfont.woff')) format('woff'),
+      url(font-path('Oswald-Book-webfont.ttf')) format('truetype'),
+      url(font-path('Oswald-Book-webfont.svg') + '#OswaldBook') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldBold';
+  src: url(font-path('Oswald-Bold-webfont.eot'));
+  src: url(font-path('Oswald-Bold-webfont.eot') + '?#iefix') format('embedded-opentype'),
+      url(font-path('Oswald-Bold-webfont.woff')) format('woff'),
+      url(font-path('Oswald-Bold-webfont.ttf')) format('truetype'),
+      url(font-path('Oswald-Bold-webfont.svg') + '#OswaldBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OswaldStencilRegular';
+  src: url('/assets/Oswald-Stencil-webfont.eot');
+  src: url('/assets/Oswald-Stencil-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/Oswald-Stencil-webfont.woff') format('woff'),
+       url('/assets/Oswald-Stencil-webfont.ttf') format('truetype'),
+       url('/assets/Oswald-Stencil-webfont.svg#OswaldStencilRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'eurostileregular';
+  src: url(font-path('eurostyleregular-webfont.eot'));
+  src: url(font-path('eurostyleregular-webfont.eot') + '?#iefix') format('embedded-opentype'),
+      url(font-path('eurostyleregular-webfont.woff')) format('woff'),
+      url(font-path('eurostyleregular-webfont.ttf')) format('truetype'),
+      url(font-path('eurostyleregular-webfont.svg') + '#eurostileregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$box-shadow-color: #eeeeee;
+
+#content .content-title {
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:34px;
+  letter-spacing: 2px;
+  margin:15px 0 0;
+}
+.trax_logo {
+  color:#f9f9f9;
+  font-size:32px;
+  font-family: eurostileregular;
+  i {
+    font-size:26px;
+  }
+  margin-left: 50px;
+  text-transform:uppercase;
+  &:hover {
+    text-decoration:none;
+    color:#eee;
+  }
+}
+.box.border .box-title, .box.solid .box-title {
+  padding: 14px 10px 8px;
+}
+.box .box-title h4 {
+  color: #555555;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar .navbar-brand {
+  padding: 12px;
+}
+
+.box.border.primary {
+  background:#ffffff;
+  box-shadow: $box-shadow-color 0 0 10px, #cacaca 0 2px 1px 0 inset;
+  border-radius: 6px;
+  border:1px solid #c5c5c5;
+}

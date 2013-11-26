@@ -1,8 +1,8 @@
 angular.module('admin.channels.controllers').controller('ChannelsIndexController',
   ["$scope", "Channel", "$routeParams", "$location", "Templates", function($scope, Channel, $routeParams, $location, Templates) {
     Templates.fetch('channels');
-
-    $scope.heading = "I AM CHANNELS INDEX CONTROLLER";
+    
+    $scope.header = {title: "Channels", description: "The primary taxonomy"};
     
     $scope.fetchCollection = function () {
       $scope.collection_is_loading = true;
