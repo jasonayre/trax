@@ -13,12 +13,12 @@
   <tbody>
     <tr ng-repeat="channel in collection track by channel.id">
       <td><strong ng-click="$parent.show(channel)">{{channel.id}}</strong></td>
-      <td>{{channel.name}}</td>
+      <td>
+        <strong ng-if="!editing" >{{channel.name}}</strong>
+      </td>
       <td>{{channel.slug}}</td>
-      <td>{{channel.site_id}}</td>
-      <td><button ng-click="$parent.delete(channel, $index)" class="btn-danger">Destroy</button></td>
+      <td>{{channel.site_id}} {{ $parent.doSomething() }}</td>
+      <td><button ng-click="$parent.destroy($index)" class="btn-danger">Destroy</button></td>
     </tr>
   </tbody>
 </table>
-
-<button ng-click="pop()" class="btn-danger">Destroy</button>

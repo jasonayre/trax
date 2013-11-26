@@ -16,35 +16,32 @@ angular.module('admin.channels.controllers').controller('ChannelsIndexController
     
     $scope.show = function (resource) {
       console.log(resource);
-      
-      resource.get().then(function (result) {
-        console.log('result is ', result);
-      });
-    };
-    
-    $scope.delete = function(resource, index) {
-      console.log(resource);
-      resource.remove().then(function (result){
-        $scope.collection.pop();
-        // $scope.collection.slice(index, 1);
-        // result.remove();
+      Channel.get({id: resource.id}).then(function (result){
         console.log(result);
-        // console.log($scope.collection);
-        // console.log(result);
-        // $scope.collection.remove(result);
       });
-    };
-    
-    $scope.doSomething = function() {
-      console.log('doing something');
-      return "blah";
+      // resource.get().then(function (result) {
+      //   console.log('result is ', result);
+      // });
     };
     
     $scope.pop = function() {
-      console.log('pop');
       resource = $scope.collection.pop();
+      resource.delete().then(function(result){
+        console.log(result);
+      });
+    }
+    
+    $scope.doSomething = function() {
+
+      return 'blah';
+    };
+    
+    $scope.destroy = function(index) {
+      resource = $scope.collection[index];
+
       resource.remove().then(function (result){
-        console.log(result, 'was destroyed');
+        $scope.collection.splice(index, 1);
+        console.log(result);
       });
     };
     

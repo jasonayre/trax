@@ -9,7 +9,8 @@ module Trax
       end
     
       def show
-        @resource ||= ::Trax::Channel.find_by_slug(params[:id])
+        @resource ||= ::Trax::Channel.find(params[:id])
+        respond_with(@resource)
       end
     end
   end
