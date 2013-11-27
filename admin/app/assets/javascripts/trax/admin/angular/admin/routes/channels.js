@@ -10,6 +10,16 @@ angular.module("admin").config(['$routeProvider', 'ADMIN_TEMPLATES', function($r
     controller: "ChannelsShowController"
   });
   
+  $routeProvider.when('/channels/:resource_id/edit', {
+    templateUrl: ADMIN_TEMPLATES['channels']['form'],
+    controller: "ChannelsFormController"
+  });
+  
+  $routeProvider.when('/channels/new', {
+    templateUrl: ADMIN_TEMPLATES['channels']['form'],
+    controller: "ChannelsFormController"
+  });
+  
   $routeProvider.otherwise({
     templateUrl: ADMIN_TEMPLATES['channels']['index'],
     controller: "ChannelsIndexController"

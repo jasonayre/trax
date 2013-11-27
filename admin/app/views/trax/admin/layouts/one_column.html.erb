@@ -2,21 +2,43 @@
 <html>
 <head>
   <title>Trax Admin</title>
-
   <%= stylesheet_link_tag    "trax/admin/application", media: "all" %>
-
   <%= javascript_include_tag "trax/admin/application" %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="admin">
-<div id="wrap">
-  <%= render :partial => "trax/admin/layouts/header" %>
-  <section id="page">
-    <%= render :partial => "trax/admin/layouts/sidebar" %>
-    <div >
-      <ng-view></ng-view>
+  <div id="wrap">
+    <%= render :partial => "trax/admin/layouts/header" %>
+    <section id="page">
+      <%= render :partial => "trax/admin/layouts/sidebar" %>
+      <div id="main-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12" id="content">
+              <!-- PAGE HEADER-->
+              <div class="row" ng-show="active_controller_settings.has_header">
+                <div class="col-sm-12">
+                  <div class="page-header">
+                    <div class="clearfix">
+                      <h3 class="content-title pull-left">{{page_header.title}}</h3>
+                    </div>
+                    <div class="description">{{page_header.description}}</div>
+                  </div>
+                </div>
+              </div>
+              <!-- /PAGE HEADER -->
+    
+              <ng-view></ng-view>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    
     <div class="separator"></div>
+    
   </section>
 </div>
 
