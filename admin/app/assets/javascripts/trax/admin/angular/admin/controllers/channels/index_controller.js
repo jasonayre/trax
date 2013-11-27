@@ -1,7 +1,15 @@
-angular.module('admin.channels.controllers').controller('ChannelsIndexController',
+console.log('indexcontrolerequired');
+
+angular.module('admin.controllers.channels').controller('ChannelsIndexController',
   ["$scope", "Channel", "$routeParams", "$location", "Templates", function($scope, Channel, $routeParams, $location, Templates) {
+    console.log('channels index controller');
     Templates.fetch('channels');
     
+    $scope.active_controller_config = {
+      has_header: false
+    };
+    
+    $scope.has_header = false;
     $scope.header = {title: "Channels", description: "The primary taxonomy"};
     
     $scope.fetchCollection = function () {
@@ -19,9 +27,6 @@ angular.module('admin.channels.controllers').controller('ChannelsIndexController
       Channel.get({id: resource.id}).then(function (result){
         console.log(result);
       });
-      // resource.get().then(function (result) {
-      //   console.log('result is ', result);
-      // });
     };
     
     $scope.pop = function() {

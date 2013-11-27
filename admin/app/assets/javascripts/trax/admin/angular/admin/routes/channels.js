@@ -1,5 +1,5 @@
-angular.module("admin.channels").config(['$routeProvider', 'ADMIN_TEMPLATES', function($routeProvider, ADMIN_TEMPLATES) {
-  console.log(ADMIN_TEMPLATES);
+console.log('channels router');
+angular.module("admin", ['admin.controllers.channels', 'admin.templates']).config(['$routeProvider', 'ADMIN_TEMPLATES', function($routeProvider, ADMIN_TEMPLATES) {
   console.log('adminchanelsrouterinit');
   $routeProvider.when('/channels', {
     templateUrl: ADMIN_TEMPLATES['channels']['index'],

@@ -1,4 +1,4 @@
-angular.module('admin.channels.controllers').controller('ChannelsShowController',
+angular.module('admin.controllers.channels').controller('ChannelsShowController',
   ["$scope", "Channel", "$routeParams", "$location", "Templates", function($scope, Channel, $routeParams, $location, Templates) {
     Templates.fetch('channels');
     

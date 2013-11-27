@@ -12,6 +12,6 @@
 //
 //= require_tree ./lib
 //= require_tree ./core_ext
-//= require_tree ./angular
+//= require ./angular/admin
 //= require_tree .
 

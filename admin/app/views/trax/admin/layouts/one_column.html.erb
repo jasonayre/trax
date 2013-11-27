@@ -8,12 +8,14 @@
   <%= javascript_include_tag "trax/admin/application" %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="admin.channels">
+<body >
 <div id="wrap">
   <%= render :partial => "trax/admin/layouts/header" %>
   <section id="page">
     <%= render :partial => "trax/admin/layouts/sidebar" %>
-    <ng-view></ng-view>
+    <div ng-app="admin">
+      <ng-view></ng-view>
+    </div>
     <div class="separator"></div>
   </section>
 </div>
