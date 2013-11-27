@@ -1,4 +1,6 @@
 //= require_self
 //= require_directory ./controllers/
 
-angular.module('common.controllers', ['common.services']);
+angular.module('common.controllers', []);
+
+// angular.module('common.controllers', []);

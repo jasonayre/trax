@@ -7,7 +7,7 @@
 console.log('ADMINJS REQUIRED');
 
 var app = {};
-app["admin"] = angular.module('admin', ["ng", "rails", "ui.bootstrap"]);
+app["admin"] = angular.module('admin', ["ng", "rails", "ui.bootstrap", "ui.router"]);
 
 app["admin"].config(function(railsSerializerProvider){
    railsSerializerProvider.

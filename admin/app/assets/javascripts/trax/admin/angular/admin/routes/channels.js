@@ -1,27 +1,35 @@
-angular.module("admin").config(['$routeProvider', 'ADMIN_TEMPLATES', function($routeProvider, ADMIN_TEMPLATES) {
+angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_TEMPLATES', function($stateProvider, $urlRouterProvider, ADMIN_TEMPLATES) {
   console.log('adminchanelsrouterinit');
-  $routeProvider.when('/channels', {
-    templateUrl: ADMIN_TEMPLATES['channels']['index'],
+  console.log($stateProvider);
+  
+  $stateProvider.state('channels', {
+    url: '/channels',
+    templateUrl: "/assets/templates/admin/channels/index.html",
     controller: "ChannelsIndexController"
   });
   
-  $routeProvider.when('/channels/:resource_id', {
-    templateUrl: ADMIN_TEMPLATES['channels']['show'],
+  $stateProvider.state('channels.edit', {
+    url: '/{id}/edit',
+    templateUrl: "/assets/templates/admin/channels/form.html",
+    controller: "ChannelsFormController",
+    onEnter: function(){
+      console.log('I AM ENTERING');
+    }
+  });
+  
+  $stateProvider.state('channels.new', {
+    url: '/new',
+    templateUrl: "/assets/templates/admin/channels/form.html",
+    controller: "ChannelsFormController"
+  });
+
+
+  $stateProvider.state('channels.show', {
+    url: '/{id}',
+    templateUrl: "/assets/templates/admin/channels/show.html",
     controller: "ChannelsShowController"
   });
   
-  $routeProvider.when('/channels/:resource_id/edit', {
-    templateUrl: ADMIN_TEMPLATES['channels']['form'],
-    controller: "ChannelsFormController"
-  });
   
-  $routeProvider.when('/channels/new', {
-    templateUrl: ADMIN_TEMPLATES['channels']['form'],
-    controller: "ChannelsFormController"
-  });
-  
-  $routeProvider.otherwise({
-    templateUrl: ADMIN_TEMPLATES['channels']['index'],
-    controller: "ChannelsIndexController"
-  });
+  $urlRouterProvider.otherwise('/channels');
 }]);
