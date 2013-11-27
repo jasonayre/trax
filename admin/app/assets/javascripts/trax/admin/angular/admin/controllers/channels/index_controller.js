@@ -5,10 +5,8 @@ angular.module('admin.controllers.channels').controller('ChannelsIndexController
     console.log('channels index controller');
     Templates.fetch('channels');
     
-    $scope.active_controller_config = {
-      has_header: false
-    };
-    
+    $scope.$root.active_controller_settings = {has_header: true};
+
     $scope.has_header = false;
     $scope.header = {title: "Channels", description: "The primary taxonomy"};
     

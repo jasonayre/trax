@@ -1,5 +1,6 @@
-<div class="sidebar" id="sidebar">
+<div class="sidebar" id="sidebar" ng-controller="SidebarController" ng-show="visible">
   <div class="sidebar-menu nav-collapse">
+    <h5>{{heading}}</h5>
     <div class="divide-20"></div>
     <!-- SEARCH BAR -->
     <div id="search-bar">
@@ -9,20 +10,20 @@
 
     <!-- SIDEBAR MENU -->
     <ul>
-      <li>
+      <li ng-repeat="item in items">
         <a href="">
-          <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">Dashboard</span>
+          <i class="fa fa-{{item.icon_class}} fa-fw"></i> <span class="menu-text">{{item.name}}</span>
           <span class="selected"></span>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fa fa-gallery"></i> <span class="menu-text">Channels</span>
+          <i class="fa fa-{{item.icon_class}}"></i> <span class="menu-text">{{item.name}}</span>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fa fa-pencil"></i> <span class="menu-text">Entries</span>
+          <i class="fa fa-{{item.icon_class}}"></i> <span class="menu-text">{{item.name}}</span>
         </a>
       </li>
     </ul>
