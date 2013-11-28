@@ -1,0 +1,13 @@
+package trax.admin;
+
+import "trax/common.proto";
+
+
+message MenuForm {
+  
+}
+
+message MenuPermittedParams {
+  optional string name = 1;
+  optional string template = 2;
+}

@@ -1,6 +1,9 @@
 <div class="row" ng-show="page_header_visible">
   <div class="col-sm-12">
     <div class="page-header">
+      <div class="pull-right">
+        <button class="btn btn-primary" ui-sref="channels.new">Add Channel</button>
+      </div>
       <div class="clearfix">
         <h3 class="content-title pull-left">{{page_header.title}}</h3>
       </div>
@@ -9,45 +12,49 @@
   </div>
 </div>
 
-<div class="box border primary main_view" ui-view>
-  <div class="box-title">
-    <h4><i class="fa fa-table"></i>Channel List</h4>
-    <div class="tools">
-      <a class="config">
-        <i class="fa fa-cog"></i>
-      </a>
-      <a class="reload">
-        <i class="fa fa-refresh"></i>
-      </a>
-      <a class="collapse">
-        <i class="fa fa-chevron-up"></i>
-      </a>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box border primary main_view" ui-view>
+      <div class="box-title">
+        <h4><i class="fa fa-table"></i>Channel List</h4>
+        <div class="tools">
+          <a class="config">
+            <i class="fa fa-cog"></i>
+          </a>
+          <a class="reload">
+            <i class="fa fa-refresh"></i>
+          </a>
+          <a class="collapse">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="box-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Channel Name</th>
+              <th>Slug</th>
+              <th>Site Id</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="channel in collection track by channel.id">
+              <td><a ui-sref="channels.show({id: channel.id})">{{channel.id}}</a></td>
+              <td>{{channel.name}}</td>
+              <td>{{channel.slug}}</td>
+              <td>{{channel.site_id}}</td>
+              <td>
+                <a ui-sref="channels.edit({id: channel.id})"><i class="fa fa-cog"></i></a>
+                <a ng-click="$parent.destroy($index)"><i class="fa fa-trash-o"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="box-body">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Channel Name</th>
-          <th>Slug</th>
-          <th>Site Id</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="channel in collection track by channel.id">
-          <td><a ui-sref="channels.show({id: channel.id})">{{channel.id}}</a></td>
-          <td>{{channel.name}}</td>
-          <td>{{channel.slug}}</td>
-          <td>{{channel.site_id}}</td>
-          <td>
-            <a ui-sref="channels.edit({id: channel.id})"><i class="fa fa-cog"></i></a>
-            <a ng-click="$parent.destroy($index)"><i class="fa fa-trash-o"></i></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
 

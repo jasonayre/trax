@@ -8,6 +8,8 @@ module Trax
         config.assets.paths << "#{Engine.root}/app/assets/templates"
         config.assets.paths << "#{Engine.root}/app/assets/fonts"
         config.assets.paths << "#{Engine.root}/app/assets/images"
+        
+        ::ActiveModel::ArraySerializer.root = false
 
       end
     end

@@ -17,6 +17,7 @@ gem 'protobuf'
 gem "awesome_nested_set"
 gem "the_sortable_tree"
 gem 'awesome_print'
+gem "active_model_serializers"
 
 group :test do
   gem 'rspec-rails'

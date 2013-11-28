@@ -1,0 +1,10 @@
+package trax.admin;
+
+import "trax/common.proto";
+
+message ThemePermittedParams {
+  extensions 200 to max;
+  
+  optional string name = 1;
+  optional string version = 2;
+}

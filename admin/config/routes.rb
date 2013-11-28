@@ -9,6 +9,9 @@
       
       root :to => "dashboard#index"
     end
+    
+    get 'admin/*all' => 'admin/channels#index'
+    
   end
 
 end

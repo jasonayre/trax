@@ -1,7 +1,6 @@
 angular.module('admin.controllers.channels').controller('ChannelsIndexController',
   ["$scope", "Channel", "Templates", "$stateParams", function($scope, Channel, Templates, $stateParams) {
     console.log('channels index controller');
-    // Templates.fetch('channels');
     
     console.log($stateParams);
     

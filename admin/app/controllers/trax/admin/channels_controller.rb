@@ -2,10 +2,11 @@ module Trax
   module Admin
     class ChannelsController < ::Trax::Admin::ApplicationController
       respond_to :json
+      
       def index
-        @collection ||= current_site.channels
-        
-        respond_with(@collection)
+        # @collection ||= current_site.channels
+        # 
+        # respond_with(@collection)
       end
     
       def show
@@ -14,5 +15,4 @@ module Trax
       end
     end
   end
-
 end

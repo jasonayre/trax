@@ -1,0 +1,19 @@
+package trax.admin;
+
+import "trax/common.proto";
+import "trax/core/channel.proto";
+
+message ChannelForm {
+  
+}
+
+message ChannelPermittedParams {
+  optional string name = 1;
+  optional string details = 2;
+  optional string description = 3;
+  optional string short_description = 4;
+  optional bool active = 5;
+  optional string slug = 6;
+  optional bytes parent = 7;
+  optional RoutingStrategy routing_strategy = 8;
+}

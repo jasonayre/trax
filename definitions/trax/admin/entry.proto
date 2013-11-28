@@ -1,0 +1,13 @@
+package trax.admin;
+
+import "trax/common.proto";
+
+message EntryPermittedParams {
+  extensions 200 to max;
+  
+  optional string title = 1;
+  optional string body = 2;
+  optional bool active = 3;
+  optional string slug = 4;
+  optional bytes channel_id = 5;
+}
