@@ -1,43 +1,17 @@
-<div class="box" ui-view>
-  <div class="box-title">
-    <h4><i class="fa fa-table"></i>Channel Show VIEW</h4>
-    <div class="tools">
-      <a class="config">
-        <i class="fa fa-cog"></i>
-      </a>
-      <a class="reload">
-        <i class="fa fa-refresh"></i>
-      </a>
-      <a class="collapse">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-      <a class="remove">
-        <i class="fa fa-times"></i>
-      </a>
-    </div>
+<form class="form-horizontal">
+  <h2>{{resource.name}}</h2>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label">Details:</label>
+    <div class="col-md-10">{{resource.details}}</div>
   </div>
-  <div class="box-body">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Channel Name</th>
-          <th>Slug</th>
-          <th>Site Id</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="channel in collection track by channel.id">
-          <td><a ng-href="channels/{{channel.id}}">{{channel.id}}</a></td>
-          <td>{{channel.name}}</td>
-          <td>{{channel.slug}}</td>
-          <td>{{channel.site_id}}</td>
-          <td><span ng-click="$parent.destroy($index)" class="btn btn-small btn-green"><span>Destroy</span></span></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Description:</label>
+    <div class="col-md-10">{{resource.description}}</div>
   </div>
+  
+  <div class="form-actions">
+    <span class="btn"><span ui-sref="channels.resource.edit(resource)" class="gradient">Edit Channel</span></span>
+  </div>
+  
 </div>
-
-

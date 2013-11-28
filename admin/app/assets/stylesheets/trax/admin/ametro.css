@@ -139,13 +139,13 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 /*-----------------------------------*/
 
 body {
-    font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-    color:#8e8071;
-	font-size:13px;
-	position:relative;
-    background: url(images/bg.png) center top repeat;
-    background-size: 100% 100%;
+/*    font-family: 'Open Sans', sans-serif;*/
+  font-weight: 400;
+  color:#8e8071;
+  font-size:13px;
+  position:relative;
+  background: url(images/bg.png) center top repeat;
+  background-size: 100% 100%;
 }
 ::-moz-selection {
 	background: #aba98c;
@@ -164,7 +164,7 @@ a:focus {
 }
 a:active{background-color: transparent;}
 
-input, textarea, input[type="submit"]:focus, div {
+input, textarea, input[type="submit"]:focus {
     outline: 0 none;
     font-family: 'Open Sans', sans-serif;
 }
@@ -239,17 +239,17 @@ em{font-style: italic;}
 strong{font-weight: 700;}
 small{font-size: 85%;}
 
-i{
-	position: relative;
-	top: 0;
-	left: 0;
-	display: inline-block;
-	overflow: hidden;
-	text-decoration: none;
-	font-style: normal;
-	background-repeat: no-repeat;
-	margin-right: 15px;
-}
+/*i{
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  font-style: normal;
+  background-repeat: no-repeat;
+  margin-right: 15px;
+}*/
 p{
     line-height: 19px;
 	margin-bottom: 16px;
@@ -583,12 +583,12 @@ p{
 }
 
 .btn-left, .btn-right{
-    background-image: url(images/buttons.png) !important;
+    background-image: url(buttons.png) !important;
 }
 .btn-left span, .btn-left input,
 .btn-right span, .btn-right input{
     filter:none !important;
-    background-image: url(images/buttons.png) !important;
+    background-image: url(buttons.png) !important;
     background-repeat: no-repeat;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -643,7 +643,7 @@ p{
     color:#8e8071;
     background-repeat:no-repeat;
     background-position:0 0;
-    background-image: url(images/styled_checkbox.png);
+    background-image: url(styled_checkbox.png);
 }
 .custom-radio label {
     height:24px;
@@ -660,14 +660,14 @@ p{
     height: 26px;
     line-height: 26px;
     padding-left:65px;
-    background-image: url(images/styled_checkbox_large.png);
+    background-image: url(styled_checkbox_large.png);
 }
-.checkbox-large.checkbox-white .custom-checkbox label{background-image: url(images/styled_checkbox_large2.png);}
-.checkbox-large.checkbox-noText .custom-checkbox label{background-image: url(images/styled_checkbox_large3.png);}
-.checkbox-red .custom-checkbox label{background-image: url(images/styled_checkbox2.png);}
-.checkbox-filled .custom-checkbox label{background-image: url(images/styled_checkbox3.png);}
-.radio-red .custom-radio label{background-image: url(images/styled_radiobutton2.png);}
-.radio-filled .custom-radio label{background-image: url(images/styled_radiobutton3.png);}
+.checkbox-large.checkbox-white .custom-checkbox label{background-image: url(styled_checkbox_large2.png);}
+.checkbox-large.checkbox-noText .custom-checkbox label{background-image: url(styled_checkbox_large3.png);}
+.checkbox-red .custom-checkbox label{background-image: url(styled_checkbox2.png);}
+.checkbox-filled .custom-checkbox label{background-image: url(styled_checkbox3.png);}
+.radio-red .custom-radio label{background-image: url(styled_radiobutton2.png);}
+.radio-filled .custom-radio label{background-image: url(styled_radiobutton3.png);}
 
 /*-----------------------------------*/
 /* Ribbons */

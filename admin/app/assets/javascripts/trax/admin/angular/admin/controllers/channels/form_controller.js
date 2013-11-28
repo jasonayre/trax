@@ -1,28 +1,30 @@
 angular.module('admin.controllers.channels').controller('ChannelsFormController',
-  ["$scope", "Channel", "$stateParams", function($scope, Channel, $stateParams) {
+  ["$scope", "Channel", "$stateParams", "resource", function($scope, Channel, $stateParams, resource) {
 
-    console.log('form controller init');
-    $scope.heading = "I AM CHANNELS FORM CONTROLLER";
-    console.log($stateParams);
-    $scope.has_header = true;
+    console.log('form controller init', resource);
+    // $scope.heading = "I AM CHANNELS FORM CONTROLLER";
+    // console.log($stateParams);
+    // $scope.has_header = true;
+    // 
+    $scope.resource = resource;
     
-    $scope.fetchResource = function () {
-      console.log('fetching collection');
-      $scope.resource_is_loading = true;
-      Channel.get({id: $stateParams.id}).then(function (result) {
-        console.log(result);
-        $scope.resource = result;
-        $scope.resource_is_loading = false;
-      });
-    };
-    
-    if($stateParams.id) {
-      $scope.fetchResource();
-    } else {
-      $scope.resource = {};
-      $scope.resource = new Channel({name: "Channel Name"});
-      $scope.resource_is_loading = false;
-    };
+    // $scope.fetchResource = function () {
+    //   console.log('fetching collection');
+    //   $scope.resource_is_loading = true;
+    //   Channel.get({id: $stateParams.id}).then(function (result) {
+    //     console.log(result);
+    //     $scope.resource = result;
+    //     $scope.resource_is_loading = false;
+    //   });
+    // };
+    // 
+    // if($stateParams.id) {
+    //   $scope.fetchResource();
+    // } else {
+    //   $scope.resource = {};
+    //   $scope.resource = new Channel({name: "Channel Name"});
+    //   $scope.resource_is_loading = false;
+    // };
     
     $scope.createOrUpdate = function() {
       
