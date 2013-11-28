@@ -1,8 +1,8 @@
 <div class="row" ng-show="page_header_visible">
   <div class="col-sm-12">
     <div class="page-header">
-      <div class="pull-right">
-        <button class="btn btn-primary" ui-sref="channels.new">Add Channel</button>
+      <div class="pull-right heading-toolbar-actions">
+        <span class="btn"><span ui-sref="channels.new" class="gradient">Add Channel</span></span>
       </div>
       <div class="clearfix">
         <h3 class="content-title pull-left">{{page_header.title}}</h3>
@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div class="box border primary main_view" ui-view>
+    <div class="boxed main_view" ui-view>
       <div class="box-title">
         <h4><i class="fa fa-table"></i>Channel List</h4>
         <div class="tools">
