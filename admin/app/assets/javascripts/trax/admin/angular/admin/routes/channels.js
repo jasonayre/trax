@@ -36,10 +36,14 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     template: '<ui-view/>',
     templateUrl: "/assets/templates/admin/channels/resource.html",
     resolve: {
-      resource: function($stateParams, Channel) {
-        return Channel.get({id: $stateParams.id}).then(function (result) {
-          return result;
-        });
+      resource: function($scope, $stateParams, Channel) {
+        return if($stateParams.id) {
+          return new Channel({});
+        } else {
+          return Channel.get({id: $stateParams.id}).then(function (result) {
+            return result;
+          });          
+        }
       }
     },
     controller: function($scope, resource) {
@@ -52,8 +56,8 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     url: '/show',
     templateUrl: "/assets/templates/admin/channels/show.html",
     controller: "ChannelsShowController",
-    onEnter: function(){
-      console.log('I AM ENTERING');
+    onEnter: function() {
+      console.log('I AM ENTERING SHOW');
     }
   });
   
@@ -61,8 +65,8 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     url: '/edit',
     templateUrl: "/assets/templates/admin/channels/form.html",
     controller: "ChannelsFormController",
-    onEnter: function(){
-      console.log('I AM ENTERING');
+    onEnter: function() {
+      console.log('I AM ENTERING FORM');
     }
   });
   
@@ -71,7 +75,6 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     templateUrl: "/assets/templates/admin/channels/form.html",
     controller: "ChannelsFormController"
   });
-  
   
   $urlRouterProvider.otherwise('/channels');
 }]);

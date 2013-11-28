@@ -23,7 +23,6 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     controller: "EntriesFormController"
   });
 
-
   $stateProvider.state('entries.show', {
     url: '/{id}',
     templateUrl: "/assets/templates/admin/entries/show.html",
