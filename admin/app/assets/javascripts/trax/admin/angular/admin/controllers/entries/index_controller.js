@@ -13,7 +13,7 @@ angular.module('admin.controllers.entries').controller('EntriesIndexController',
     
     $scope.fetchCollection = function () {
       console.log('fetching collection');
-      $scope.collection_is_loading = true;
+      $scope.$root.primary_view_loading = true;
       Entry.query().then(function (result) {
         $scope.collection = result;
         $scope.collection_is_loading = false;
@@ -37,11 +37,13 @@ angular.module('admin.controllers.entries').controller('EntriesIndexController',
     // }
         
     $scope.destroy = function(index) {
+      $scope.$root.primary_view_loading = true;
       resource = $scope.collection[index];
 
       resource.remove().then(function (result){
         $scope.collection.splice(index, 1);
         console.log(result);
+        $scope.$root.primary_view_loading = false;
       });
     };
     

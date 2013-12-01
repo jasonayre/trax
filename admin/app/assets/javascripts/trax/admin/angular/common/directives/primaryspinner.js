@@ -36,27 +36,24 @@ angular.module('common.directives').directive('primaryspinner', ["$compile", fun
       scope.spinner_jq_obj = $(scope.spinner_obj.el);
       
       scope.set_position = function() {
-        
-        parentHeight = element.parent().outerHeight();
+        viewportHeight = $.viewportH();
+        viewportWidth = $.viewportW();
+        top_offset = (viewportHeight / 2)-10 - 53;
         parentWidth  = element.parent().outerWidth();
-        top_offset = (parentHeight / 2)-10;
         
         if(_.has(attrs, "offsettop")) {
           top_offset = top_offset + (+attrs["offsettop"]);
         }
-
+        
+        element.css({position: 'fixed', height: viewportHeight, width: parentWidth, 'background-color': 'rgba(0, 0, 0, 0.15)', 'z-index': '9999'});
         scope.spinner_jq_obj.css({position: 'absolute', top: top_offset});
-        element.css({position: 'absolute', height: parentHeight, width: parentWidth, 'background-color': 'rgba(255, 255, 255, 0.15)', 'z-index': '9999'});
       };
       
       scope.set_position();
       
-      scope.$root.primary_view_loading = true;
-      // scope.set_position();
+      scope.$root.primary_view_loading = false;
+
       scope.$root.$on('$stateChangeStart', function(eventObject){
-        console.log($.viewportW());
-        console.log('state change start');
-        
         element.show();
         scope.spinner_jq_obj.fadeIn(100);
       });
@@ -64,19 +61,18 @@ angular.module('common.directives').directive('primaryspinner', ["$compile", fun
       scope.$root.$on('$stateChangeSuccess', function(eventObject){
         console.log('state_change_end');
         scope.spinner_jq_obj.fadeOut(250);
-        element.fadeOut(400);
+        element.fadeOut(400);        
       });
       
-      // scope.$root.$watch('primary_view_loading', function(newValue, oldValue) {
-      //   if(newValue) {
-      //     scope.set_position();
-      //     element.show();
-      //     scope.spinner_jq_obj.fadeIn(100);
-      //   } else {
-      //     scope.spinner_jq_obj.fadeOut(250);
-      //     element.fadeOut(400);
-      //   }
-      // });
+      scope.$root.$watch('primary_view_loading', function(newValue, oldValue){
+        if(newValue) {
+          element.show();
+          scope.spinner_jq_obj.fadeIn(100);          
+        } else {
+          element.fadeOut(400);
+          scope.spinner_jq_obj.fadeOut(250);
+        }
+      });
     }
   }
 }]);
