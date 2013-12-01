@@ -8,10 +8,8 @@ angular.module('admin.controllers.channels').controller('ChannelsIndexController
     
     $scope.fetchCollection = function () {
       console.log('fetching collection');
-      // $scope.$root.primary_view_loading = true;
       Channel.query().then(function (result) {
         $scope.collection = result;
-        // $scope.$root.primary_view_loading = false;
       });
     };
     

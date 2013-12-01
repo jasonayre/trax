@@ -7,26 +7,5 @@ angular.module('admin.controllers.channels').controller('ChannelsResourceControl
     $scope.heading = "I AM CHANNELS RESOURCE CONTROLLER";
     console.log($stateParams);
     
-    // $scope.fetchResource = function () {
-    //   console.log('fetching resource');
-    //   $scope.resource_is_loading = true;
-    //   Channel.get({id: $stateParams.id}).then(function (result) {
-    //     console.log(result);
-    //     $scope.resource = result;
-    //     $scope.resource_is_loading = false;
-    //   });
-    // };
-    
-    // if($stateParams.id) {
-    //   $scope.fetchResource();
-    // } else {
-    //   $scope.resource = {};
-    //   $scope.resource = new Channel({name: "Channel Name"});
-    //   $scope.resource_is_loading = false;
-    // };
-    // 
-    $scope.createOrUpdate = function() {
-      
-    };
   }]
 );
