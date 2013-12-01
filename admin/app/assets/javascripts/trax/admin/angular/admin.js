@@ -4,10 +4,9 @@
 //= require_directory ./common/
 //= require_directory ./admin/
 
-console.log('ADMINJS REQUIRED');
-
 var app = {};
-app["admin"] = angular.module('admin', ["ng", "rails", "ui.bootstrap", "ui.router"]);
+app["admin"] = angular.module('admin', []);
+app["admin"] = angular.module('admin', ["ng", "rails", "ui", "ui.bootstrap", "ui.router", "ui.select2", 'common', 'common.directives', 'common.services', 'admin.services', 'admin.controllers']);
 
 app["admin"].config(function(railsSerializerProvider){
    railsSerializerProvider.
@@ -20,6 +19,3 @@ app["admin"].config(function(railsSerializerProvider){
 });
 
 window["app"] = app;
-// window["admin"] = ;
-// angular.module("admin.controllers", []);
-

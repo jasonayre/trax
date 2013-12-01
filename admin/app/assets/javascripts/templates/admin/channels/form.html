@@ -1,23 +1,43 @@
 <form class="form-horizontal">
-  <div class="resource_heading"><h2>{{resource.name}}</h2></div>
+  <div class="form-group">
+    <h2 class="col-md-2">Basic <span class="font-500">Info</span></h3>
+  </div>
+  
+  <hr>
+  
+  <div class="form-group"></div>
+  
   <div class="form-group">
     <label class="col-md-2 control-label">Name:</label>
     <div class="col-md-10"><input type="text" class="form-control required" ng-model="resource.name" /></div>
   </div>
+  
   <div class="form-group">
     <label class="col-md-2 control-label">Details:</label>
     <div class="col-md-10"><textarea class="form-control" ng-model="resource.details" cols="5" rows="3"></textarea></div>
   </div>
+  
   <div class="form-group">
     <label class="col-md-2 control-label">Description:</label>
     <div class="col-md-10"><textarea class="form-control" ng-model="resource.description" cols="5" rows="3"></textarea></div>
   </div>
-    
+  
   <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
       <div class="custom-checkbox">
         <label ng-class="{checked: resource.active}" ng-click="resource.active = !resource.active">Active?</label>
       </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-md-2 control-label">Routing Strategy</label>
+    
+    <div class="col-md-offset col-md-4">
+      <select ui-select2 ng-model="resource.routing_strategy" data-placeholder="Routing Strategy">
+          <option value=""></option>
+          <option ng-repeat="(label, value) in trax.RoutingStrategy" value="{{label}}">{{label}}</option>
+      </select>
     </div>
   </div>
   

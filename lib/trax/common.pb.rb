@@ -3,12 +3,6 @@
 #
 require 'protobuf/message'
 
-
-##
-# Imports
-#
-require 'google/protobuf/descriptor.pb'
-
 module Trax
 
   ##

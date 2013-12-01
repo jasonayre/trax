@@ -1,12 +1,13 @@
 angular.module('admin.controllers.channels').controller('ChannelsFormController',
-  ["$scope", "Channel", "$stateParams", "resource", function($scope, Channel, $stateParams, resource) {
+  ["$scope", "Channel", "$stateParams", "resource", "Protos", function($scope, Channel, $stateParams, resource, Protos) {
+    $scope.trax = Protos;
+    // $scope.proto = Protos.fetch("trax.core.channel");
+    // console.log($scope.proto);
 
     console.log('form controller init', resource);
-    // $scope.heading = "I AM CHANNELS FORM CONTROLLER";
-    // console.log($stateParams);
-    // $scope.has_header = true;
-    // 
+    
     $scope.resource = resource;
+    
     
     // $scope.fetchResource = function () {
     //   console.log('fetching collection');
@@ -25,12 +26,7 @@ angular.module('admin.controllers.channels').controller('ChannelsFormController'
     //   $scope.resource = new Channel({name: "Channel Name"});
     //   $scope.resource_is_loading = false;
     // };
-    
-    $scope.createOrUpdate = function() {
-      
-    };
 
-    
     $scope.save = function() {
       console.log('called save');
       console.log($scope.resource);

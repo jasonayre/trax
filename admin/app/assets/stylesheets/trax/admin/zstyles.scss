@@ -1,3 +1,5 @@
+//= require_directory ./views
+
 @font-face {
   font-family: 'BebasNeueRegular';
   src: url(font-path('BebasNeue-webfont.eot'));
@@ -69,6 +71,7 @@ $box-shadow-color: #eeeeee;
 body {
   font-family: Helvetica, Arial, sans-serif !important;
   font-weight: 400;
+  padding-top:54px;
 }
 #content {
     background-color: #FFFFFF;  
@@ -77,6 +80,10 @@ body {
 
 .sidebar, .navbar-nav {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#sidebar #search-bar {
+  display:none;
 }
 
 #content .content-title {
@@ -89,11 +96,11 @@ body {
   color:#f9f9f9;
   font-size:32px;
   font-family: eurostileregular;
+  margin-left: 50px;
+  text-transform:uppercase;
   i {
     font-size:26px;
   }
-  margin-left: 50px;
-  text-transform:uppercase;
   &:hover {
     text-decoration:none;
     color:#eee;
@@ -109,9 +116,10 @@ body {
 
 .main_view .box-title {
   font-size:32px;
-  padding:15px 10px 10px;
+  padding:25px 10px 30px;
   h1, h2, h3, h4, h5 {
     font-size:32px;
+    margin-top:15px;
   }
 
 }
@@ -184,5 +192,19 @@ body {
 .boxed {
   border-radius: 0px;
   box-shadow: none;
+}
+
+#content {
+  padding-top:16px;
+}
+
+.primary-list {
+  td {
+    padding: 15px 13px;
+  }
+
+  td a {
+    color:#4a4a4a;
+  }
 }
 

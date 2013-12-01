@@ -23,7 +23,7 @@ angular.module('common.directives').directive('spinner', ["$compile", function($
         top: 'auto', // Top position relative to parent in px
         left: 'auto' // Left position relative to parent in px
       };
-      
+      console.log('hi i am spinner');
       _.coerceObjectKeysAsIntegers(attrs, "length", "width", "direction", "speed", "radius", "rotate", "lines");
 
       allowed_options = _.keys(default_options);

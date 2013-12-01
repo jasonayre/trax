@@ -1,5 +1,4 @@
-angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_TEMPLATES', function($stateProvider, $urlRouterProvider, ADMIN_TEMPLATES) {
-  console.log('adminchanelsrouterinit');
+angular.module("admin").config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   console.log($stateProvider);
   
   $stateProvider.state('channels', {
@@ -7,6 +6,7 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     templateUrl: "/assets/templates/admin/channels/index.html",
     controller: "ChannelsIndexController"
   });
+  
   
   // $stateProvider.state('channels.edit', {
   //   url: '/{id}/edit',
@@ -36,13 +36,13 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', 'ADMIN_T
     template: '<ui-view/>',
     templateUrl: "/assets/templates/admin/channels/resource.html",
     resolve: {
-      resource: function($scope, $stateParams, Channel) {
-        return if($stateParams.id) {
-          return new Channel({});
-        } else {
+      resource: function($stateParams, Channel) {
+        if($stateParams.id) {
           return Channel.get({id: $stateParams.id}).then(function (result) {
             return result;
-          });          
+          });
+        } else {
+          return new Channel({});
         }
       }
     },

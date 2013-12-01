@@ -1,0 +1,5 @@
+package trax;
+import "trax/core/channel.proto";
+import "trax/core/entry.proto";
+import "trax/core/site.proto";
+import "trax/core/theme.proto";

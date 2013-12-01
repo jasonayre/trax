@@ -20,7 +20,7 @@
 # 
 # 
 # Bundler::GemHelper.install_tasks
-
+TRAX_ROOT_DIR = File.join(File.dirname(__FILE__))
 
 #!/usr/bin/env rake
 begin
@@ -56,6 +56,23 @@ desc 'Clean the generated *.pb.rb files'
 task :clean do
   puts 'Cleaning compiled ruby files'
   file_glob = ::File.expand_path('../lib/trax/**/*.pb.rb', __FILE__)
+  ::Dir[file_glob].each { |file| ::FileUtils.rm(file) }
+end
+
+desc 'Clean & Compile the protobuf definitions to ruby classes. Pass NO_CLEAN if you do not want to clean first.'
+task :compilejs, [ :out ] do |t, args|
+  ::Rake::Task[:cleanjs].invoke unless ENV['NO_CLEAN']
+  args.with_defaults(:out => 'lib')
+  puts File.join(File.dirname(__FILE__))
+  cmd = "node ~/node_modules/protobufjs/bin/proto2js definitions/trax.proto -class=trax > js/trax.js"
+  puts cmd
+  exec(cmd)
+end
+
+desc 'Clean the generated trax.js file'
+task :cleanjs do
+  puts 'Cleaning compiled js files'
+  file_glob = ::File.expand_path('../js/*.js', __FILE__)
   ::Dir[file_glob].each { |file| ::FileUtils.rm(file) }
 end
 

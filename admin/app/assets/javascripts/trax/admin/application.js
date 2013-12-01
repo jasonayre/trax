@@ -13,5 +13,8 @@
 //= require_tree ./lib
 //= require_tree ./core_ext
 //= require ./angular/admin
+//= require trax
 //= require_tree .
+
+jQuery.extend(verge);
 

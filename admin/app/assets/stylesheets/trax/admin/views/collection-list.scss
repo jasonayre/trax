@@ -1,0 +1,32 @@
+.collection-list {
+  .collection-item {
+    td {
+      padding: 19px 7px 16px;
+      .actions {
+        position:relative;
+        a {
+          background: #cccccc;
+          padding:5px;
+          background: none repeat scroll 0 0 #EEEEEE;
+          border: 1px solid #AAAAAA;
+          padding: 10px 6px 5px;
+          position:relative;
+          top:1px;
+          &:hover {
+            cursor:pointer;
+            background: #cbcbcb;
+            i {
+              color:#333333;
+            }
+          }
+          i {
+            font-size:20px;
+            color: #7a7a7a;
+            text-shadow: 0 1px 0 #ffffff;
+          }
+        }
+      }
+    }
+
+  }
+}

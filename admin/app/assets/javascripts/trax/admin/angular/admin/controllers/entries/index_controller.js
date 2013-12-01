@@ -8,7 +8,6 @@ angular.module('admin.controllers.entries').controller('EntriesIndexController',
     $scope.page_header_visible = true;
     
     $scope.$root.active_controller_settings = {has_header: true};
-    $scope.$root.page_header = {title: "Entry", description: "The primary taxonomy"};
 
     $scope.has_header = false;
     

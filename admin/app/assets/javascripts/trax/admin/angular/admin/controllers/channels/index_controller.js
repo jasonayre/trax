@@ -1,9 +1,7 @@
 angular.module('admin.controllers.channels').controller('ChannelsIndexController',
-  ["$scope", "Channel", "Templates", "$stateParams", function($scope, Channel, Templates, $stateParams) {
-    console.log('channels index controller');
-    
-    console.log($stateParams);
-    
+  ["$scope", "Channel", "Templates", "$stateParams", "Protos", function($scope, Channel, Templates, $stateParams, Protos) {
+    console.log(Protos);
+
     $scope.page_header_visible = true;
     
     $scope.$root.active_controller_settings = {has_header: true};
@@ -21,21 +19,7 @@ angular.module('admin.controllers.channels').controller('ChannelsIndexController
     };
     
     $scope.fetchCollection();
-    
-    // $scope.show = function (resource) {
-    //   console.log(resource);
-    //   Channel.get({id: resource.id}).then(function (result){
-    //     console.log(result);
-    //   });
-    // };
-    
-    // $scope.pop = function() {
-    //   resource = $scope.collection.pop();
-    //   resource.delete().then(function(result){
-    //     console.log(result);
-    //   });
-    // }
-        
+            
     $scope.destroy = function(index) {
       resource = $scope.collection[index];
 

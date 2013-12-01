@@ -1,6 +1,11 @@
+//= require_self
+
 var common = {};
+
+angular.module("common", []);
 angular.module("common", ["common.controllers", 
                           "common.filters", 
                           "common.directives", 
-                          "common.services", 
+                          "common.services",
+                          "common.providers",
                           "ui.bootstrap"]);

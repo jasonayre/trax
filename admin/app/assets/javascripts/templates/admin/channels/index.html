@@ -1,24 +1,8 @@
-<!--
-<div class="row" ng-show="page_header_visible">
-  <div class="col-sm-12">
-    <div class="page-header">
-      <div class="pull-right heading-toolbar-actions">
-        <span class="btn"><span ui-sref="channels.new" class="gradient">Add Channel</span></span>
-      </div>
-      <div class="clearfix">
-        <h3 class="content-title pull-left">{{page_header.title}}</h3>
-      </div>
-      <div class="description">{{page_header.description}}</div>
-    </div>
-  </div>
-</div>-->
-
-
 <div class="row">
   <div class="col-md-12">
     <div class="boxed main_view" ui-view>
-      <div class="box box-index">
-        <div class="box-title">
+      <div class="box collection-list">
+        <div class="box-title page-header">
           <h4>Channels</h4>
           <div class="pull-right">
             <div class="resource_actions">
@@ -27,7 +11,7 @@
           </div>
         </div>
         <div class="box-body">
-          <table class="table table-hover">
+          <table class="table table-hover primary-list collection-list-table">
             <thead>
               <tr>
                 <th>ID</th>
@@ -38,14 +22,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="channel in collection track by channel.id">
+              <tr ng-repeat="channel in collection track by channel.id" class="collection-item collection-list-item">
                 <td><a ui-sref="channels.resource.show({id: channel.id})">{{channel.id}}</a></td>
                 <td>{{channel.name}}</td>
                 <td>{{channel.slug}}</td>
                 <td>{{channel.site_id}}</td>
-                <td>
+                <td >
+                  <div class="actions">
                   <a ui-sref="channels.resource.edit({id: channel.id})"><i class="fa fa-cog"></i></a>
                   <a ng-click="$parent.destroy($index)"><i class="fa fa-trash-o"></i></a>
+                  </div>
                 </td>
               </tr>
             </tbody>
