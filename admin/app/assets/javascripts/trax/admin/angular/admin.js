@@ -6,9 +6,10 @@
 
 var app = {};
 app["admin"] = angular.module('admin', []);
-app["admin"] = angular.module('admin', ["ng", "rails", "ui", "ui.bootstrap", "ui.router", "ui.select2", 'common', 'common.directives', 'common.services', 'admin.services', 'admin.controllers']);
+app["admin"] = angular.module('admin', ["ng", "rails", "ui", "ui.bootstrap", "ui.router", "ui.select2", 'common', 'common.directives', 'common.services', 'admin.services', 'admin.controllers', 'ngTagsInput']);
 
 app["admin"].config(function(railsSerializerProvider){
+  // railsSerializerProvider.underscore(angular.identity);
    railsSerializerProvider.
    underscore(function (name) {
      return name;
@@ -17,5 +18,7 @@ app["admin"].config(function(railsSerializerProvider){
      return name;
    });
 });
+
+    
 
 window["app"] = app;

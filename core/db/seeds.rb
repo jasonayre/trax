@@ -19,5 +19,3 @@ puts "SEEDING DATABASE"
   :active => true,
   :routing_strategy => "RESTFUL"
 )
-
-::Trax::Site.create(:name => "Trax Blog", :is_default => true, :description => "trax_blog", :host => "localhost", :routing_strategy => "RESTFUL")

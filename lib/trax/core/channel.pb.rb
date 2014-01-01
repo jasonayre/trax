@@ -16,6 +16,7 @@ module Trax
     # Message Classes
     #
     class Channel < ::Protobuf::Message; end
+    class ChannelPermittedParams < ::Protobuf::Message; end
 
 
     ##
@@ -31,6 +32,17 @@ module Trax
       optional ::Protobuf::Field::BytesField, :parent_id, 7
       optional ::Trax::RoutingStrategy, :routing_strategy, 8
       optional ::Trax::Status, :status, 9
+    end
+
+    class ChannelPermittedParams
+      optional ::Protobuf::Field::StringField, :name, 1
+      optional ::Protobuf::Field::StringField, :details, 2
+      optional ::Protobuf::Field::StringField, :description, 3
+      optional ::Protobuf::Field::StringField, :short_description, 4
+      optional ::Protobuf::Field::BoolField, :active, 5
+      optional ::Protobuf::Field::StringField, :slug, 6
+      optional ::Protobuf::Field::BytesField, :parent, 7
+      optional ::Trax::RoutingStrategy, :routing_strategy, 8
     end
 
   end

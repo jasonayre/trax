@@ -1,14 +1,14 @@
 puts "SEEDING DATABASE"
 
-# site = ::Trax::Site.create(
-#   :name => "Trax Blog", 
-#   :is_default => true, 
-#   :description => "trax_blog",
-#   :host => "localhost", 
-#   :routing_strategy => "RESTFUL",
-#   :theme_id => ::Trax::Theme.first.id,
-#   :active => true
-# )
+site = ::Trax::Site.create(
+  :name => "Trax Blog", 
+  :is_default => true, 
+  :description => "trax_blog",
+  :host => "localhost", 
+  :routing_strategy => "RESTFUL",
+  :theme_id => ::Trax::Theme.first.id,
+  :active => true
+)
 # 
 # channel1 = ::Trax::Channel.create(
 #   :name => "Code",
@@ -31,8 +31,7 @@ puts "SEEDING DATABASE"
 # puts site.inspect
 # puts channel1.inspect
 # puts channel2.inspect
-
-site = ::Trax::Site.first
+# site = ::Trax::Site.first
 
 400.times do |i|
   channel = ::Trax::Channel.create(
@@ -52,7 +51,6 @@ channel = ::Trax::Channel.first
   entry = ::Trax::Entry.create(
     :title => "fake entry #{i}",
     :body => "I am a fake entry",
-    :active => true,
     :site => site,
     :channel => channel
   )

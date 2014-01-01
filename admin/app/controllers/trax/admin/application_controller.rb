@@ -29,7 +29,7 @@ module Trax
       end
                 
       def permitted_message_class
-        "::Trax::Admin::#{controller_name.classify}PermittedParams".constantize
+        "::Trax::Core::#{controller_name.classify}PermittedParams".constantize
       end
     
       def permitted_params
@@ -39,7 +39,7 @@ module Trax
       def permitted_params_for_resource
         permitted_message_class.field_name_to_tag.keys + default_permitted_params
       end
-      
+            
       def begin_of_association_chain
         current_site
       end

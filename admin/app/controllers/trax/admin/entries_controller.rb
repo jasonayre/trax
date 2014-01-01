@@ -10,6 +10,8 @@ module Trax
     
       def show
         @resource ||= ::Trax::Entry.find(params[:id])
+        
+        respond_with(@resource)
       end
     end
   end

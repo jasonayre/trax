@@ -1,4 +1,5 @@
 require "devise"
+require "acts-as-taggable-on"
 
 module Trax
   module Core

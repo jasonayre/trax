@@ -1,6 +1,8 @@
 module Trax
   module Admin
     class ChannelsController < ::Trax::Admin::ApplicationController
+      # include ::Trax::Admin::Concerns::Controllers::Taggable
+      
       respond_to :json
       
       def index

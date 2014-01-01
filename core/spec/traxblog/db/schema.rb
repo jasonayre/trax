@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124005432) do
+ActiveRecord::Schema.define(version: 20131209192253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,23 @@ ActiveRecord::Schema.define(version: 20131124005432) do
   add_index "trax_sites", ["name"], name: "index_trax_sites_on_name", using: :btree
   add_index "trax_sites", ["routing_strategy"], name: "index_trax_sites_on_routing_strategy", using: :btree
   add_index "trax_sites", ["theme_id"], name: "index_trax_sites_on_theme_id", using: :btree
+
+  create_table "trax_taggings", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "tag_id"
+    t.uuid     "taggable_id"
+    t.string   "taggable_type"
+    t.uuid     "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "trax_taggings", ["tag_id"], name: "index_trax_taggings_on_tag_id", using: :btree
+  add_index "trax_taggings", ["taggable_id", "taggable_type", "context"], name: "tag_type_context", using: :btree
+
+  create_table "trax_tags", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string "name"
+  end
 
   create_table "trax_themes", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"

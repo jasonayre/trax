@@ -4,6 +4,22 @@ message Entry {
   optional bytes id = 1;
   optional string title = 2;
   optional string body = 3;
-  optional string slug = 4;
-  optional bytes user_id = 5;
+  optional string preview = 4;
+  optional string slug = 5;
+  optional bytes user_id = 6;
+  optional bytes parent_id = 7;
+  optional bool active = 8;
+}
+
+message EntryPermittedParams {
+  extensions 200 to max;
+  
+  optional bytes id = 1;
+  optional string title = 2;
+  optional string body = 3;
+  optional string preview = 4;
+  optional string slug = 5;
+  optional bytes user_id = 6;
+  optional bytes parent_id = 7;
+  optional bool active = 8;
 }

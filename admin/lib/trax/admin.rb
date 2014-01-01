@@ -5,3 +5,4 @@ module Trax
 end
 
 require 'trax/admin/engine'
+require 'trax/admin/concerns'

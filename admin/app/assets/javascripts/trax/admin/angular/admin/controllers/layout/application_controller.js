@@ -1,4 +1,3 @@
-console.log('sidebar required');
 angular.module('admin.controllers.layout').controller('ApplicationController',
   ["$scope", function($scope) {
     console.log('application controller init');

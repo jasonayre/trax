@@ -1,8 +1,9 @@
 .bundle/
 log/*.log
 pkg/
-spec/traxblog/db/*.sqlite3
-spec/traxblog/db/*.sqlite3-journal
-spec/traxblog/log/*.log
-spec/traxblog/tmp/
-spec/traxblog/.sass-cache
+core/spec/traxblog/db/*.sqlite3
+core/spec/traxblog/db/*.sqlite3-journal
+core/spec/traxblog/log/*.log
+core/spec/traxblog/tmp/
+core/spec/traxblog/.sass-cache
+*.DS_Store

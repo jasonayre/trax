@@ -1,5 +1,5 @@
 // angular.module('admin.templates', []);
-console.log('TEMPLATES BEING REQUIRED');
+
 app["admin"].constant("ADMIN_TEMPLATES", {
   channels: {
     index:  "/assets/templates/admin/channels/index.html",
@@ -9,7 +9,7 @@ app["admin"].constant("ADMIN_TEMPLATES", {
     new: "/assets/templates/admin/channels/new.html"
   },
   entries: {
-    index:  "/templates/admin/entries/index.html",
+    index:  "/assets/templates/admin/entries/index.html",
     _index: {
     },
     show: "/templates/admin/entries/show.html",

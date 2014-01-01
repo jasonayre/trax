@@ -9,26 +9,24 @@
 </head>
 <body ng-app="admin">
 
-    <%= render :partial => "trax/admin/layouts/header" %>
-    <section id="page">
-      <%= render :partial => "trax/admin/layouts/sidebar" %>
+  <%= render :partial => "trax/admin/layouts/header" %>
+  <section id="page">
+    <%= render :partial => "trax/admin/layouts/sidebar" %>
       
-      <div id="main-content">
-        <primaryspinner color="#e51f1c" offsettop="6" direction="-1" lines="11"></primaryspinner>
-        <div class="container">
-          <div class="row">
+    <div id="main-content">
+      <primaryspinner color="#e51f1c" offsettop="6" direction="-1" lines="11"></primaryspinner>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12" id="content" ui-view>
             
-            <div class="col-lg-12" id="content" ui-view>
-             
-              
-
-            </div>
           </div>
         </div>
       </div>
+    </div>
     
     <div class="separator"></div>
     
   </section>
+  <%= render :partial => "trax/admin/layouts/bottom_toolbar" %>  
 </body>
 </html>

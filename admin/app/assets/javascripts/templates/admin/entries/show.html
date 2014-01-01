@@ -1,1 +1,16 @@
-<h1>{{heading}}</h1>
+<form class="form-horizontal">
+  <h2>{{resource.title}}</h2>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label">Title:</label>
+    <div class="col-md-10">{{resource.title}}</div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Body:</label>
+    <div class="col-md-10">{{resource.body}}</div>
+  </div>
+  
+  <div class="form-actions">
+    <span class="btn"><span ui-sref="entries.resource.edit(resource)" class="gradient">Edit Entry</span></span>
+  </div>
+</div>
