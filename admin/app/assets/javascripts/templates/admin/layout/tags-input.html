@@ -2,7 +2,7 @@
   <div class="tags" ng-class="{focused: hasFocus}">
     <ul>
       <li ng-repeat="tag in tags" ng-class="getCssClass($index)">
-        <span>{{tag}}</span>
+        <span>{{tag.name}}</span>
         <button type="button" ng-click="remove($index)">{{options.removeTagSymbol}}</button>
       </li>
     </ul>
@@ -11,7 +11,6 @@
            size="{{options.placeholder.length}}"
            maxlength="{{options.maxLength}}"
            tabindex="{{options.tabindex}}"
-           ng-model="newTag"
-           ng-change="newTagChange()">
+           ng-model="newTag">
   </div>
 </div>

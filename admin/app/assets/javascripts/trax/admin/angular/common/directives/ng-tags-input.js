@@ -108,7 +108,7 @@ tagsInput.directive('tagsInput', ["$timeout","$document","tagsInputConfig", func
                     }
 
                     if ($scope.tags.indexOf(tag) === -1) {
-                        $scope.tags.push(tag);
+                        // $scope.tags.push(tag);
 
                         events.trigger('tag-added', { $tag: tag });
                     }

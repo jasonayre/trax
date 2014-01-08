@@ -1,5 +1,7 @@
 module Trax
   class Entry < ActiveRecord::Base
+    acts_as_taggable_on :tags
+    
     belongs_to :channel
     belongs_to :user
     belongs_to :parent, :class_name => "::Trax::Entry"

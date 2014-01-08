@@ -39,12 +39,13 @@
   <div class="form-group">
     <label class="col-md-2 control-label">Tags</label>
     <div class="col-md-offset col-md-4">
-      <tags-input ng-model="tags"
+      <tags-input ng-model="tag_list"
                   custom-class="resource-tags"
                   placeholder="Add a tag"
                   replace-spaces-with-dashes="true"
                   enable-editing-last-tag="true"
-                  on-tag-added="alert($tag)">
+                  on-tag-added="tagAdded($tag)"
+                  on-tag-removed="tagRemoved($tag)">
       </tags-input>
     </div>
   </div>

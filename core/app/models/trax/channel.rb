@@ -2,7 +2,7 @@ module Trax
   class Channel < ActiveRecord::Base
     ROUTING_STRATEGIES = ::Trax::RoutingStrategy.values.keys
     
-    acts_as_taggable_on :tags, :categories
+    acts_as_taggable_on :tags
     
     validates_presence_of :site_id, :name
 

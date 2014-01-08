@@ -22,7 +22,10 @@
       </li>
     </ul>
     <!-- /NAVBAR LEFT -->
-    <!-- BEGIN TOP NAVIGATION MENU -->	
+    <!-- BEGIN TOP NAVIGATION MENU -->
+    <div class="app_loading_status" ng-if="$root.app_is_syncing">
+      <span class="status_text" >{{syncing_status_message}}</span>
+    </div>
     <ul class="nav navbar-nav pull-right">
 
     </ul>

@@ -1,5 +1,7 @@
 angular.module('admin.controllers.layout').controller('HeaderController', ["$scope", function($scope) {
   $scope.$root.header_visible = true;
+  $scope.$root.app_is_syncing = false;
+  $scope.$root.syncing_status_message = '';
   
   console.log('headercontrollerrrrrr');
   

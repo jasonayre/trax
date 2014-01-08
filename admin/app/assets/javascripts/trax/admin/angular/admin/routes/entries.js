@@ -18,7 +18,7 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', function
             return result;
           });
         } else {
-          return new Entry({tags: []});
+          return new Entry();
         }
       }
     },

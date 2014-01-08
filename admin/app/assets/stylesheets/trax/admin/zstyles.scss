@@ -280,3 +280,12 @@ body {
 .left {
   float: left;
 }
+
+.app_loading_status {
+  position:absolute;
+  right:0px;
+  width:120px;
+  span {
+    font-size:24px;
+  }
+}
