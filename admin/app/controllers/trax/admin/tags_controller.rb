@@ -4,13 +4,6 @@ module Trax
       respond_to :json
       
       def index
-        # channel = Channel.find(params[:channel_id])
-        # r = taggable_resource.send(:tags)
-        # puts parent_resource_name.inspect
-        # c = Channel.find(resource_id)
-        # params.permit([:taggable_context] + permitted_taggable_keys)
-        # binding.pry
-        # respond_with(tags)
         render :json => tags, :each_serializer => ::Trax::Admin::TagSerializer
       end
     
@@ -66,12 +59,6 @@ module Trax
         @tag ||= taggable_resource.send(:taggings).detect { |resource_tagging|
           resource_tagging.tag.name == tag_name
         }
-        # @tag ||= taggable_resource.send(taggable_context.to_sym).detect{ |resource_tag| resource_tag.name == tag_name}.tap do |r|
-        #   r.resource_type = resource_type_name
-        #   r.resource_id = r.id
-        # end
-        # binding.pry
-        # @tag
       end
       
       def tags

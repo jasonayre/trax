@@ -78,13 +78,18 @@ body {
     background-color: #FFFFFF;  
 }
 
-
 .sidebar, .navbar-nav {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #sidebar #search-bar {
   display:none;
+}
+
+#sidebar-collapse {
+  padding: 6px 8px;
+  margin-top:2px;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
 #content .content-title {
@@ -99,6 +104,8 @@ body {
   font-family: eurostileregular;
   margin-left: 50px;
   text-transform:uppercase;
+  margin-top:2px;
+  float:left;
   i {
     font-size:26px;
   }

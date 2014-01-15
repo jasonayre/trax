@@ -5,7 +5,8 @@ angular.module('admin.controllers.layout').controller('SidebarController', ["$sc
     $scope.items = [
       {name: 'dashboard', icon: 'dashboard', path: "channels"},
       {name: 'channels', icon: 'desktop', path: 'channels'},
-      {name: 'entries', icon: 'pencil', path: 'entries'}
+      {name: 'entries', icon: 'pencil', path: 'entries'},
+      {name: 'menus', icon: 'pencil', path: 'menus'}
     ];
     
   }]

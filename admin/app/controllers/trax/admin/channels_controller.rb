@@ -15,6 +15,7 @@ module Trax
         @resource ||= ::Trax::Channel.find(params[:id])
         respond_with(@resource)
       end
+      
     end
   end
 end

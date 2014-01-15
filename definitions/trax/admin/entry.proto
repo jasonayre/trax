@@ -11,4 +11,5 @@ message EntryPermittedParams {
   optional string slug = 4;
   optional bytes channel_id = 5;
   optional bytes parent_id = 6;
+  optional string status = 7;
 }

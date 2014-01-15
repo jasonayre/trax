@@ -36,6 +36,7 @@ module Trax
       optional ::Protobuf::Field::BytesField, :user_id, 6
       optional ::Protobuf::Field::BytesField, :parent_id, 7
       optional ::Protobuf::Field::BoolField, :active, 8
+      optional ::Protobuf::Field::BytesField, :channel_id, 9
       # Extension Fields
       extensions 200...536870912
     end

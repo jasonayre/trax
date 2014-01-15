@@ -22,4 +22,5 @@ message EntryPermittedParams {
   optional bytes user_id = 6;
   optional bytes parent_id = 7;
   optional bool active = 8;
+  optional bytes channel_id = 9;
 }

@@ -3,8 +3,6 @@ angular.module('admin.controllers.layout').controller('HeaderController', ["$sco
   $scope.$root.app_is_syncing = false;
   $scope.$root.syncing_status_message = '';
   
-  console.log('headercontrollerrrrrr');
-  
   $scope.dropdown_groups = [
     {
       name: "Content",
@@ -13,11 +11,10 @@ angular.module('admin.controllers.layout').controller('HeaderController', ["$sco
       href: "#",
       children: [
         { name: "Channels", path: "channels", icon_klass: "channels"},
-        { name: "Entries", path: "entries", icon_klass: "settings"}
+        { name: "Entries", path: "entries", icon_klass: "settings"},
+        { name: "Menus", path: "menus", icon_klass: "menus" }
       ]
-    }
+    }  
   ];
   
 }]);
-
-console.log('headerbottom');
