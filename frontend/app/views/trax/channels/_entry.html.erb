@@ -1,3 +1,3 @@
 <div class="entry">
-  <%= link_to entry.title, channel_entry_path(entry.channel.slug, entry.slug) %>
+  <%= link_to(entry.title, main_app.entry_path(entry)) %>
 </div>

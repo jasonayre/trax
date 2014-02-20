@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- Begin Wrap -->
 <div id="wrap">
   <!-- Fixed navbar -->
   <div role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -44,9 +45,24 @@
 
   <!-- Begin page content -->
   <div class="container">
-    <%= yield %>
+    <div class="row">
+      <!-- Begin page column -->
+      <div class="col-lg-8">
+        <%= yield %>
+      </div>
+      <!-- Begin page content -->
+
+      <!-- Begin sidebar column -->
+      <div class="col-lg-4">
+        <%= render :partial => "layouts/sidebar" %>
+      </div>
+      <!-- End Sidebar content -->
+    </div>
   </div>
+  <!-- End page content -->
+
 </div>
+<!-- End Wrap -->
 
 <div id="footer">
   <div class="container">
