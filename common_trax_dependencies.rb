@@ -18,7 +18,7 @@ gem "awesome_nested_set"
 gem "the_sortable_tree"
 gem 'awesome_print'
 gem "active_model_serializers"
-gem "acts-as-taggable-on", :path => "~/gems/acts-as-taggable-on"
+gem "acts-as-taggable-on"
 gem 'draper', '~> 1.3'
 gem 'quiet_assets'
 
