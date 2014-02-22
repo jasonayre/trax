@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+source 'https://rails-assets.org'
 platforms :ruby do
   gem 'pg'
 end
@@ -20,7 +20,11 @@ gem 'awesome_print'
 gem "active_model_serializers"
 gem "acts-as-taggable-on", :path => "~/gems/acts-as-taggable-on"
 gem 'draper', '~> 1.3'
+gem 'quiet_assets'
 
+#admin dependencies
+gem 'rails-assets-angular'
+gem 'rails-assets-angularjs-rails-resource'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'

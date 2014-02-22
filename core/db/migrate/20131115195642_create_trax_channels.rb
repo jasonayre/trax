@@ -3,6 +3,7 @@ class CreateTraxChannels < ActiveRecord::Migration
     create_table :trax_channels, :id => :uuid do |t|
       t.uuid :parent_id
       t.uuid :site_id
+
       t.string :slug
       t.string :name
       t.text :details
@@ -12,7 +13,7 @@ class CreateTraxChannels < ActiveRecord::Migration
       t.boolean :active
       t.timestamps
     end
-    
+
     add_index :trax_channels, :parent_id
     add_index :trax_channels, :site_id
     add_index :trax_channels, :slug

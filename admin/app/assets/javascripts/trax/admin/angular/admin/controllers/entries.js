@@ -1,4 +1,4 @@
 //= require_self
 //= require_directory ./entries/
 
-angular.module('admin.controllers.entries', ['admin', 'admin.controllers']);
+angular.module('admin.controllers.entries', ['admin.controllers']);

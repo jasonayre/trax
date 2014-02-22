@@ -12,7 +12,7 @@ var KEYS = {
     comma: 188
 };
 
-var tagsInput = angular.module('ngTagsInput', []);
+var tagsInput = angular.module('common.ngTagsInput', []);
 
 /**
  * @ngdoc directive

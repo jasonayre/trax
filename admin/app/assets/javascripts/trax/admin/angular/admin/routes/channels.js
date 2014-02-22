@@ -1,17 +1,16 @@
-angular.module("admin").config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   console.log($stateProvider);
-  
+
   $stateProvider.state('channels', {
     url: '/channels',
     templateUrl: "/assets/templates/admin/channels/index.html",
     controller: "ChannelsIndexController"
   });
-  
+
   $stateProvider.state('channels.resource', {
     abstract: true,
     url: '/{id}',
     template: '<ui-view/>',
-    templateUrl: "/assets/templates/admin/channels/resource.html",
     resolve: {
       resource: function($stateParams, Channel) {
         if($stateParams.id) {
@@ -28,7 +27,7 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', function
       console.log('resource is', $scope.resource);
     }
   });
-  
+
   $stateProvider.state('channels.resource.show', {
     url: '/show',
     templateUrl: "/assets/templates/admin/channels/show.html",
@@ -37,7 +36,7 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', function
       console.log('I AM ENTERING SHOW');
     }
   });
-  
+
   $stateProvider.state('channels.resource.edit', {
     url: '/edit',
     templateUrl: "/assets/templates/admin/channels/form.html",
@@ -46,12 +45,12 @@ angular.module("admin").config(['$stateProvider', '$urlRouterProvider', function
       console.log('I AM ENTERING FORM');
     }
   });
-  
+
   $stateProvider.state('channels.resource.new', {
     url: '/new',
     templateUrl: "/assets/templates/admin/channels/form.html",
     controller: "ChannelsFormController"
   });
-  
+
   $urlRouterProvider.otherwise('/channels');
 }]);

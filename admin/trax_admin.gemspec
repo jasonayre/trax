@@ -13,14 +13,16 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
-  
+
   s.require_path = 'lib'
 
   s.add_dependency "rails", "~> 4.0.1"
   s.add_dependency "navigasmic"
-  s.add_dependency "angular-rails"
+  # s.add_dependency "angular-rails"
   s.add_dependency "lodash-rails"
   s.add_dependency "inherited_resources"
+  s.add_dependency "rails-assets-angular"
+  s.add_dependency "rails-assets-angularjs-rails-resource"
 
   s.add_development_dependency "sqlite3"
 end

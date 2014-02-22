@@ -3,4 +3,4 @@
 
 angular.module("admin.services", []);
 
-angular.module('admin.services', ['admin', 'common.services', 'admin.services', 'rails']);
+angular.module('admin.services', ['common.services']);
