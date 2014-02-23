@@ -4,10 +4,11 @@ angular.module('admin.services').factory("Channel", ["railsResourceFactory", fun
     resource = railsResourceFactory({
       url: "/admin/channels",
       name: "channel"
-      // serializer: railsSerializer(function () {
-      //   this.resource('tags', 'Tag');
-      // })
     });
+    
+    resource.prototype.entries = function() {
+      return resource.get(this.id + "/entries");
+    };
 
     return resource;
   }

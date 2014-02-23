@@ -66,6 +66,17 @@
   font-style: normal;
 }
 
+@mixin selection($color, $border, $background) {
+   $prefixes: ("-moz-", "-webkit-", "-o-", "-ms-", "");
+   @each $prefix in $prefixes {
+      &::#{$prefix}selection {
+        color: $color !important;
+        border: $border !important;
+        background: $background !important;
+      }
+   }
+}
+
 $box-shadow-color: #eeeeee;
 
 body {
@@ -75,7 +86,28 @@ body {
   position:relative;
 }
 #content {
-    background-color: #FFFFFF;  
+  background-color: #FFFFFF;
+}
+
+::-moz-selection {
+//    background: none repeat scroll 0 0 #000 !important;
+//    color: #000000 !important;
+    text-shadow: none;
+}
+
+input[type="text"], input[type="password"], textarea, .select_styled {
+  border-color: #dadada;
+  color:#aaa;
+  &:focus {
+    border-color: #57769e;
+    color:lighten(#57769e, 10%);
+    text-shadow: none;
+  };
+//  color: #57769e;
+//  @include selection(#000000, #000000, #000000);
+  
+
+
 }
 
 .sidebar, .navbar-nav {
@@ -163,6 +195,10 @@ body {
 
 .page-header {
   padding-top:10px;
+}
+
+.thin_heading_text {
+  font-weight:100;
 }
 
 .boxed {
@@ -295,4 +331,10 @@ body {
   span {
     font-size:24px;
   }
+}
+
+#loading-bar {
+  position:absolute;
+  top:0px;
+  z-index: 9999;
 }

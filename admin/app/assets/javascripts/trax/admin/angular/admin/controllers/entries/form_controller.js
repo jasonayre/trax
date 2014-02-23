@@ -1,31 +1,10 @@
 angular.module('admin.controllers.entries').controller('EntriesFormController',
-  ["$scope", "$stateParams", "Tag", "Channel", function($scope, $stateParams, Tag, Channel) {
-    // $scope.resource = resource;
-    //
-    // entry = $scope;
-    //
-    // console.log(resource);
-
-    $scope.fetchChannels = function(){
-      Channel.query().then(function (results) {
-        $scope.channels = results;
-        console.log(results);
-        $scope.selectChannelById($scope.resource.channel_id);
-      });
-    };
-
-    $scope.fetchChannels();
-
-    $scope.selectChannelById = function(channel_id) {
-      $scope.resource.channel_id = _.detect($scope.channels, function(channel){
-        return (channel.id === channel_id);
-      });
-    };
+  ["$scope", "$stateParams", "Tag", function($scope, $stateParams, Tag) {
 
     $scope.field_options = {
       routing_strategies: {
-        'restful': 'RESTFUL',
-        'static': 'STATIC'
+        'RESTFUL': 'RESTFUL',
+        'STATIC': 'STATIC'
       }
     };
 
@@ -49,8 +28,10 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         });
       });
     };
-
-    $scope.fetchTags();
+    
+    if(!$scope.resource.isNew()) {
+      $scope.fetchTags();
+    };
 
     $scope.tagAdded = function($tag) {
       var tag_params, resource_params, tag;

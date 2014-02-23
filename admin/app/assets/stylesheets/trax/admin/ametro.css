@@ -148,14 +148,16 @@ body {
   background-size: 100% 100%;
 }
 ::-moz-selection {
-	background: #aba98c;
-	color: #000;
+	background: #ddd;
+	color: #ffffff;
 	text-shadow: none;
+  opacity: 0.8;
 }
 ::selection {
-	background: #aba98c;
-	color: #333;
+	background: #ddd;
+	color: #ffffff;
 	text-shadow: none;
+    opacity: 0.8;
 }
 a:hover,
 a:focus {
@@ -2013,7 +2015,7 @@ input[type="text"],
 input[type="password"],
 textarea,
 .select_styled{
-	border:1px solid #e5d4c2;
+/*  border:1px solid #e5d4c2;*/
 	background: transparent;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -2043,7 +2045,7 @@ input[type="password"]{
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus{
-    border:1px solid #e5d4c2;
+/*    border:1px solid #e5d4c2;*/
 	box-shadow: none;
 }
 .add-comment textarea{
@@ -3183,7 +3185,7 @@ input[type="password"]:focus{
     left: 1px;
     z-index: 2;
     width: 47px;
-    border-right: 1px solid #E5D4C2;
+    border-right: 1px solid #cacaca;
     background-image: url(images/icons/input-icons.png);
     background-color: #f8ece4;
     background-repeat: no-repeat;

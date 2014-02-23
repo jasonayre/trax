@@ -1,9 +1,9 @@
 <header class="navbar clearfix navbar-fixed-top" id="header" ng-controller="HeaderController" ng-show="$root.header_visible">
   <div class="container">
     <div class="navbar-brand">
-      <%= link_to "<i class='fa fa-bolt'></i> Trax CMS".html_safe, "/admin", :class => "trax_logo logo" %>
+      <%= link_to "<i class='fa fa-bolt'></i> Trax CMS".html_safe, "#{admin_base_url}/admin", :class => "trax_logo logo" %>
       <!-- SIDEBAR COLLAPSE -->
-      <div id="sidebar-collapse" class="sidebar-collapse btn">
+      <div id="sidebar-collapse" class="sidebar-collapse btn" onclick="window.location='<%= admin_base_url %>';">
         <i class="fa fa-bars" ></i>
       </div>
       <!-- /SIDEBAR COLLAPSE -->

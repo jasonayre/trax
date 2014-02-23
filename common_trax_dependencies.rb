@@ -25,6 +25,7 @@ gem 'quiet_assets'
 #admin dependencies
 gem 'rails-assets-angular'
 gem 'rails-assets-angularjs-rails-resource'
+
 group :test do
   gem 'rspec-rails'
   gem 'capybara'

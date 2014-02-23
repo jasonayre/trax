@@ -20,10 +20,12 @@ module Trax
       where(:slug => slug).limit(1).try(:first)
     end
 
+    scope :by_id, lambda{ |*ids| where(:id => ids.flatten.compact.uniq) }
     scope :by_slug, lambda{ |*slugs| where(:slug => slugs) }
     scope :by_routing_strategy, lambda{ |*routing_strategies| where(:routing_strategy => routing_strategies.flatten.compact.uniq) }
     scope :by_static_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:STATIC).try(:name)) }
     scope :by_restful_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:RESTFUL).try(:name)) }
+    scope :by_site_id, lambda { |*site_ids| where(:site_id => site_ids) }
 
     ## Callbacks
     after_initialize do

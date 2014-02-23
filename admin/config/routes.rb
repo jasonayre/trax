@@ -4,6 +4,10 @@
     namespace :admin do
       resources :channels, :except => [:edit] do
         resources :tags
+        
+        resources :entries, :except => [:edit] do
+          resources :tags
+        end
       end
       resources :entries, :except => [:edit] do
         resources :tags
@@ -17,7 +21,7 @@
     
     # match 'admin/*all' => 'admin/dasboard#index', :via => [:get]    
     match 'admin/channels/*all' => 'admin/dashboard#index', :via => [:get]
-    match 'admin/entries/*all' => 'admin/dashboard#index', :via => [:get]    
+    match 'admin/entries/*all' => 'admin/dashboard#index', :via => [:get]
   end
 
 end

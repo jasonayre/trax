@@ -1,0 +1,11 @@
+/*::selection {
+  background: none repeat scroll 0 0 #000 !important;
+  color: #000000 !important;
+  text-shadow: none;
+}
+
+::-moz-selection {
+    background: none repeat scroll 0 0 #000 !important;
+    color: #000000 !important;
+    text-shadow: none;
+}*/

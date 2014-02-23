@@ -1,8 +1,16 @@
 module Trax
   module Admin
-    class ApplicationController < InheritedResources::Base
+    class ApplicationController < ::ActionController::Base
+      
+      inherit_resources
+      
+      helper_method :admin_base_url
     
       layout Proc.new { |controller| "trax/admin/layouts/one_column" }
+      
+      def admin_base_url
+        "http://#{request.host}:#{request.port}/admin"
+      end
     
       def current_site
         @current_site ||= ::Trax::Site.by_current_host(request.host)
@@ -33,16 +41,18 @@ module Trax
       end
     
       def permitted_params
-        params.permit(admin_resource_class_name.underscore.to_sym => permitted_params_for_resource)
+        # params.permit(admin_resource_class_name.underscore.to_sym => permitted_params_for_resource)
+        params.permit!
       end
       
       def permitted_params_for_resource
         permitted_message_class.field_name_to_tag.keys + default_permitted_params
       end
+      
             
-      def begin_of_association_chain
-        current_site
-      end
+      # def begin_of_association_chain
+      #   current_site
+      # end
     end
   end
 end

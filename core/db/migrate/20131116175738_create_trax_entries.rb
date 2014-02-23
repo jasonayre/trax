@@ -13,7 +13,6 @@ class CreateTraxEntries < ActiveRecord::Migration
       t.uuid :parent_id
       t.uuid :user_id
       t.uuid :channel_id
-      t.uuid :site_id
       t.timestamps
     end
     add_index :trax_entries, :title
@@ -26,6 +25,5 @@ class CreateTraxEntries < ActiveRecord::Migration
     add_index :trax_entries, :parent_id
     add_index :trax_entries, :user_id
     add_index :trax_entries, :channel_id
-    add_index :trax_entries, :site_id
   end
 end

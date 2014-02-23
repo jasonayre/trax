@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20131209192253) do
     t.uuid     "parent_id"
     t.uuid     "user_id"
     t.uuid     "channel_id"
-    t.uuid     "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 20131209192253) do
   add_index "trax_entries", ["parent_id"], name: "index_trax_entries_on_parent_id", using: :btree
   add_index "trax_entries", ["published_at"], name: "index_trax_entries_on_published_at", using: :btree
   add_index "trax_entries", ["routing_strategy"], name: "index_trax_entries_on_routing_strategy", using: :btree
-  add_index "trax_entries", ["site_id"], name: "index_trax_entries_on_site_id", using: :btree
   add_index "trax_entries", ["slug"], name: "index_trax_entries_on_slug", using: :btree
   add_index "trax_entries", ["status"], name: "index_trax_entries_on_status", using: :btree
   add_index "trax_entries", ["status_last_changed_at"], name: "index_trax_entries_on_status_last_changed_at", using: :btree

@@ -3,9 +3,9 @@ angular.module('admin.controllers.layout').controller('SidebarController', ["$sc
     $scope.$root.sidebar_visible = true;
     
     $scope.items = [
-      {name: 'dashboard', icon: 'dashboard', path: "channels"},
-      {name: 'channels', icon: 'desktop', path: 'channels'},
-      {name: 'entries', icon: 'pencil', path: 'entries'},
+      {name: 'dashboard', icon: 'dashboard', path: "channels.list"},
+      {name: 'channels', icon: 'desktop', path: 'channels.list'},
+      {name: 'entries', icon: 'pencil', path: 'entries.list'},
       {name: 'menus', icon: 'pencil', path: 'menus'}
     ];
     

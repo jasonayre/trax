@@ -5,11 +5,11 @@ module Trax
     belongs_to :channel
     belongs_to :user
     belongs_to :parent, :class_name => "::Trax::Entry"
-    belongs_to :site
+    has_one :site, :through => :channel
     
     has_many :children, :class_name => "::Trax::Entry", :foreign_key => :parent_id
     
-    validates :slug, :uniqueness => {:scope => [:site_id, :channel_id, :parent_id] }
+    validates :slug, :uniqueness => {:scope => [:channel_id, :parent_id] }
     
     # Scopes
     def self.find_by_slug(slug)
@@ -20,6 +20,7 @@ module Trax
     scope :by_routing_strategy, lambda{ |*routing_strategies| where(:routing_strategy => routing_strategies) }
     scope :by_static_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:STATIC).try(:name)) }
     scope :by_restful_route, lambda{ by_routing_strategy(::Trax::RoutingStrategy.fetch(:RESTFUL).try(:name)) }
+    scope :by_channel_id, lambda { |*channel_ids| where(:channel_id => channel_ids.flatten.compact.uniq) }
     
     # Callbacks
     before_save do

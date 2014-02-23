@@ -1,19 +1,13 @@
 module Trax
   module Admin
     class ChannelsController < ::Trax::Admin::ApplicationController
-      # include ::Trax::Admin::Concerns::Controllers::Taggable
       
       respond_to :json
       
-      def index
-        @collection ||= current_site.channels
-        
-        respond_with(@collection)
-      end
+    private
     
-      def show
-        @resource ||= ::Trax::Channel.find(params[:id])
-        respond_with(@resource)
+      def begin_of_association_chain
+        current_site
       end
       
     end

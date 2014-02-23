@@ -23,13 +23,13 @@
             </thead>
             <tbody>
               <tr ng-repeat="entry in collection track by entry.id" class="collection-item collection-list-item">
-                <td><a ui-sref="entrys.resource.show({id: entry.id})">{{entry.id}}</a></td>
+                <td><a ui-sref="entries.resource.show({id: entry.id})">{{entry.id}}</a></td>
                 <td>{{entry.title}}</td>
                 <td>{{entry.slug}}</td>
                 <td>{{entry.site_id}}</td>
                 <td >
                   <div class="actions">
-                    <a ui-sref="entries.resource.edit({id: entry.id})"><i class="fa fa-cog"></i></a>
+                    <a ui-sref="entries.resource.edit({channel_id: entry.channel_id, id: entry.id})"><i class="fa fa-cog"></i></a>
                     <a ng-click="$parent.destroy($index)"><i class="fa fa-trash-o"></i></a>
                   </div>
                 </td>

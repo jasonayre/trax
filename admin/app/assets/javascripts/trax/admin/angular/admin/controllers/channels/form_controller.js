@@ -1,8 +1,6 @@
 angular.module('admin.controllers.channels').controller('ChannelsFormController',
   ["$scope", "Channel", "$stateParams", "resource", "Tag", "Protos", function($scope, Channel, $stateParams, resource, Tag, Protos) {
     $scope.trax = Protos;
-    
-    $scope.resource = resource;
 
     $scope.tagParams = function() {
       return {

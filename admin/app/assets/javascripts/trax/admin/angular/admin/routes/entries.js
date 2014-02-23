@@ -1,28 +1,36 @@
 angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('entries', {
-    url: '/entries',
-    templateUrl: "/assets/templates/admin/entries/index.html",
-    controller: "EntriesIndexController"
+    abstract: true,
+    url: "/entries",
+    template: "<ui-view/>"
+  });
+    
+  $stateProvider.state("entries.list", {
+    url: "/index",
+    templateUrl: "/assets/templates/admin/entries/list.html",
+    controller: "EntriesListController",
+    onEnter: function() {
+      console.log("I AM ENTERING CILEC");
+    }
   });
 
   $stateProvider.state('entries.resource', {
     abstract: true,
     url: '/{id}',
     template: '<ui-view/>',
-    templateUrl: "/assets/templates/admin/entries/resource.html",
     resolve: {
       resource: function($stateParams, Entry) {
         if($stateParams.id) {
-
           return Entry.get({id: $stateParams.id}).then(function (result) {
-            // console.log(result);
-            // console.log(Entry);
             return result;
           });
         } else {
           return new Entry();
         }
       }
+    },
+    controller: function($scope, resource, $state) {
+      $scope.resource = resource;
     }
   });
 
@@ -44,5 +52,5 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function
     controller: "EntriesFormController"
   });
 
-  $urlRouterProvider.otherwise('/entries');
+  $urlRouterProvider.otherwise('/');
 }]);

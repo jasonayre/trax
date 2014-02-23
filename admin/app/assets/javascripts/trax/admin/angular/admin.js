@@ -6,7 +6,7 @@
 
 var app = {};
 
-app["admin"] = angular.module('admin', []);
+app["admin"] = angular.module('admin', ['common']);
 
 window["app"] = app;
 

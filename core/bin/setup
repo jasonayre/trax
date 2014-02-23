@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+#Workaround for rake task issue and preparing engine test db
+`RAILS_ENV=development bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate && bundle exec rake db:seed`

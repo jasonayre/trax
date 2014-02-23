@@ -1,20 +1,29 @@
-angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
   console.log($stateProvider);
-
-  $stateProvider.state('channels', {
-    url: '/channels',
-    templateUrl: "/assets/templates/admin/channels/index.html",
-    controller: "ChannelsIndexController"
+  
+  $stateProvider.state("channels", {
+    abstract: true,
+    url: "/channels",
+    template: "<ui-view/>"    
   });
 
-  $stateProvider.state('channels.resource', {
+  $stateProvider.state("channels.list", {
+    url: "/index",
+    templateUrl: "/assets/templates/admin/channels/list.html",
+    controller: "ChannelsListController",
+    onEnter: function() {
+      console.log("I AM ENTERING CILEC");
+    }
+  });
+
+  $stateProvider.state("channels.resource", {
     abstract: true,
-    url: '/{id}',
-    template: '<ui-view/>',
+    url: "/{channel_id}",
+    template: "<ui-view/>",
     resolve: {
-      resource: function($stateParams, Channel) {
-        if($stateParams.id) {
-          return Channel.get({id: $stateParams.id}).then(function (result) {
+      channel: function($stateParams, Channel) {
+        if($stateParams.channel_id) {
+          return Channel.get({id: $stateParams.channel_id}).then(function (result) {
             return result;
           });
         } else {
@@ -22,35 +31,111 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function
         }
       }
     },
-    controller: function($scope, resource) {
-      $scope.resource = resource;
-      console.log('resource is', $scope.resource);
+    controller: function($scope, channel, $state) {
+      $scope.resource = channel;
+      console.log("channel is", $scope.resource);
     }
   });
 
-  $stateProvider.state('channels.resource.show', {
-    url: '/show',
+  $stateProvider.state("channels.resource.show", {
+    url: "/show",
     templateUrl: "/assets/templates/admin/channels/show.html",
     controller: "ChannelsShowController",
     onEnter: function() {
-      console.log('I AM ENTERING SHOW');
+      console.log("I AM ENTERING SHOW");
     }
   });
 
-  $stateProvider.state('channels.resource.edit', {
-    url: '/edit',
+  $stateProvider.state("channels.resource.edit", {
+    url: "/edit",
     templateUrl: "/assets/templates/admin/channels/form.html",
     controller: "ChannelsFormController",
     onEnter: function() {
-      console.log('I AM ENTERING FORM');
+      console.log("I AM ENTERING FORM");
+    }
+  });
+  
+  $stateProvider.state("channels.resource.entries", {
+    abstract: true,
+    url: "/entries",
+    template: "<ui-view/>"
+  });
+
+  $stateProvider.state("channels.resource.entries.list", {
+    url: "/index",
+    templateUrl: "/assets/templates/admin/entries/list.html",
+    controller: "EntriesListController",
+    onEnter: function() {
+      console.log("I AM ENTERING CILEC");
+    }
+  });
+  
+  $stateProvider.state('channels.resource.entries.resource', {
+    abstract: true,
+    url: '/{entry_id}',
+    template: '<ui-view/>',
+    resolve: {
+      entry: function($stateParams, Entry) {
+        console.log('trying to resolve entry resource');
+        
+        if($stateParams.entry_id) {
+          return Entry.get({id: $stateParams.entry_id}).then(function (result) {
+            console.log('result was');
+            return result;
+          });
+        } else {
+          return new Entry();
+        }
+      }
+    },
+    controller: function($scope, channel, entry, $state) {
+      $scope.resource = entry;
+      $scope.channel = channel;
     }
   });
 
-  $stateProvider.state('channels.resource.new', {
-    url: '/new',
-    templateUrl: "/assets/templates/admin/channels/form.html",
-    controller: "ChannelsFormController"
+  // $stateProvider.state('entries.resource.show', {
+  //   url: '/show',
+  //   templateUrl: "/assets/templates/admin/entries/show.html",
+  //   controller: "EntriesShowController"
+  // });
+  // 
+  $stateProvider.state('channels.resource.entries.resource.edit', {
+    url: '/edit',
+    templateUrl: "/assets/templates/admin/entries/form.html",
+    controller: "EntriesFormController"
   });
+  
+  $stateProvider.state('channels.resource.entries.resource.new', {
+    url: '/new',
+    templateUrl: "/assets/templates/admin/entries/form.html",
+    controller: "EntriesFormController"
+  });
+  // 
+  // $stateProvider.state('entries.resource.new', {
+  //   url: '/new',
+  //   templateUrl: "/assets/templates/admin/entries/form.html",
+  //   controller: "EntriesFormController"
+  // });
+  // 
+  // $stateProvider.state("channels.resource.new", {
+  //   url: "/new",
+  //   templateUrl: "/assets/templates/admin/channels/form.html",
+  //   controller: "ChannelsFormController"
+  // });
+  // 
+  // $stateProvider.state("channels.resource.entries", {
+  //   url: "/entries",
+  //   templateUrl: "/assets/templates/admin/entries/index.html",
+  //   controller: "EntriesIndexController"
+  // });
+  
+  // $stateProvider.state("channels.resource.entries.", {
+  //   url: "/entries",
+  //   templateUrl: "/assets/templates/admin/entries/index.html",
+  //   controller: "EntriesIndexController"
+  // });
 
-  $urlRouterProvider.otherwise('/channels');
+
+  $urlRouterProvider.otherwise("/channels");
 }]);
