@@ -32,7 +32,7 @@ angular.module('admin.controllers.channels').controller('ChannelsFormController'
         $tag.remove().then(function(result){
           console.log('tag_removed', result);
         });
-      }  
+      };
     };
     
     $scope.save = function() {

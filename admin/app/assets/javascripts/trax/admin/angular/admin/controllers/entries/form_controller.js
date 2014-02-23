@@ -7,8 +7,6 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         'STATIC': 'STATIC'
       }
     };
-    
-    console.log($scope.resource);
 
     $scope.tagParams = function() {
       return {
@@ -78,18 +76,6 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         });
       }
     };
-
-    // $scope.saveTags = function() {
-    //   console.log('saving tags');
-    //   console.log($scope.dirtyTags());
-    //   _.map($scope.dirtyTags(), function(tag){
-    //     
-    //     tag.create().then(function(result){
-    //       console.log(result);
-    //       growl.addSuccessMessage("Tag saved successfully");
-    //     });
-    //   });
-    // };
 
   }]
 );
