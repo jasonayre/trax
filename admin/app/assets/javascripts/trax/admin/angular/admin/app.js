@@ -9,7 +9,8 @@ angular.module('admin', [
   "ui.router",
   "ui.select2",
   'angular-growl',
-  // 'chieffancypants.loadingBar',
+  'ngAnimate',
+  "ngSanitize",
   "common",
   "common.directives",
   "common.filters",
@@ -18,10 +19,18 @@ angular.module('admin', [
   "admin.controllers.channels",
   "admin.controllers.entries",
   "admin.controllers.layout"
-]).config(["railsSerializerProvider", function(railsSerializerProvider) {
+]).config(["railsSerializerProvider", "growlProvider", "$httpProvider", function(railsSerializerProvider, growlProvider, $httpProvider) {
+  //angular-rails-resource config
   railsSerializerProvider.underscore(angular.identity).camelize(angular.identity);
+  
+  //angular-growl config
+  growlProvider.messagesKey("messages");
+  growlProvider.messageTextKey("text");
+  growlProvider.messageSeverityKey("severity");
+  growlProvider.onlyUniqueMessages(true);
+  growlProvider.globalTimeToLive(5000);
+  growlProvider.globalEnableHtml(true);
+  $httpProvider.responseInterceptors.push(growlProvider.serverMessagesInterceptor);
 }]).run(function ($rootScope, $state) {
-    // $state.transitionTo('channels.index');
-    // $rootScope.$log = $log;
-    $rootScope.$state = $state;
+  $rootScope.$state = $state;
 });

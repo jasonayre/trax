@@ -2572,19 +2572,19 @@ input[type="password"]:focus{
 
 .alert-body{padding: 23px 26px 24px 66px;}
 
-.alert .close {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right:0;
+/*.alert .close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
     bottom:0;
-	float: none;
-	opacity: 1;
-	filter: alpha(opacity=100);
-	background-color: rgba(0,0,0,0);
-	overflow: hidden;
-	text-indent: 1200px;
-}
+  float: none;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  background-color: rgba(0,0,0,0);
+  overflow: hidden;
+  text-indent: 1200px;
+}*/
 .alert span, .alert p{
 	display: inline-block;
 	margin: 0;

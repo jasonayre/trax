@@ -13,6 +13,8 @@
 //= require jquery
 //= require angular
 //= require angularjs-rails-resource
+//= require angular-animate
+//= require angular-sanitize
 //= require_tree ./lib
 //= require_tree ./core_ext
 //= require ./angular/admin

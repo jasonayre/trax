@@ -210,6 +210,10 @@ GEM
       railties (= 4.0.1)
       sprockets-rails (~> 2.0.0)
     rails-assets-angular (1.2.13)
+    rails-assets-angular-animate (1.2.13)
+      rails-assets-angular (= 1.2.13)
+    rails-assets-angular-sanitize (1.2.13)
+      rails-assets-angular (= 1.2.13)
     rails-assets-angularjs-rails-resource (1.0.1)
       rails-assets-angular
     railties (4.0.1)
@@ -300,6 +304,8 @@ DEPENDENCIES
   quiet_assets
   rails (~> 4.0.1)
   rails-assets-angular
+  rails-assets-angular-animate
+  rails-assets-angular-sanitize
   rails-assets-angularjs-rails-resource
   rspec-pride
   rspec-rails

@@ -1,5 +1,5 @@
 angular.module('admin.controllers.entries').controller('EntriesFormController',
-  ["$scope", "$stateParams", "Tag", function($scope, $stateParams, Tag) {
+  ["$scope", "$stateParams", "Tag", "growl", function($scope, $stateParams, Tag, growl) {
 
     $scope.field_options = {
       routing_strategies: {
@@ -7,12 +7,8 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         'STATIC': 'STATIC'
       }
     };
-
-    $scope.dirtyTags = function() {
-      _.find($scope.tags, function(tag){
-        return tag.isNew();
-      });
-    };
+    
+    console.log($scope.resource);
 
     $scope.tagParams = function() {
       return {
@@ -51,28 +47,49 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
 
     $scope.save = function() {
       $scope.$root.primary_view_loading = true;
-      $scope.$root.app_is_syncing = true;
-      $scope.$root.syncing_status_message = "Saving Resource";
-
+      
       $scope.resource.save().then(function (result) {
         $scope.resource = result;
-        console.log('result waas', result);
+        
+        growl.addSuccessMessage("Entry Saved Successfully");
 
         $scope.saveTags();
         $scope.$root.primary_view_loading = false;
-        $scope.$root.app_is_syncing = false;
+      }, function(error){
+        growl.addErrorMessage(error);
       });
     };
-
+    
+    $scope.dirtyTags = function() {
+      return _.reject($scope.tags, function(tag){
+        return !tag.isNew();
+      });
+    };
+    
     $scope.saveTags = function() {
-      $scope.$root.syncing_status_message = "Saving Tags";
-
-      _.map($scope.dirtyTags(), function(tag){
-        tag.create().then(function(result){
-          console.log(result);
+      if($scope.dirtyTags()) {
+        console.log('had dirty tags');
+        _.map($scope.dirtyTags(), function(tag){
+          
+          tag.create().then(function(result){
+            growl.addSuccessMessage('Tag saved successfully');
+            console.log(result);
+          });
         });
-      });
+      }
     };
+
+    // $scope.saveTags = function() {
+    //   console.log('saving tags');
+    //   console.log($scope.dirtyTags());
+    //   _.map($scope.dirtyTags(), function(tag){
+    //     
+    //     tag.create().then(function(result){
+    //       console.log(result);
+    //       growl.addSuccessMessage("Tag saved successfully");
+    //     });
+    //   });
+    // };
 
   }]
 );

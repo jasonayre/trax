@@ -90,9 +90,7 @@ body {
 }
 
 ::-moz-selection {
-//    background: none repeat scroll 0 0 #000 !important;
-//    color: #000000 !important;
-    text-shadow: none;
+  text-shadow: none;
 }
 
 input[type="text"], input[type="password"], textarea, .select_styled {
@@ -103,11 +101,18 @@ input[type="text"], input[type="password"], textarea, .select_styled {
     color:lighten(#57769e, 10%);
     text-shadow: none;
   };
-//  color: #57769e;
-//  @include selection(#000000, #000000, #000000);
-  
+}
 
-
+.growl {
+  z-index: 9999;
+  .growl-item {
+    opacity: 0.9;
+      box-shadow: 0 0px 2px rgba(0, 0, 0, 0.2);
+    i {
+      font-size:18px;
+      
+    }
+  }
 }
 
 .sidebar, .navbar-nav {
@@ -151,7 +156,6 @@ input[type="text"], input[type="password"], textarea, .select_styled {
 }
 .box .box-title h4 {
   color: #555555;
-//  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .main_view .box-title {

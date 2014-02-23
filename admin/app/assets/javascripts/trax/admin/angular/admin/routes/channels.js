@@ -64,10 +64,7 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
   $stateProvider.state("channels.resource.entries.list", {
     url: "/index",
     templateUrl: "/assets/templates/admin/entries/list.html",
-    controller: "EntriesListController",
-    onEnter: function() {
-      console.log("I AM ENTERING CILEC");
-    }
+    controller: "EntriesListController"
   });
   
   $stateProvider.state('channels.resource.entries.resource', {
@@ -102,13 +99,13 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
   // 
   $stateProvider.state('channels.resource.entries.resource.edit', {
     url: '/edit',
-    templateUrl: "/assets/templates/admin/entries/form.html",
+    templateUrl: "/assets/templates/admin/entries/form.html.erb",
     controller: "EntriesFormController"
   });
   
   $stateProvider.state('channels.resource.entries.resource.new', {
     url: '/new',
-    templateUrl: "/assets/templates/admin/entries/form.html",
+    templateUrl: "/assets/templates/admin/entries/form.html.erb",
     controller: "EntriesFormController"
   });
   // 

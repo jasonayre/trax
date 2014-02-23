@@ -10,6 +10,7 @@ module Trax
     has_many :children, :class_name => "::Trax::Entry", :foreign_key => :parent_id
     
     validates :slug, :uniqueness => {:scope => [:channel_id, :parent_id] }
+    validates :channel_id, :presence => true
     
     # Scopes
     def self.find_by_slug(slug)

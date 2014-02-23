@@ -1,5 +1,5 @@
 angular.module('admin.controllers.channels').controller('ChannelsFormController',
-  ["$scope", "Channel", "$stateParams", "resource", "Tag", "Protos", function($scope, Channel, $stateParams, resource, Tag, Protos) {
+  ["$scope", "Channel", "$stateParams", "Tag", "Protos", "growl", function($scope, Channel, $stateParams, Tag, Protos, growl) {
     $scope.trax = Protos;
 
     $scope.tagParams = function() {
@@ -37,32 +37,28 @@ angular.module('admin.controllers.channels').controller('ChannelsFormController'
     
     $scope.save = function() {
       $scope.$root.primary_view_loading = true;
-      $scope.$root.app_is_syncing = true;
-      $scope.$root.syncing_status_message = "Saving Resource";
-      console.log($scope.resource);
+      
       $scope.resource.save().then(function (result) {
         $scope.resource = result;
-        console.log('result waas', result);
-        
+
         $scope.saveTags();
         $scope.$root.primary_view_loading = false;
-        $scope.$root.app_is_syncing = false;
+      }, function(failure){
+        console.log(failure);
+        $scope.$root.primary_view_loading = false;
       });
     };
     
     $scope.dirtyTags = function() {
-      return _.reject($scope.tags, function(tag){
+      return _.reject($scope.tags, function(tag) {
         return !tag.isNew();
       });
     };
     
     $scope.saveTags = function() {
-      $scope.$root.syncing_status_message = "Saving Tags";
-      
       if($scope.dirtyTags()) {
         console.log('had dirty tags');
         _.map($scope.dirtyTags(), function(tag){
-          console.log(tag);
           
           tag.create().then(function(result){
             console.log(result);

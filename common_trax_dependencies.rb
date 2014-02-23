@@ -22,10 +22,11 @@ gem "acts-as-taggable-on"
 gem 'draper', '~> 1.3'
 gem 'quiet_assets'
 
-#admin dependencies
+#admin dependencies, need to move this once I figure out issues
 gem 'rails-assets-angular'
 gem 'rails-assets-angularjs-rails-resource'
-
+gem 'rails-assets-angular-animate'
+gem 'rails-assets-angular-sanitize'
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
