@@ -1,5 +1,7 @@
 angular.module('admin.controllers.entries').controller('EntriesFormController',
   ["$scope", "$stateParams", "Tag", "growl", function($scope, $stateParams, Tag, growl) {
+    
+    console.log($scope.resource);
 
     $scope.field_options = {
       routing_strategies: {
@@ -37,10 +39,16 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
 
     $scope.tagRemoved = function($tag) {
       if(!$tag.isNew()) {
-        $tag.remove().then(function(result){
+        $tag.remove().then(function(result) {
           console.log('tag_removed', result);
         });
       }
+    };
+    
+    $scope.prepareTagResourceIds = function() {
+      _.map($scope.tags, function(tag){
+        tag.taggable_id = $scope.resource_id;
+      });
     };
 
     $scope.save = function() {
@@ -49,7 +57,7 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
       $scope.resource.save().then(function (result) {
         $scope.resource = result;
         
-        growl.addSuccessMessage("Entry Saved Successfully");
+        console.log(result);
 
         $scope.saveTags();
         $scope.$root.primary_view_loading = false;
@@ -68,6 +76,10 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
       if($scope.dirtyTags()) {
         console.log('had dirty tags');
         _.map($scope.dirtyTags(), function(tag){
+          console.log('tag', tag);
+          console.log($scope.resource.id);
+          tag.taggableId = $scope.resource.id;
+          tag.taggable_id = $scope.resource.id;
           
           tag.create().then(function(result){
             growl.addSuccessMessage('Tag saved successfully');

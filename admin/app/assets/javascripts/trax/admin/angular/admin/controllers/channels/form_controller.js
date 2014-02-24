@@ -40,6 +40,8 @@ angular.module('admin.controllers.channels').controller('ChannelsFormController'
       
       $scope.resource.save().then(function (result) {
         $scope.resource = result;
+        
+        console.log(result);
 
         $scope.saveTags();
         $scope.$root.primary_view_loading = false;
@@ -56,8 +58,9 @@ angular.module('admin.controllers.channels').controller('ChannelsFormController'
     };
     
     $scope.saveTags = function() {
-      if($scope.dirtyTags()) {
+      if($scope.dirtyTags().length > 0) {
         console.log('had dirty tags');
+        console.log($scope.dirtyTags());
         _.map($scope.dirtyTags(), function(tag){
           
           tag.create().then(function(result){

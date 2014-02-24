@@ -73,15 +73,13 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
     template: '<ui-view/>',
     resolve: {
       entry: function($stateParams, Entry) {
-        console.log('trying to resolve entry resource');
-        
         if($stateParams.entry_id) {
           return Entry.get({id: $stateParams.entry_id}).then(function (result) {
             console.log('result was');
             return result;
           });
         } else {
-          return new Entry();
+          return new Entry({channel_id: $stateParams.channel_id});
         }
       }
     },
@@ -107,6 +105,12 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
     url: '/new',
     templateUrl: "/assets/templates/admin/entries/form.html.erb",
     controller: "EntriesFormController"
+  });
+  
+  $stateProvider.state('channels.resource.entries.resource.show', {
+    url: '/show',
+    templateUrl: "/assets/templates/admin/entries/show.html.erb",
+    controller: "EntriesShowController"
   });
   // 
   // $stateProvider.state('entries.resource.new', {

@@ -1,7 +1,7 @@
 module Trax
   module Admin
     class ChannelSerializer < ActiveModel::Serializer
-      # attributes ::Trax::Core::ChannelPermittedParams.field_name_to_tag.keys
+      attributes :id, :name, :details, :description, :active, :slug, :routing_strategy
     end
   end
 end

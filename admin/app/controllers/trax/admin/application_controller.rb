@@ -58,13 +58,30 @@ module Trax
         :"#{resource_class.name.demodulize.underscore}"
       end
       
+      def create
+        create! do |success, failure|
+          success.json do
+            render :json => resource,
+                   :serializer => resource_serializer,
+                   :meta => response_messages,
+                   :meta_key => 'messages'
+          end
+          
+          failure.json do
+            render :json => { :messages => response_messages }, :status => 403
+          end
+        end
+      end
+      
       def update
-        puts serializer_for_resource
-        puts "SERIALIZER FOR RES"
         update! do |success, failure|
           success.json do
-            render :json => { resource_json_key => resource, :messages => response_messages }
+            render :json => resource,
+                   :serializer => resource_serializer,
+                   :meta => response_messages,
+                   :meta_key => 'messages'
           end
+          
           failure.json do
             render :json => { :messages => response_messages }, :status => 403
           end
@@ -103,13 +120,9 @@ module Trax
         [{:text => "#{severity_icon} #{resource.class.name.demodulize} saved successfully", :severity => "success"}]
       end
 
-      def serializer_for_resource
+      def resource_serializer
         "#{admin_resource_namespace}::Admin::#{resource_class.name.demodulize}Serializer".constantize
       end
-            
-      # def begin_of_association_chain
-      #   current_site
-      # end
     end
   end
 end
