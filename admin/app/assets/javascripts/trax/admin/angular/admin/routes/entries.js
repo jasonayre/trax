@@ -4,7 +4,7 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function
     url: "/entries",
     template: "<ui-view/>"
   });
-    
+
   $stateProvider.state("entries.list", {
     url: "/index",
     templateUrl: "/assets/templates/admin/entries/list.html",
@@ -18,7 +18,7 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', function
     resolve: {
       resource: function($stateParams, Entry) {
         if($stateParams.id) {
-          return Entry.get({id: $stateParams.id}).then(function (result) {
+          return Entry.get({channel_id: entry.channel_id, entry_id: $stateParams.id}).then(function (result) {
             return result;
           });
         } else {

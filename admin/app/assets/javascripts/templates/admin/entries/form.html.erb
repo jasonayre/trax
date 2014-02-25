@@ -18,11 +18,6 @@
     <div class="col-md-10"><input type="text" class="form-control required" ng-model="resource.title" /></div>
   </div>
 
-  <div ui-if="resource.slug" class="form-group">
-    <label class="col-md-2 control-label">Slug:</label>
-    <div class="col-md-10"><input type="text" class="form-control required" ng-model="resource.slug" /></div>
-  </div>
-
   <div class="form-group">
     <label class="col-md-2 control-label">Preview:</label>
     <div class="col-md-10"><input type="text" class="form-control required" ng-model="resource.preview" /></div>
@@ -42,7 +37,12 @@
           <option ng-repeat="(label, value) in field_options.routing_strategies" value="{{label}}">{{label}}</option>
       </select>
     </div>
-    
+
+  </div>
+
+  <div ui-if="resource.slug" class="form-group" ng-if="resource.routing_strategy === 'STATIC';">
+    <label class="col-md-2 control-label">Slug:</label>
+    <div class="col-md-10"><input type="text" class="form-control required" ng-model="resource.slug" /></div>
   </div>
 
   <div class="form-group">

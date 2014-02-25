@@ -1,10 +1,10 @@
 angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
   console.log($stateProvider);
-  
+
   $stateProvider.state("channels", {
     abstract: true,
     url: "/channels",
-    template: "<ui-view/>"    
+    template: "<ui-view/>"
   });
 
   $stateProvider.state("channels.list", {
@@ -54,7 +54,7 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
       console.log("I AM ENTERING FORM");
     }
   });
-  
+
   $stateProvider.state("channels.resource.entries", {
     abstract: true,
     url: "/entries",
@@ -66,7 +66,7 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
     templateUrl: "/assets/templates/admin/entries/list.html",
     controller: "EntriesListController"
   });
-  
+
   $stateProvider.state('channels.resource.entries.resource', {
     abstract: true,
     url: '/{entry_id}',
@@ -74,7 +74,7 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
     resolve: {
       entry: function($stateParams, Entry) {
         if($stateParams.entry_id) {
-          return Entry.get({id: $stateParams.entry_id}).then(function (result) {
+          return Entry.get({channel_id: $stateParams.channel_id, id: $stateParams.entry_id}).then(function (result) {
             console.log('result was');
             return result;
           });
@@ -94,43 +94,43 @@ angular.module("admin").config(["$stateProvider", "$urlRouterProvider", function
   //   templateUrl: "/assets/templates/admin/entries/show.html",
   //   controller: "EntriesShowController"
   // });
-  // 
+  //
   $stateProvider.state('channels.resource.entries.resource.edit', {
     url: '/edit',
     templateUrl: "/assets/templates/admin/entries/form.html.erb",
     controller: "EntriesFormController"
   });
-  
+
   $stateProvider.state('channels.resource.entries.resource.new', {
     url: '/new',
     templateUrl: "/assets/templates/admin/entries/form.html.erb",
     controller: "EntriesFormController"
   });
-  
+
   $stateProvider.state('channels.resource.entries.resource.show', {
     url: '/show',
     templateUrl: "/assets/templates/admin/entries/show.html.erb",
     controller: "EntriesShowController"
   });
-  // 
+  //
   // $stateProvider.state('entries.resource.new', {
   //   url: '/new',
   //   templateUrl: "/assets/templates/admin/entries/form.html",
   //   controller: "EntriesFormController"
   // });
-  // 
+  //
   // $stateProvider.state("channels.resource.new", {
   //   url: "/new",
   //   templateUrl: "/assets/templates/admin/channels/form.html",
   //   controller: "ChannelsFormController"
   // });
-  // 
+  //
   // $stateProvider.state("channels.resource.entries", {
   //   url: "/entries",
   //   templateUrl: "/assets/templates/admin/entries/index.html",
   //   controller: "EntriesIndexController"
   // });
-  
+
   // $stateProvider.state("channels.resource.entries.", {
   //   url: "/entries",
   //   templateUrl: "/assets/templates/admin/entries/index.html",

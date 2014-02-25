@@ -1,6 +1,6 @@
 angular.module('admin.controllers.entries').controller('EntriesFormController',
   ["$scope", "$stateParams", "Tag", "growl", function($scope, $stateParams, Tag, growl) {
-    
+
     console.log($scope.resource);
 
     $scope.field_options = {
@@ -24,7 +24,7 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         });
       });
     };
-    
+
     if(!$scope.resource.isNew()) {
       $scope.fetchTags();
     };
@@ -44,7 +44,7 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         });
       }
     };
-    
+
     $scope.prepareTagResourceIds = function() {
       _.map($scope.tags, function(tag){
         tag.taggable_id = $scope.resource_id;
@@ -53,11 +53,9 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
 
     $scope.save = function() {
       $scope.$root.primary_view_loading = true;
-      
+
       $scope.resource.save().then(function (result) {
         $scope.resource = result;
-        
-        console.log(result);
 
         $scope.saveTags();
         $scope.$root.primary_view_loading = false;
@@ -65,13 +63,13 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
         growl.addErrorMessage(error);
       });
     };
-    
+
     $scope.dirtyTags = function() {
       return _.reject($scope.tags, function(tag){
         return !tag.isNew();
       });
     };
-    
+
     $scope.saveTags = function() {
       if($scope.dirtyTags()) {
         console.log('had dirty tags');
@@ -80,7 +78,7 @@ angular.module('admin.controllers.entries').controller('EntriesFormController',
           console.log($scope.resource.id);
           tag.taggableId = $scope.resource.id;
           tag.taggable_id = $scope.resource.id;
-          
+
           tag.create().then(function(result){
             growl.addSuccessMessage('Tag saved successfully');
             console.log(result);
